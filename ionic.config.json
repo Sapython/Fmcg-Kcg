@@ -1,0 +1,7 @@
+{
+  "name": "Fmcg-Kcg",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
