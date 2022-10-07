@@ -10,7 +10,23 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'flash-screen',
+    loadChildren: () => import('./flash-screen/flash-screen.module').then( m => m.FlashScreenPageModule)
+  },
+  {
+    path: 'get-started',
+    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+
 ];
 
 @NgModule({
