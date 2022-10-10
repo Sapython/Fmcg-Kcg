@@ -1,0 +1,42 @@
+<ion-header>
+  <div class="header">
+    <div class="back">
+      <img src="../../../assets/icon/headerNagivation.png" alt="">
+    </div>
+    <div class="text-header">Profile</div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
+    <div class="outer-box">
+
+      <div class="Nunito500 t-blue uk-text-left">Hello, Sudipta!</div>
+
+      <div class="img-outer">
+        <img [src]="this.dataProvider.user?.photoURL" alt="">
+      </div>
+      <div>
+
+        <input class="input" type="text" placeholder="Full Name" formControlName="displayName"
+          [value]="this.dataProvider.user?.displayName">
+        <input class="input" type="number" placeholder="Phone Number" formControlName="phoneNumber"
+          [value]="this.dataProvider.user?.phoneNumber">
+        <input class="input" type="text" placeholder="Address" formControlName="address"
+          [value]="this.dataProvider.user?.address">
+        <input class="input" type="email" placeholder="Email Address" formControlName="email"
+          [value]="this.dataProvider.user?.email">
+        <input class="input" type="datetime" placeholder="Birthdate" formControlName="dateOfBirth"
+          [value]="this.dataProvider.user?.dateOfBirth">
+        <input class="input" type="text" placeholder="Gender" formControlName="gender"
+          [value]="this.dataProvider.user?.gender">
+
+      </div>
+      <div class="Nunito600 t-blue fs-16 pt-4 ">Change Password</div>
+      <button class="btn-profile" type="submit">Save</button>
+
+
+    </div>
+  </form>
+
+</ion-content>

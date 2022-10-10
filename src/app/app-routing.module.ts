@@ -10,9 +10,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'flash-screen',
@@ -24,9 +25,12 @@ const routes: Routes = [
   },
   {
     path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+    loadChildren: () => import('./User/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
-
+  {
+    path: 'profile',
+    loadChildren: () => import('./User/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({
