@@ -105,14 +105,24 @@
     gap: 10px;
     background: #2D6BF1;
     border-radius: 16px;
-    
+
     font-size: 12px;
     line-height: 130%;
     color: #fff;
     width: 85px;
 }
 
-.logoutBtn{
+.logoutBtn {
     position: absolute;
     bottom: 30px;
+}
+
+.salesBtn {
+    background: #EBFCF3;
+    border: 0.8px solid #366A52;
+    border-radius: 7px;
+    outline: none;
+    color: #366A52;
+    font-size: 12px;
+    padding: 5px 10px;
 }

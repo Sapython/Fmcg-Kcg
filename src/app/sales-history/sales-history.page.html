@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>sales-history</ion-title>
-  </ion-toolbar>
+  <div class="header">
+    <div class="back">
+      <img src="assets/icon/headerNagivation.png" alt="">
+    </div>
+    <div class="text-header">Sales History</div>
+  </div>
 </ion-header>
-
 <ion-content>
+  <div class="px-3 mt-4">
+    <div class="d-flex align-items-center justify-content-center searchbar">
+      <input type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
+      <button class="filter-btn">Filter</button>
+    </div>
+    <app-sales-card></app-sales-card>
+  </div>
 
 </ion-content>
