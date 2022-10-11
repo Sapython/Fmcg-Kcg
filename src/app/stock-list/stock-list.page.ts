@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StocksService } from 'src/services/Stock/stocks.service';
 
 @Component({
   selector: 'app-stock-list',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockListPage implements OnInit {
 
-  constructor() { }
+  public stocks:any[] = []
+  constructor(private stock:StocksService) { }
 
   ngOnInit() {
+    this.stockList()
   }
 
+  stockList() {
+    return this.stock.Stocks().then((res) => {
+      res.forEach((element: any) => {
+        this.stocks.push({
+          ...element.data(),
+          id: element.id,
+        });
+      });
+      console.log(this.stocks);
+    });
+  }
 }

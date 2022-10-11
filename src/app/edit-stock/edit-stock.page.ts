@@ -25,6 +25,7 @@ export class EditStockPage implements OnInit {
     Thickness: new FormControl(''),
     Quantity: new FormControl(''),
     StorageLocation: new FormControl(''),
+    Price: new FormControl('')
   });
   
   constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService) { }

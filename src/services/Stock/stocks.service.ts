@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
 import { urls } from '../url';
 
 @Injectable({
@@ -22,4 +22,9 @@ export class StocksService {
     const getStockUrl = urls.stock.replace('{STOCK_ID}', STOCK_ID);
     return getDoc(doc(this.fs, getStockUrl));
   }
+
+  public Stocks() {
+    return getDocs(collection(this.fs, urls.stocks));
+  }
+  
 }

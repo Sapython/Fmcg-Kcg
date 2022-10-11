@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./User/profile/profile.module').then( m => m.ProfilePageModule)
-  },  {
+  },
+  {
     path: 'add-stock',
     loadChildren: () => import('./add-stock/add-stock.module').then( m => m.AddStockPageModule)
   },
@@ -53,6 +54,18 @@ const routes: Routes = [
   {
     path: 'stock-list',
     loadChildren: () => import('./stock-list/stock-list.module').then( m => m.StockListPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'sales-history',
+    loadChildren: () => import('./sales-history/sales-history.module').then( m => m.SalesHistoryPageModule)
   },
 
 ];
