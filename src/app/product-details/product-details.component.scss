@@ -1,0 +1,46 @@
+.card {
+  font-family: arial;
+  margin: 5%;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: blue;
+  text-align: center;
+  cursor: pointer;
+  width: 65%;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.quntity-icon, img {
+    width: 15px;
+}
+.quntity-value {
+    width: 30px;
+    height: 30px;
+    padding: 2%;
+}
+.css02 {
+    display: inline;
+    padding: 2%;
+}
+.css03 {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+.header {
+    margin: 0px;
+}
