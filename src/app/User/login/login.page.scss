@@ -47,7 +47,7 @@
 .login-box {
     height: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 0 30px;
@@ -62,7 +62,7 @@
 
     .login-box-top {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
         width: 100%;

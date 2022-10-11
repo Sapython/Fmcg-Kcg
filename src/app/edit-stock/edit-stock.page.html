@@ -1,0 +1,63 @@
+<ion-header>
+  <div class="header">
+    <div class="back">
+      <img src="assets/icon/headerNagivation.png" alt="">
+    </div>
+    <div class="text-header">Edit stock</div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editstockForm"  (ngSubmit)="editStock()">
+    <div class="box-outer">
+      <div class="uk-margin">
+        <div class="uk-form-custom w-100">
+          <input type="file" #file>
+          <button class="uk-button uk-button-default w-100" type="button" tabindex="-1">Upload Image</button>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Name</label>
+        <input class="input" type="text" placeholder="Spike/32/D" formControlName="Name" [value]="this.currentStockData?.Name">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Quality</label>
+        <input class="input" type="text" placeholder="Spike/32/D" formControlName="Quality" [value]="this.currentStockData?.Quality">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Shade</label>
+        <input class="input" type="text" placeholder="Grey (Dark)" formControlName="Shade" [value]="this.currentStockData?.Shade">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Backing</label>
+        <input class="input" type="text" placeholder="Black" formControlName="Backing" [value]="this.currentStockData?.Backing">
+      </div>
+      <div class="uk-margin d-flex justify-content-center align-item-center">
+        <div class="pe-1">
+          <label for="" class="Fredoka400 fs-16">Length</label>
+          <input class="input" type="text" placeholder="12.00 Mt" formControlName="Length" [value]="this.currentStockData?.Length">
+        </div>
+        <div class="pe-1">
+          <label for="" class="Fredoka400 fs-16">Width</label>
+          <input class="input" type="text" placeholder="1.22 Mt" formControlName="Width" [value]="this.currentStockData?.Width">
+        </div>
+        <div>
+          <label for="" class="Fredoka400 fs-16">Thickness</label>
+          <input class="input" type="text" placeholder="8 mm" formControlName="Thickness" [value]="this.currentStockData?.Thickness">
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Quantity</label>
+        <input class="input" type="text" placeholder="213" formControlName="Quantity" [value]="this.currentStockData?.Quantity">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Storage Location</label>
+        <input class="input" type="text" placeholder="Section A" formControlName="StorageLocation" [value]="this.currentStockData?.StorageLocation">
+      </div>
+      <div class="d-flex justify-content-center align-item-center py-3">
+        <button class="btn-addStock" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+
+</ion-content>

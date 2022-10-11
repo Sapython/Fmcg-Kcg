@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.back {
+    padding-left: 10px;
+    position: absolute;
+    left: 3px;
+    top: 7px;
+}
+
+.text-header {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+
+    margin-top: 25px;
+
+}
+
+
+.input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+    gap: 10px;
+    width: 100%;
+    height: 45px;
+    border: 1px solid #CBCBCB;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.box-outer{
+    padding: 20px 20px;
+    margin-top: 25px;
+}
+
+.uk-button-default {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #CBCBCB;
+    border-style: dashed;
+    text-align: left;
+    padding: 0 15px;
+    text-transform: capitalize;
+
+}
