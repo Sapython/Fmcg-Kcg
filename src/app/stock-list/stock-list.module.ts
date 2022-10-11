@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { StockListPageRoutingModule } from './stock-list-routing.module';
 
 import { StockListPage } from './stock-list.page';
-import { StockListCardComponent } from '../stock-list-card/stock-list-card.component';
+import { StockListCardComponent } from './stock-list-card/stock-list-card.component';
 
 @NgModule({
   imports: [
