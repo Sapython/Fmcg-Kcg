@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState, User } from '@angular/fire/auth';
 import { addDoc, collection, doc, Firestore, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable, Subject } from 'rxjs';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { urls } from '../url';
 
@@ -11,6 +11,8 @@ import { urls } from '../url';
 export class UserService {
 
   public readonly user: Observable<User | null> = EMPTY;
+  public loggedInUserData: Subject<any> = new Subject()
+  public userdata:any
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
@@ -20,7 +22,8 @@ export class UserService {
           console.log(user)
           this.dataProvider.LoggedInUser = true;
           this.dataProvider.user = user;
-          // this.dataProvider.user.next(user);
+          // this.userdata = user
+          this.loggedInUserData.next(user)
           console.log(this.dataProvider.user)
         }
         else {

@@ -42,16 +42,14 @@ export class EditStockPage implements OnInit {
   }
 
   public editStock(){
-    this.stock.editStock(this.stockId, this.editstockForm.value).then((res)=>{
-      console.log(res)
-    })
+    this.stock.editStock(this.stockId, this.editstockForm.value)
   }
 
   public getStock(){
     console.log(this.stockId)
     this.stock.getStock(this.stockId).then((res)=>{
       this.currentStockData = res.data();
-      console.log(res.data())
+
     })
   }
 }

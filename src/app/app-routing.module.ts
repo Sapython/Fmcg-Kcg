@@ -70,6 +70,18 @@ const routes: Routes = [
     path: 'product-details',
     loadChildren: () => import('./product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
+  {
+    path: 'order-place',
+    loadChildren: () => import('./order-place/order-place.module').then( m => m.OrderPlacePageModule)
+  },
+  {
+    path: 'buyers-list',
+    loadChildren: () => import('./buyers-list/buyers-list.module').then( m => m.BuyersListPageModule)
+  },
+  {
+    path: 'buyer-details',
+    loadChildren: () => import('./buyer-details/buyer-details.module').then( m => m.BuyerDetailsPageModule)
+  },
 
 
 ];

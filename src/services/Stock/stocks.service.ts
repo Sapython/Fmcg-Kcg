@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore, getDoc, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
 import { urls } from '../url';
 
 @Injectable({
@@ -9,8 +9,14 @@ export class StocksService {
 
   constructor(private fs: Firestore) { }
 
-  public addStock(data: any) {
-    return addDoc(collection(this.fs, urls.stocks), data);
+  generateId() {
+    return Math.floor(Math.random() * 100000000000000000);
+  }
+
+  public  addStock(data: any) {
+    const id = this.generateId()
+    return setDoc(doc(this.fs, urls.stocks + id), { ...data, id: id });
+     
   }
 
   public editStock(STOCK_ID: any, data: any) {
@@ -26,5 +32,8 @@ export class StocksService {
   public Stocks() {
     return getDocs(collection(this.fs, urls.stocks));
   }
-  
+
+
+
+
 }
