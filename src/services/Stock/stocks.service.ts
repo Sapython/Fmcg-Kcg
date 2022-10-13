@@ -15,7 +15,7 @@ export class StocksService {
 
   public editStock(STOCK_ID: any, data: any) {
     const editStockUrl = urls.stock.replace('{STOCK_ID}', STOCK_ID);
-    return updateDoc(doc(this.fs, editStockUrl), data)
+    return updateDoc(doc(this.fs, editStockUrl), data);
   }
 
   public getStock(STOCK_ID: any) {

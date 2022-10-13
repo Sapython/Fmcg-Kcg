@@ -11,7 +11,7 @@ import { UserService } from 'src/services/User/user.service';
 })
 export class AddStockPage implements OnInit {
 
-  public userId:any;
+  public userId: any;
   public addstockForm: FormGroup = new FormGroup({
     Name: new FormControl(''),
     Quality: new FormControl(''),
@@ -23,21 +23,21 @@ export class AddStockPage implements OnInit {
     Quantity: new FormControl(''),
     StorageLocation: new FormControl(''),
   });
-  
-  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService) { }
+
+  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService) { }
 
   ngOnInit() {
     return this.user.getUserData.subscribe((res) => {
-      this.userId = res?.uid; this.getUser()
+      this.userId = res?.uid; this.getUser();
     });
   }
 
   private getUser() {
-    this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); })
+    this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); });
   }
 
   addStock(){
-    this.stock.addStock(this.addstockForm.value)
+    this.stock.addStock(this.addstockForm.value);
   }
 
 

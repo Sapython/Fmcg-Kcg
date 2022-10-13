@@ -16,28 +16,28 @@ export class AuthService {
 
   public loginWithEmailPassword(email: any, password: any) {
     return signInWithEmailAndPassword(this.auth, email, password).then((credentials: UserCredential) => {
-      console.log(credentials)
+      console.log(credentials);
     }).catch((err) => {
-      console.log(err)
-    })
+      console.log(err);
+    });
   }
 
   public signUpWithEmailAndPassword(email: any, password: any, username: any) {
-    let data = createUserWithEmailAndPassword(this.auth, email, password).then(async (credentials: UserCredential) => {
+    const data = createUserWithEmailAndPassword(this.auth, email, password).then(async (credentials: UserCredential) => {
       await this.setEmailUserData(credentials.user, {
         phoneNumber: '', photoURL: '',
         displayName: username || '',
         dateOfBirth: Date.now(),
         gender: '',
         address: ''
-      })
+      });
     }).catch((err) => {
-      console.log(err)
-    })
+      console.log(err);
+    });
   }
 
   public async setEmailUserData(user: User, userData: ExtraLoginEmailInfo) {
-    let data: UserStructure = {
+    const data: UserStructure = {
       userId: user.uid || '',
       email: user.email || '',
       displayName: userData.displayName || '',
@@ -48,10 +48,10 @@ export class AuthService {
       dateOfBirth: userData.dateOfBirth,
       gender: userData.gender || '',
       address: userData.address || ''
-    }
+    };
     this.userDocument = doc(this.fs, urls.users + user.uid);
     await setDoc(this.userDocument, data).then(() => {
-      alert('userDataSet')
+      alert('userDataSet');
     });
 
     // this.router.navigate(['/all-products'])

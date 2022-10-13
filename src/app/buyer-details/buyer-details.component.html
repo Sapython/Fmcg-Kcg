@@ -41,19 +41,25 @@
                     </div>
                 </div>
 
+                <!-- <div *ngFor="let details of productDetails"> -->
+                <!-- <h2> {{productDetails[3].name}} </h2> -->
+                <!-- <img src="{{productDetails[3].image}}" alt="order_image"> -->
+                <!-- </div> -->
+
                 <div class="history_container">
-                    <div class="history">
-                        <div class="order_image">
-                            <img src="../../assets/images/Raj/order_image.png" alt="order_image">
+                    <!-- <div class="history" *ngFor="let details of productDetails">
+                        <div *ngIf="details.image" class="order_image">
+                            <img src="{{details.image}}" alt="order_image">
                         </div>
                         <div class="order_details">
-                            <div class="product_name">Micro SilkFiber Soft  Plain California Premium Shaggy.</div>
+                            <div *ngIf="details.name" class="product_name"> {{details.name}} </div>
                             <div class="quantity_div">
-                                <div class="qnty"><span class="text">Quantity</span><span class="quantity">30</span></div>
-                                <div class="paid process"><p>Paid</p></div>
+                                <div *ngIf="details.quantity" class="qnty"><span class="text"> {{details.quantity}} </span><span class="quantity">30</span></div>
+                                <div *ngIf="details.payment === 'Paid'" class="paid process"><p> {{details.payment}} </p></div>
+                                <div class="pending process"><p> {{details.payment}} </p></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="history">
                         <div class="order_image">
                             <img src="../../assets/images/Raj/order_image.png" alt="order_image">

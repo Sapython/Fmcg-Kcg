@@ -13,8 +13,8 @@ import { UserService } from 'src/services/User/user.service';
 export class EditStockPage implements OnInit {
 
   public stockId = '6y5Z5cp4V4TopJdd4QfW';
-  public currentStockData : any 
-  public userId:any;
+  public currentStockData: any;
+  public userId: any;
   public editstockForm: FormGroup = new FormGroup({
     Name: new FormControl(''),
     Quality: new FormControl(''),
@@ -26,31 +26,31 @@ export class EditStockPage implements OnInit {
     Quantity: new FormControl(''),
     StorageLocation: new FormControl(''),
   });
-  
-  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService) { }
+
+  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService) { }
 
   ngOnInit() {
-    this.getStock()
+    this.getStock();
     return this.user.getUserData.subscribe((res) => {
-      this.userId = res?.uid; this.getUser()
+      this.userId = res?.uid; this.getUser();
     });
   }
 
   private getUser() {
-    this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); })
+    this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); });
   }
 
   public editStock(){
     this.stock.editStock(this.stockId, this.editstockForm.value).then((res)=>{
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
   public getStock(){
-    console.log(this.stockId)
+    console.log(this.stockId);
     this.stock.getStock(this.stockId).then((res)=>{
       this.currentStockData = res.data();
-      console.log(res.data())
-    })
+      console.log(res.data());
+    });
   }
 }

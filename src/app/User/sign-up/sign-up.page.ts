@@ -22,13 +22,13 @@ export class SignUpPage implements OnInit {
   signUpWithEmailAndPassword() {
     if (this.signupForm.value.email == '') {
       alert('please enter your email');
-      return
+      return;
     }
     if (this.signupForm.value.password == '') {
       alert('please enter your Password');
-      return
+      return;
     }
-    this.auth.signUpWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.username)
+    this.auth.signUpWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.username);
 
   }
 

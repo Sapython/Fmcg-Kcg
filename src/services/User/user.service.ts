@@ -17,23 +17,23 @@ export class UserService {
 
       this.user.subscribe((user: any) => {
         if (user) {
-          console.log(user)
+          console.log(user);
           this.dataProvider.LoggedInUser = true;
           this.dataProvider.user = user;
           // this.dataProvider.user.next(user);
-          console.log(this.dataProvider.user)
+          console.log(this.dataProvider.user);
         }
         else {
           this.dataProvider.LoggedInUser = false;
         }
-      })
+      });
     }
   }
 
 
 
   public get getUserData(): Observable<User | null> {
-    console.log(this.user)
+    console.log(this.user);
     return this.user;
 
   }
@@ -54,7 +54,7 @@ export class UserService {
 
   public updateUser(USER_ID: any, data: any) {
     const userIDUrl = urls.user.replace('{USER_ID}', USER_ID);
-    return updateDoc(doc(this.fs, userIDUrl), data)
+    return updateDoc(doc(this.fs, userIDUrl), data);
   }
 
 }

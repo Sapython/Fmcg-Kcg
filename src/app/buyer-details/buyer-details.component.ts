@@ -6,9 +6,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buyer-details.component.scss'],
 })
 export class BuyerDetailsComponent implements OnInit {
+  public productDetails = [
+    {
+      image: '../../assets/images/Raj/order_image.png',
+      name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
+      quantity: 30,
+      payment: 'Paid',
+    },
+    {
+      image: '../../assets/images/Raj/order_image.png',
+      name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
+      quantity: 40,
+      payment: 'Pending',
+    },
 
-  constructor() { }
+    {
+      image: '../../assets/images/Raj/order_image.png',
+      name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
+      quantity: 30,
+      payment: 'Paid',
+    },
+    {
+      image: '../../assets/images/Raj/order_image.png',
+      name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
+      quantity: 30,
+      payment: 'Pending',
+    },
+  ];
 
-  ngOnInit() {}
+  constructor() {}
 
+  ngOnInit() {
+    console.log('details', this.productDetails);
+  }
 }

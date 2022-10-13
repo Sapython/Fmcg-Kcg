@@ -7,23 +7,23 @@ export type UserStructure = {
     phoneNumber?: string;
     photoURL: string;
     access: UserAccess;
-    userId:string;
-    emailVerified:boolean,
-    dateOfBirth:number,
-    gender:string,
-    address:string
-}
+    userId: string;
+    emailVerified: boolean;
+    dateOfBirth: number;
+    gender: string;
+    address: string;
+};
 
 
 export type UserAccess={
-    access:'admin'|'user'|'guest';
-}
+    access: 'admin'|'user'|'guest';
+};
 
 export type ExtraLoginEmailInfo= {
-    displayName:string;
-    phoneNumber:string;
-    photoURL:string;
-    dateOfBirth:number,
-    gender:string,
-    address:string
-}
+    displayName: string;
+    phoneNumber: string;
+    photoURL: string;
+    dateOfBirth: number;
+    gender: string;
+    address: string;
+};
