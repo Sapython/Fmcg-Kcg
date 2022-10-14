@@ -4,7 +4,197 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a29a7f65-9418-4ced-a289-6c8c49a4546a" name="Changes" comment="" />
+    <list default="true" id="a29a7f65-9418-4ced-a289-6c8c49a4546a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/android.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/backarrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/dispay_pic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/ellipse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/gmail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/location.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/order_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/percent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/phone2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/Raj/whatsapp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/left-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/minus-sign.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/images/shopping-cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Responsive.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Text.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/shapes.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/assets/shapes.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/common.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/default-node_modules_ionic_core_dist_esm_parse-decd0f85_js-node_modules_ionic_core_dist_esm_t-a92c48.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/default-node_modules_ionic_core_dist_esm_parse-decd0f85_js-node_modules_ionic_core_dist_esm_t-a92c48.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_index-dbdac533_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_index-dbdac533_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_input-shims-b3771013_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_input-shims-b3771013_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-accordion_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-accordion_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-action-sheet_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-action-sheet_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-alert_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-alert_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-app_8_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-app_8_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-avatar_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-avatar_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-back-button_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-back-button_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-backdrop_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-backdrop_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-breadcrumb_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-breadcrumb_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-button_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-button_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-card_5_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-card_5_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-checkbox_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-checkbox_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-chip_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-chip_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-col_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-col_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-datetime-button_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-datetime-button_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-datetime_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-datetime_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-fab_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-fab_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-img_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-img_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-infinite-scroll_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-infinite-scroll_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-input_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-input_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-item-option_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-item-option_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-item_8_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-item_8_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-loading_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-loading_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-menu_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-menu_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-modal_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-modal_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-nav_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-nav_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-picker-column-internal_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-picker-column-internal_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-picker-internal_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-picker-internal_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-popover_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-popover_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-progress-bar_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-progress-bar_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-radio_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-radio_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-range_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-range_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-refresher_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-refresher_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-reorder_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-reorder_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-ripple-effect_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-ripple-effect_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-route_4_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-route_4_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-searchbar_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-searchbar_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-segment_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-segment_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-select_3_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-select_3_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-slide_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-slide_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-spinner_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-spinner_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-split-pane_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-split-pane_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-tab-bar_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-tab-bar_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-tab_2_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-tab_2_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-text_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-text_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-textarea_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-textarea_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-toast_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-toast_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-toggle_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-toggle_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-virtual-scroll_entry_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_ion-virtual-scroll_entry_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_status-tap-2f3f665e_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_status-tap-2f3f665e_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_swiper_bundle-28080340_js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/node_modules_ionic_core_dist_esm_swiper_bundle-28080340_js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills-core-js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills-core-js.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills-dom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills-dom.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/polyfills.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/runtime.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_email-verification_email-verification_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_email-verification_email-verification_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_forget-password_forget-password_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_forget-password_forget-password_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_login_login_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_login_login_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_profile_profile_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_profile_profile_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_sign-up_sign-up_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_User_sign-up_sign-up_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_add-stock_add-stock_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_add-stock_add-stock_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_edit-stock_edit-stock_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_edit-stock_edit-stock_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_flash-screen_flash-screen_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_flash-screen_flash-screen_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_get-started_get-started_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_get-started_get-started_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_home_home_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_home_home_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_qr-page_qr-page_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_qr-page_qr-page_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_stock-list_stock-list_module_ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src_app_stock-list_stock-list_module_ts.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/styles.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor-cordova-android-plugins/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/cordova.variables.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor-cordova-android-plugins/cordova.variables.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/res/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/res/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../capacitor.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../capacitor.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/buyer-details/buyer-details.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/buyer-details/buyer-details.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-history/sales-history.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/sales-history/sales-history.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +204,21 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -30,7 +235,98 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle --dry-run" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="android.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="android" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--dry-run" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.android" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

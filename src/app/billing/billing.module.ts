@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BillingPageRoutingModule } from './billing-routing.module';
 
 import { BillingPage } from './billing.page';
-import { StockListCardComponent } from '../stock-list/stock-list-card/stock-list-card.component';
+import { ComponentModule } from '../component/component.module';
 
 @NgModule({
   imports: [
@@ -15,8 +15,9 @@ import { StockListCardComponent } from '../stock-list/stock-list-card/stock-list
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    ComponentModule,
     BillingPageRoutingModule
   ],
-  declarations: [BillingPage,StockListCardComponent]
+  declarations: [BillingPage]
 })
 export class BillingPageModule {}

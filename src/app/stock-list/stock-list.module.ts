@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { StockListPageRoutingModule } from './stock-list-routing.module';
 
 import { StockListPage } from './stock-list.page';
-import { StockListCardComponent } from './stock-list-card/stock-list-card.component';
+import { ComponentModule } from '../component/component.module';
 
 @NgModule({
   imports: [
@@ -15,12 +15,11 @@ import { StockListCardComponent } from './stock-list-card/stock-list-card.compon
     FormsModule,
     IonicModule,
     StockListPageRoutingModule,
-
+    ComponentModule
   ],
   declarations:
     [
       StockListPage,
-      StockListCardComponent
     ]
 })
 export class StockListPageModule { }

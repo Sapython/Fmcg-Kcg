@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { BuyerDetailsPageRoutingModule } from './buyer-details-routing.module';
 
 import { BuyerDetailsPage } from './buyer-details.page';
-import { SalesCardComponent } from '../sales-card/sales-card.component';
+import { ComponentModule } from '../component/component.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentModule,
     BuyerDetailsPageRoutingModule
   ],
-  declarations: [BuyerDetailsPage, SalesCardComponent]
+  declarations: [BuyerDetailsPage]
 })
 export class BuyerDetailsPageModule {}

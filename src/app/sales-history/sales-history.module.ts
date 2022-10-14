@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SalesHistoryPageRoutingModule } from './sales-history-routing.module';
 
 import { SalesHistoryPage } from './sales-history.page';
-import { SalesCardComponent } from '../sales-card/sales-card.component';
+import { ComponentModule } from '../component/component.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentModule,
     SalesHistoryPageRoutingModule
   ],
-  declarations: [SalesHistoryPage, SalesCardComponent]
+  declarations: [SalesHistoryPage]
 })
 export class SalesHistoryPageModule {}

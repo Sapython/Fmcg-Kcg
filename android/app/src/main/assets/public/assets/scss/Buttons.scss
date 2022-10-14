@@ -105,9 +105,37 @@
     gap: 10px;
     background: #2D6BF1;
     border-radius: 16px;
-    
+
     font-size: 12px;
     line-height: 130%;
     color: #fff;
     width: 85px;
+}
+
+.logoutBtn {
+    position: absolute;
+    bottom: 30px;
+}
+
+.salesBtn {
+    background: #EBFCF3;
+    border: 0.8px solid #366A52;
+    border-radius: 7px;
+    outline: none;
+    color: #366A52;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.addToCart {
+    background: #2D6BF1 !important;
+    box-shadow: 1px 4px 8px rgba(22, 22, 22, 0.15) !important;
+    border-radius: 10px !important;
+    padding: 3px 24px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    font-family: 'Nunito' !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
 }
