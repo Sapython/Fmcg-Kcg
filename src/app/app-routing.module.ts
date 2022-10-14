@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'homepage',
     pathMatch: 'full'
   },
   {
@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./qr-page/qr-page.module').then( m => m.QrPagePageModule)
   },
   {
-    path: 'edit-stock',
+    path: 'edit-stock/:id',
     loadChildren: () => import('./edit-stock/edit-stock.module').then( m => m.EditStockPageModule)
   },
   {
@@ -66,8 +66,9 @@ const routes: Routes = [
   {
     path: 'sales-history',
     loadChildren: () => import('./sales-history/sales-history.module').then( m => m.SalesHistoryPageModule)
-  },  {
-    path: 'product-details',
+  },
+  {
+    path: 'product-details/:id',
     loadChildren: () => import('./product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
   {
@@ -82,6 +83,15 @@ const routes: Routes = [
     path: 'buyer-details',
     loadChildren: () => import('./buyer-details/buyer-details.module').then( m => m.BuyerDetailsPageModule)
   },
+  {
+    path: 'homepage',
+    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
+  },
+  {
+    path: 'billing/:id',
+    loadChildren: () => import('./billing/billing.module').then( m => m.BillingPageModule)
+  },
+
 
 
 ];

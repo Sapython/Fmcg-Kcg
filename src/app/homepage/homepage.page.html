@@ -1,0 +1,53 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>homepage</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="d-flex align-items-center justify-content-between px-3">
+    <div class="homeCard">
+      <div class="outer-img">
+        <img src="assets/illustrations/addStock.png" alt="">
+      </div>
+      <div class="Nunito500 fs-18" routerLink="/add-stock">Add stock</div>
+    </div>
+    <div class="homeCard">
+      <div class="outer-img">
+        <img src="assets/illustrations/allProduct.png" alt="">
+      </div>
+      <div class="Nunito500 fs-18" routerLink="/stock-list">All Products</div>
+    </div>
+    <div class="homeCard">
+      <div class="outer-img">
+        <img src="assets/illustrations/sales.png" alt="">
+      </div>
+      <div class="Nunito500 fs-18" routerLink="/sales-history">Sales History</div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center px-3 mt-4">
+    <div class="me-2 card-shadow p-3">
+      <div class="d-flex align-items-center">
+        <div><img src="assets/icon/totalCustumer.png" alt=""></div>
+        <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div>
+      </div>
+      <div class="fs-24 Nunito700">1,234</div>
+      <div class="Nunito500 fs-10">Total Custumer</div>
+    </div>
+    <div class="ms-2 card-shadow p-3">
+      <div class="d-flex align-items-center">
+        <div><img src="assets/icon/totalCustumer.png" alt=""></div>
+        <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div>
+      </div>
+      <div class="fs-24 Nunito700">1,234</div>
+      <div class="Nunito500 fs-10">Total Custumer</div>
+    </div>
+  </div>
+
+  <div class="Nunito700 fs-24 px-3 mt-3">Most sold</div>
+  
+  <div class="px-3">
+    <app-most-sold-card></app-most-sold-card>
+  </div>
+</ion-content>

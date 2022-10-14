@@ -12,7 +12,7 @@
     <div class="box-outer">
       <div class="uk-margin">
         <div class="uk-form-custom w-100">
-          <input type="file" #file>
+          <input type="file" (change)="file = $event" id="" formControlName="img">
           <button class="uk-button uk-button-default w-100" type="button" tabindex="-1">Upload Image</button>
         </div>
       </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
 import { UserService } from 'src/services/User/user.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { UserService } from 'src/services/User/user.service';
 })
 export class EditStockPage implements OnInit {
 
-  public stockId = '6y5Z5cp4V4TopJdd4QfW';
+  public stockId = this.router.snapshot.paramMap.get('id');
   public currentStockData : any 
   public userId:any;
   public editstockForm: FormGroup = new FormGroup({
@@ -27,8 +29,9 @@ export class EditStockPage implements OnInit {
     StorageLocation: new FormControl(''),
     Price: new FormControl('')
   });
+  url:any;
   
-  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService) { }
+  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService, public router:ActivatedRoute) { }
 
   ngOnInit() {
     this.getStock()

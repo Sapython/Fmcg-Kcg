@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
+import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
 import { UserService } from 'src/services/User/user.service';
 
@@ -11,7 +12,9 @@ import { UserService } from 'src/services/User/user.service';
 })
 export class AddStockPage implements OnInit {
 
-  public userId:any;
+  public userId: any;
+  public url: any;
+  public file: any;
   public addstockForm: FormGroup = new FormGroup({
     Name: new FormControl(''),
     Quality: new FormControl(''),
@@ -23,10 +26,11 @@ export class AddStockPage implements OnInit {
     Quantity: new FormControl(''),
     StorageLocation: new FormControl(''),
     Price: new FormControl(''),
-    id:new FormControl('')
+    id: new FormControl(''),
+    img: new FormControl(''),
   });
-  
-  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService) { }
+
+  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService) { }
 
   ngOnInit() {
     return this.user.getUserData.subscribe((res) => {
@@ -34,12 +38,25 @@ export class AddStockPage implements OnInit {
     });
   }
 
+  async uploadFile(files: FileList | null) {
+    if (files) {
+      const file = files[0]
+      const url = await this.dataBase.upload('stock/' + file.name, file);
+      this.url = url
+      
+    }
+  }
+
   private getUser() {
     this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); })
   }
 
-  addStock(){
-    this.stock.addStock(this.addstockForm.value)
+  async addStock() {
+    await this.uploadFile(this.file.target.files);
+    this.addstockForm.value['img'] = this.url
+    if (this.url) {
+      this.stock.addStock(this.addstockForm.value)
+    }
   }
 
 

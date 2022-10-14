@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collection, doc, Firestore, increment, setDoc, updateDoc } from '@angular/fire/firestore';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { urls } from '../url';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { urls } from '../url';
 })
 export class DataBaseService {
 
+  storage = getStorage();
   constructor(public fs: Firestore) { }
 
   generateId() {
@@ -28,5 +30,30 @@ export class DataBaseService {
     return setDoc(doc(this.fs, `${userIDUrl}${urls.cart}${cartId}`), { ...data, cartId: cartId, cartQuantity:1 })
   }
 
+  async upload(
+    path: string,
+    file: File | ArrayBuffer | Blob | Uint8Array
+  ): Promise<any> {
+  
+    if (file) {
+      try {
+        const storageRef = ref(this.storage, path);
+        const task = uploadBytesResumable(storageRef, file);
+        await task;
+        const url = await getDownloadURL(storageRef);
+        return url;
+      } catch (e: any) {
+        console.error(e);
+        return e;
+      }
+    } else {
+      // handle invalid file
+      return false;
+    }
+  }
 
+  public billing(USER_ID: any, data: any) {
+    const billingUrl = urls.user.replace('{USER_ID}', USER_ID);
+    return addDoc(collection(this.fs, billingUrl), data)
+  }
 }

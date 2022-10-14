@@ -1,13 +1,19 @@
 <div class="addStockCard">
-  <div class="img-outer">
-    <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="">
-  </div>
-  <div class="ps-2">
-    <div class="Nunito600">{{Name}}</div>
-    <div class="Nunito700 fs-14 t-blue">Rs {{Price}}</div>
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="t-grey fs-14">Product Code <span class="Nunito500">{{Id}}</span></div>
-      <a href="" uk-icon="icon: file-edit"></a>
+  <div class="d-flex align-items-center" routerLink="/product-details/{{Id}}">
+    <div class="img-outer">
+      <img
+        [src]="img"
+        alt="">
     </div>
+    <div class="ps-2">
+      <div class="Nunito600">{{Name}}</div>
+      <div class="Nunito700 fs-14 t-blue">Rs {{Price}}</div>
+      <div class="t-grey fs-12">Product Code <span class="Nunito500">{{Id}}</span></div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <button class="btn" routerLink="/billing/{{Id}}">Sell</button>
+    <button class="btn" routerLink="/edit-stock/{{Id}}">Edit</button>
+    <button class="btn">Search</button>
   </div>
 </div>

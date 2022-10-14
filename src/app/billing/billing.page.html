@@ -1,0 +1,36 @@
+<ion-header>
+  <div class="header">
+    <div class="back">
+      <img src="assets/icon/headerNagivation.png" alt="">
+    </div>
+    <div class="text-header ">Billing</div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="Nunito600 fs-17 mt-5 mb-3 px-3">Billing Address</div>
+  
+  
+  <div class="px-3">
+    <form action="">
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-14">Name</label>
+        <input class="input" type="text" placeholder="Enter Your Name" formControlName="userName">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-14">Email</label>
+        <input class="input" type="email" placeholder="Enter Your Email" formControlName="userEmail">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-14">Address</label>
+        <textarea class="inputTextarea" type="email" placeholder="Enter Your Email" cols="4" formControlName="useraddress"></textarea>
+      </div>
+    </form>
+  </div>
+
+  <div class="border"></div>
+  <div class="Nunito600 fs-17 mt-3 mb-3 px-3">Billing Summary</div>
+  <div class="px-3">
+    <app-stock-list-card [img]="currentStockData?.img" [Name]="currentStockData?.Name" [Price]="currentStockData?.Price" [Id]="currentStockData?.id"></app-stock-list-card>
+  </div>
+</ion-content>

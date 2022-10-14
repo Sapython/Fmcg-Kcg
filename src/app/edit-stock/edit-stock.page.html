@@ -1,6 +1,6 @@
 <ion-header>
   <div class="header">
-    <div class="back">
+    <div class="back" routerLink="/stock-list">
       <img src="assets/icon/headerNagivation.png" alt="">
     </div>
     <div class="text-header">Edit stock</div>
@@ -30,7 +30,7 @@
       </div>
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Price</label>
-        <input class="input" type="text" placeholder="Rs 5000" formControlName="Price">
+        <input class="input" type="text" placeholder="Rs 5000" formControlName="Price" [value]="this.currentStockData?.Price">
       </div>
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Backing</label>
