@@ -12,12 +12,14 @@ export class BuyerDetailsComponent implements OnInit {
       name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
       quantity: 30,
       payment: 'Paid',
+      price: 500,
     },
     {
       image: '../../assets/images/Raj/order_image.png',
       name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
       quantity: 40,
       payment: 'Pending',
+      price: 700,
     },
 
     {
@@ -25,18 +27,24 @@ export class BuyerDetailsComponent implements OnInit {
       name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
       quantity: 30,
       payment: 'Paid',
+      price: 500,
     },
     {
       image: '../../assets/images/Raj/order_image.png',
       name: 'Micro SilkFiber Soft  Plain California Premium Shaggy',
       quantity: 30,
       payment: 'Pending',
+      price: 800,
     },
   ];
+  totalPrice: any;
 
   constructor() {}
 
   ngOnInit() {
     console.log('details', this.productDetails);
+    // for (const price of this.productDetails) {
+    //   let totalPrice: any += price.price;
+    // }
   }
 }

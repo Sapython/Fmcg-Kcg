@@ -41,23 +41,17 @@
                     </div>
                 </div>
 
-                <!-- <div *ngFor="let details of productDetails"> -->
-                <h2> {{productDetails[3].name}} </h2>
-                <!-- <img src="{{productDetails[3].image}}" alt="order_image"> -->
-                <!-- </div> -->
-
                 <div class="history_container">
                     <div class="history" *ngFor="let details of productDetails">
-                      <p>{{details.image}}</p>
                         <div *ngIf="details.image" class="order_image">
                             <img src="{{details.image}}" alt="order_image">
                         </div>
                         <div class="order_details">
                             <div *ngIf="details.name" class="product_name"> {{details.name}} </div>
                             <div class="quantity_div">
-                                <div *ngIf="details.quantity" class="qnty"><span class="text"> {{details.quantity}} </span><span class="quantity">30</span></div>
+                                <div *ngIf="details.quantity" class="qnty"><span class="text"> Quantity </span><span class="quantity">{{details.quantity}}</span></div>
                                 <div *ngIf="details.payment === 'Paid'" class="paid process"><p> {{details.payment}} </p></div>
-                                <div class="pending process"><p> {{details.payment}} </p></div>
+                                <div *ngIf="details.payment === 'Pending'" class="pending process"><p> {{details.payment}} </p></div>
                             </div>
                         </div>
                     </div>

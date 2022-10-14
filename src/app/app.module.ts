@@ -19,10 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AuthService } from 'src/services/Auth/auth.service';
+import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BuyerDetailsComponent],
   imports: [
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -36,7 +37,12 @@ import { AuthService } from 'src/services/Auth/auth.service';
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
   ],
-  providers: [ScreenTrackingService, UserTrackingService, AuthService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    ScreenTrackingService,
+    UserTrackingService,
+    AuthService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
