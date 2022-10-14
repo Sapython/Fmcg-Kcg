@@ -1,6 +1,6 @@
 <ion-header>
   <div class="header">
-    <div class="back">
+    <div class="back" routerLink="/stock-list">
       <img src="assets/icon/headerNagivation.png" alt="">
     </div>
     <div class="text-header">Sales History</div>
@@ -12,7 +12,7 @@
       <input type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
       <button class="filter-btn">Filter</button>
     </div>
-    <app-sales-card></app-sales-card>
+    <app-sales-card *ngFor="let sale of sales" [Name]="sale?.Name" [img]="sale?.img" [Quantity]="sale?.Quality" [id]="sale?.productId"></app-sales-card>
   </div>
 
 </ion-content>

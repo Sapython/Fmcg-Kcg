@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, increment, setDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore, getDoc, getDocs, increment, setDoc, updateDoc } from '@angular/fire/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { urls } from '../url';
 
@@ -53,7 +53,12 @@ export class DataBaseService {
   }
 
   public billing(USER_ID: any, data: any) {
-    const billingUrl = urls.user.replace('{USER_ID}', USER_ID);
-    return addDoc(collection(this.fs, billingUrl), data)
+    const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
+    return addDoc(collection(this.fs, billingUrl, urls.billing), data)
+  }
+
+  public sales(USER_ID: any) {
+    const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
+    return getDocs(collection(this.fs, billingUrl, urls.billing))
   }
 }

@@ -11,6 +11,7 @@ import { urls } from '../url';
 export class UserService {
 
   public readonly user: Observable<User | null> = EMPTY;
+  
   public loggedInUserData: Subject<any> = new Subject()
   public userdata:any
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {

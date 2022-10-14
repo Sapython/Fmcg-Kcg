@@ -15,8 +15,9 @@ import {ActivatedRoute} from '@angular/router';
 export class EditStockPage implements OnInit {
 
   public stockId = this.router.snapshot.paramMap.get('id');
-  public currentStockData : any 
+  // public currentStockData : any 
   public userId:any;
+
   public editstockForm: FormGroup = new FormGroup({
     Name: new FormControl(''),
     Quality: new FormControl(''),
@@ -51,7 +52,9 @@ export class EditStockPage implements OnInit {
   public getStock(){
     console.log(this.stockId)
     this.stock.getStock(this.stockId).then((res)=>{
-      this.currentStockData = res.data();
+      // this.currentStockData = res.data();
+      this.editstockForm.patchValue(res.data())
+      
 
     })
   }
