@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a29a7f65-9418-4ced-a289-6c8c49a4546a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.firebaserc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../firestore.indexes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../firestore.rules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../functions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../functions/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../functions/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../functions/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../functions/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../remoteconfig.template.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../storage.rules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/io/ionic/starter/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/ionic/starter/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/billing/billing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/billing/billing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/buyer-details/buyer-details.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/buyer-details/buyer-details.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-card/sales-card.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-card/sales-card.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-card/sales-card.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-card/sales-card.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/sales-history/sales-history.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/sales-history/sales-history.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list-card/stock-list-card.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list-card/stock-list-card.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list-card/stock-list-card.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list-card/stock-list-card.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/stock-list/stock-list.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\kioskUser0\.android\avd\Pixel_6_Pro_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_5_API_26.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -50,7 +55,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -86,8 +96,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="android.app.main" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="android.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
