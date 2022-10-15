@@ -10,9 +10,10 @@
 <ion-content>
   <div class="px-3 mt-4">
     <div class="d-flex align-items-center justify-content-center searchbar">
-      <input type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
+      <input (input)="debounceSearch($event)" type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
       <button class="filter-btn">Filter</button>
     </div>
-    <app-stock-list-card *ngFor="let stock of stocks" [img]="stock?.img" [Name]="stock?.Name" [Price]="stock?.Price" [Id]="stock?.id"></app-stock-list-card>
+    <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+    <app-stock-list-card *ngFor="let stock of this.filteredStocks.length>0 ? this.filteredStocks : stocks" [img]="stock?.img" [Name]="stock?.Name" [Price]="stock?.Price" [Id]="stock?.id"></app-stock-list-card>
   </div>
 </ion-content>

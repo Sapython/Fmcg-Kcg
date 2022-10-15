@@ -4,6 +4,8 @@ import { DataProviderService } from 'src/services/Data-Provider/data-provider.se
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
 import { UserService } from 'src/services/User/user.service';
+import QrCreator from 'qr-creator';
+
 
 @Component({
   selector: 'app-add-stock',
@@ -16,16 +18,16 @@ export class AddStockPage implements OnInit {
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
-    Name: new FormControl(''),
-    Quality: new FormControl(''),
-    Shade: new FormControl(''),
-    Backing: new FormControl(''),
-    Length: new FormControl(''),
-    Width: new FormControl(''),
-    Thickness: new FormControl(''),
-    Quantity: new FormControl(''),
-    StorageLocation: new FormControl(''),
-    Price: new FormControl(''),
+    Name: new FormControl('test'),
+    Quality: new FormControl('random'),
+    Shade: new FormControl('black'),
+    Backing: new FormControl('red'),
+    Length: new FormControl('24'),
+    Width: new FormControl('12'),
+    Thickness: new FormControl('2'),
+    Quantity: new FormControl('1'),
+    StorageLocation: new FormControl('Garage'),
+    Price: new FormControl('4450'),
     id: new FormControl(''),
     img: new FormControl(''),
   });
@@ -55,7 +57,9 @@ export class AddStockPage implements OnInit {
     await this.uploadFile(this.file.target.files);
     this.addstockForm.value['img'] = this.url
     if (this.url) {
-      this.stock.addStock(this.addstockForm.value)
+      this.stock.addStock(this.addstockForm.value).then((doc)=>{
+         
+      })
     }
   }
 

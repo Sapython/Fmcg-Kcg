@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'homepage',
     pathMatch: 'full'
@@ -90,7 +86,11 @@ const routes: Routes = [
   {
     path: 'billing/:id',
     loadChildren: () => import('./billing/billing.module').then( m => m.BillingPageModule)
+  },  {
+    path: 'qr-scan',
+    loadChildren: () => import('./qr-scan/qr-scan.module').then( m => m.QrScanPageModule)
   },
+
 
 
 
