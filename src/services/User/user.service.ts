@@ -12,8 +12,9 @@ export class UserService {
 
   public readonly user: Observable<User | null> = EMPTY;
   
-  public loggedInUserData: Subject<any> = new Subject()
-  public userdata:any
+  public loggedInUserData: Subject<any> = new Subject();
+  public userdata:any;
+  
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
@@ -39,7 +40,6 @@ export class UserService {
   public get getUserData(): Observable<User | null> {
     console.log(this.user)
     return this.user;
-
   }
 
 

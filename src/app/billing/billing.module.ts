@@ -9,6 +9,7 @@ import { BillingPageRoutingModule } from './billing-routing.module';
 import { BillingPage } from './billing.page';
 import { ComponentModule } from '../component/component.module';
 
+
 @NgModule({
   imports: [
     CommonModule,

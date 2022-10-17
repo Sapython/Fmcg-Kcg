@@ -1,11 +1,4 @@
-<ion-header>
-  <div class="header">
-    <div class="back" routerLink="/">
-      <img src="assets/icon/headerNagivation.png" alt="">
-    </div>
-    <div class="text-header">Add stock</div>
-  </div>
-</ion-header>
+<app-header title="Add stock"></app-header>
 
 <ion-content>
   <form [formGroup]="addstockForm"  (ngSubmit)="addStock()">

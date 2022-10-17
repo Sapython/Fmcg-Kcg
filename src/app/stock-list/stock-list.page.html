@@ -1,19 +1,68 @@
-<ion-header>
-  <div class="header">
-    <div class="back" routerLink="/">
-      <img src="assets/icon/headerNagivation.png" alt="">
-    </div>
-    <div class="text-header">Product List</div>
-  </div>
-</ion-header>
+<app-header title="Product List"></app-header>
+
 
 <ion-content>
   <div class="px-3 mt-4">
     <div class="d-flex align-items-center justify-content-center searchbar">
       <input (input)="debounceSearch($event)" type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
-      <button class="filter-btn">Filter</button>
+      <button class="filter-btn" trigger="open-modal" (willDismiss)="onWillDismiss($event)">Filter</button>
+      <ion-button id="open-modal" expand="block">Open</ion-button>
     </div>
-    <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
-    <app-stock-list-card *ngFor="let stock of this.filteredStocks.length>0 ? this.filteredStocks : stocks" [img]="stock?.img" [Name]="stock?.Name" [Price]="stock?.Price" [Id]="stock?.id"></app-stock-list-card>
+
+    <div class="spin">
+      <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+    </div>
+
+    <app-stock-list-card *ngFor="let stock of this.filteredStocks.length>0 ? this.filteredStocks : stocks"
+      [img]="stock?.img" [Name]="stock?.Name" [Price]="stock?.Price" [Id]="stock?.id"></app-stock-list-card>
   </div>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)" [initialBreakpoint]="0.75"
+    [breakpoints]="[0.75]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()" [strong]="true">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="Nunito500 fs-15">Filter</div>
+          <div class="Nunito500 fs-15 t-grey">Clear Filter</div>
+        </div>
+        <div class="py-3">
+          <div class="Nunito500 fs-14">Price</div>
+          <ion-range (ionChange)="log($event)" debounce="300" [dualKnobs]="true"  [ticks]="true" [snaps]="true" [min]="0" [max]="10"  [pin]="true" [pinFormatter]="pinFormatter"></ion-range>
+          <div>
+            <input type="text" [value]="upper" class="inputFilter">
+            <input type="text" [value]="lower" class="inputFilter ms-3">
+          </div>
+        </div>
+        <div class="border"></div>
+        <div class="py-3">
+          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Most Sold +</ion-chip>
+          
+          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Lowest Sold +</ion-chip>
+        </div>
+        <div class="border"></div>
+        <div class="py-3">
+          <div class="Nunito500 fs-14 pb-2">Color</div>
+          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Red +</ion-chip>
+          <ion-chip [outline]="true" color="primary">Black +</ion-chip>
+          <ion-chip [outline]="true" color="primary">Blue +</ion-chip>
+          <ion-chip [outline]="true" color="primary">Dark Blue +</ion-chip>
+          <ion-chip [outline]="true" color="primary">Grey +</ion-chip> 
+          <ion-chip [outline]="true" color="primary">Maroon +</ion-chip>
+          <ion-chip [outline]="true" color="primary">Yellow +</ion-chip>
+        </div>
+        <div class="border"></div>
+        <div class="py-3">
+          <div class="Nunito500 fs-14 pb-2">Availability</div>
+          <ion-chip [outline]="true" color="primary">Out of Stock +</ion-chip>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

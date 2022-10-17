@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StocksService } from 'src/services/Stock/stocks.service';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 import Fuse from 'fuse.js';
+import { IonModal, RangeCustomEvent } from '@ionic/angular';
+import { RangeValue } from '@ionic/core';
 @Component({
   selector: 'app-stock-list',
   templateUrl: './stock-list.page.html',
   styleUrls: ['./stock-list.page.scss'],
 })
 export class StockListPage implements OnInit {
+  @ViewChild(IonModal) modal: IonModal;
+  name: string;
+  public color:any;
+
+  lower:number = 0;
+  upper:number = 0
   stocks: any[] = [];
   filteredStocks: any[] = [];
   searchDebounceTimer:any;
@@ -52,6 +61,7 @@ export class StockListPage implements OnInit {
       this.filteredStocks = []
     }
   }
+  
   stockList() {
     this.stockService.Stocks().then((res) => {
       res.forEach((element: any) => {
@@ -60,7 +70,36 @@ export class StockListPage implements OnInit {
           id: element.id,
         });
       });
-      console.log(this.stocks);
     }).finally(() => {this.loading=false});
+  }
+
+  
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  }
+
+  
+  pinFormatter(value: number) {
+    return `${value} pcs`;
+  }
+
+
+  log(event:any){
+    console.log(event)
+    this.lower = event.detail.value.lower;
+    this.upper = event.detail.value.upper;
+  }
+
+  chipChange(){
+    this.color = !(this.color)
+    console.log(this.color)
   }
 }

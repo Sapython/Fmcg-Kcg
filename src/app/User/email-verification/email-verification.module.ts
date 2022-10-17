@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EmailVerificationPageRoutingModule } from './email-verification-routing.module';
 
 import { EmailVerificationPage } from './email-verification.page';
+import { ComponentModule } from 'src/app/component/component.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EmailVerificationPageRoutingModule
+    EmailVerificationPageRoutingModule,
+    ComponentModule
   ],
   declarations: [EmailVerificationPage]
 })

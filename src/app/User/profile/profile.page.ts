@@ -24,18 +24,14 @@ export class ProfilePage implements OnInit {
   constructor(public dataProvider: DataProviderService, private userService: UserService) { }
 
   ngOnInit() {
-    return this.userService.getUserData.subscribe((res) => {
-      this.userId = res?.uid; this.getUser()
-    });
+    this.updateUserForm.patchValue(this.dataProvider.user)
   }
 
-  private getUser() {
-    this.userService.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); })
-  }
+  
 
   public updateUser() {
     console.log(this.updateUserForm.value)
-    this.userService.updateUser(this.userId, this.updateUserForm.value).then((res) => {
+    this.userService.updateUser(this.dataProvider.user["userId"], this.updateUserForm.value).then((res) => {
       console.log(res);
     })
   }

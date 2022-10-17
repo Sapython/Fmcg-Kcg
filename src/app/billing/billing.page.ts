@@ -15,7 +15,6 @@ export class BillingPage implements OnInit {
 
   public currentStockData:any
   public stockId = this.router.snapshot.paramMap.get('id');
-  public userId:any;
 
   public billingForm: FormGroup = new FormGroup({
     userName: new FormControl(''),
@@ -41,19 +40,9 @@ export class BillingPage implements OnInit {
   constructor(public router:ActivatedRoute, public stock:StocksService, public dataBase:DataBaseService, public user: UserService, public dataProvider:DataProviderService, private nav:Router) { }
 
   ngOnInit() {
-    
     this.getStock()
-    return this.user.getUserData.subscribe((res) => {
-      this.userId = res?.uid; 
-      this.getUser()
-    });
   }
 
-  private getUser() {
-    this.user.getUser(this.userId).then((res) => { 
-      this.dataProvider.user = res.data(); 
-    })
-  }
 
   public billing(){
     this.billingForm.value['vendorId'] = this.dataProvider?.user?.userId;
@@ -74,14 +63,13 @@ export class BillingPage implements OnInit {
 
 
     if(this.dataProvider.user){
-      this.dataBase.billing(this.userId, this.billingForm.value).then((res)=>{
+      this.dataBase.billing(this.dataProvider.user["userId"], this.billingForm.value).then((res)=>{
         this.nav.navigateByUrl("/order-place")
       });
     }
   }
 
   public getStock(){
-    console.log(this.stockId)
     this.stock.getStock(this.stockId).then((res)=>{
       this.currentStockData = res.data();
     })

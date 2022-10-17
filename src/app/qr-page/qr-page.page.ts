@@ -14,7 +14,7 @@ import QrCreator from 'qr-creator';
 })
 export class QrPagePage implements OnInit {
   product:any;
-  constructor(private dataProvider:DataProviderService,private activatedRoute:ActivatedRoute,private alertify:AlertsAndNotificationsService,private stokcService:StocksService) { }
+  constructor(public dataProvider:DataProviderService,private activatedRoute:ActivatedRoute,private alertify:AlertsAndNotificationsService,private stokcService:StocksService) { }
 
   ngOnInit() {
     console.log(this.dataProvider.product)
@@ -49,7 +49,7 @@ export class QrPagePage implements OnInit {
       ecLevel: 'H', // L, M, Q, H
       fill: '#3880ff', // foreground color
       background: null, // color or null for transparent
-      size: 256 // in pixels
+      size: 200 // in pixels
     }, document.querySelector('#qrCode')!);
   }
 }

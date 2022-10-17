@@ -86,13 +86,11 @@ const routes: Routes = [
   {
     path: 'billing/:id',
     loadChildren: () => import('./billing/billing.module').then( m => m.BillingPageModule)
-  },  {
+  },
+  {
     path: 'qr-scan',
     loadChildren: () => import('./qr-scan/qr-scan.module').then( m => m.QrScanPageModule)
   },
-
-
-
 
 ];
 

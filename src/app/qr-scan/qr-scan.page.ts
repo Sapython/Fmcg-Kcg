@@ -119,7 +119,5 @@ export class QrScanPage implements OnInit {
   ngOnInit() {
     this.startScan();
   }
-  back(){
-    window.history.back();
-  }
+  
 }

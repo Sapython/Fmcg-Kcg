@@ -5,6 +5,8 @@ import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
 import { UserService } from 'src/services/User/user.service';
 import QrCreator from 'qr-creator';
+import { Router } from '@angular/router';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ import QrCreator from 'qr-creator';
 })
 export class AddStockPage implements OnInit {
 
-  public userId: any;
+
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
@@ -32,13 +34,9 @@ export class AddStockPage implements OnInit {
     img: new FormControl(''),
   });
 
-  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService) { }
+  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService, private alertify:AlertsAndNotificationsService, public router:Router) { }
 
-  ngOnInit() {
-    return this.user.getUserData.subscribe((res) => {
-      this.userId = res?.uid; this.getUser()
-    });
-  }
+  ngOnInit() {}
 
   async uploadFile(files: FileList | null) {
     if (files) {
@@ -49,16 +47,14 @@ export class AddStockPage implements OnInit {
     }
   }
 
-  private getUser() {
-    this.user.getUser(this.userId).then((res) => { this.dataProvider.user = res.data(); })
-  }
 
   async addStock() {
     await this.uploadFile(this.file.target.files);
     this.addstockForm.value['img'] = this.url
     if (this.url) {
       this.stock.addStock(this.addstockForm.value).then((doc)=>{
-         
+        this.alertify.presentToast('Stock Added Successfully');
+        this.router.navigateByUrl("/")
       })
     }
   }

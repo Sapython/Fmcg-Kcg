@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AddStockPageRoutingModule } from './add-stock-routing.module';
 
 import { AddStockPage } from './add-stock.page';
+import { ComponentModule } from '../component/component.module';
+
 
 @NgModule({
   imports: [
@@ -14,8 +16,9 @@ import { AddStockPage } from './add-stock.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    AddStockPageRoutingModule
+    AddStockPageRoutingModule,
+    ComponentModule
   ],
-  declarations: [AddStockPage]
+  declarations: [AddStockPage, ]
 })
 export class AddStockPageModule {}

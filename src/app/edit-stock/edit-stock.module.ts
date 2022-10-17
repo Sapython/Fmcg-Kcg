@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditStockPageRoutingModule } from './edit-stock-routing.module';
 
 import { EditStockPage } from './edit-stock.page';
+import { ComponentModule } from '../component/component.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EditStockPage } from './edit-stock.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    EditStockPageRoutingModule
+    EditStockPageRoutingModule,
+    ComponentModule
   ],
   declarations: [EditStockPage]
 })
