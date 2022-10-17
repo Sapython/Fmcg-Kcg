@@ -17,9 +17,11 @@ export class StockListPage implements OnInit {
 
   lower:number = 0;
   upper:number = 0
+  filters:any[] = []
   stocks: any[] = [];
   filteredStocks: any[] = [];
   searchDebounceTimer:any;
+  ignoredFields = ["id","Name","Price","Quality","Quantity",'img']
   constructor(private stockService: StocksService) {}
   loading:boolean = true;
   ngOnInit() {
@@ -70,9 +72,89 @@ export class StockListPage implements OnInit {
           id: element.id,
         });
       });
-    }).finally(() => {this.loading=false});
+
+    }).finally(() => {
+      this.loading=false
+      let itemAttributes = {}
+      this.stocks.forEach((item) => {
+        for (var key of Object.keys(item)){
+          if (this.ignoredFields.includes(key) || Number(item[key])){
+            continue
+          }
+          if (itemAttributes[key]){
+            itemAttributes[key].counter++;
+            // check if item is already in the array
+            var found = false;
+            itemAttributes[key].items.forEach((itemVal:any)=>{
+              if (itemVal.value.toLowerCase() == item[key].toLowerCase()){
+                found = true
+              }
+            })
+            if (!found){
+              itemAttributes[key].items.push({value:item[key],key:key,counter:1,active:false})
+            }
+          } else {
+            itemAttributes[key] = {
+              counter: 1,
+              title:key,
+              value: item[key],
+              items: [{value:item[key],active:false,counter:1,key:key}],
+              active: false
+            }
+          }
+        }
+      })
+      console.log(itemAttributes)
+      // sort itemAttributes by key name
+      let sortedItemAttributes = {}
+      Object.keys(itemAttributes).sort().forEach(function(key) {
+        sortedItemAttributes[key] = itemAttributes[key];
+      });
+      
+      let filteredKeys = []
+      Object.values(itemAttributes).forEach((item:any)=>{
+        if (item.counter > 2 && item.counter < 10){
+          filteredKeys.push(item)
+        }
+      })
+      console.log(filteredKeys)
+      this.filters = filteredKeys
+    });
   }
 
+  filterOptions(){
+    let filteredStocks = []
+    this.filters.forEach((filter:any)=>{
+      filter.items.forEach((item:any)=>{
+        if (item.active){
+          filteredStocks.push(item)
+        }
+      })
+    })
+    console.log(filteredStocks)
+    if (this.filteredStocks.length > 0){
+      this.filteredStocks = this.filteredStocks.filter((stock:any)=>{
+        let found = false
+        filteredStocks.forEach((filter:any)=>{
+          if (stock[filter.key].toLowerCase() == filter.value.toLowerCase()){
+            found = true
+          }
+        })
+        return found
+      })
+    } else {
+      this.filteredStocks = this.stocks.filter((stock:any)=>{
+        let found = false
+        filteredStocks.forEach((filter:any)=>{
+          if (stock[filter.key].toLowerCase() == filter.value.toLowerCase()){
+            found = true
+          }
+        })
+        return found
+      })
+    }
+
+  }
   
   cancel() {
     this.modal.dismiss(null, 'cancel');

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.iml" filepath="$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2005702984/@capacitor.android.capacitor-android.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" />
@@ -39,6 +43,30 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/785675554/android.capacitor-status-bar.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.iml" filepath="$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1102785575/app.android.capacitor-app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/camera.android.capacitor-camera.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.iml" filepath="$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1921344706/haptics.android.capacitor-haptics.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.iml" filepath="$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-289212319/keyboard.android.capacitor-keyboard.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.iml" filepath="$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.main.iml" filepath="$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/298347572/network.android.capacitor-network.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/status-bar.android.capacitor-status-bar.unitTest.iml" />
     </modules>
   </component>
 </project>

@@ -18,7 +18,7 @@
   </div>
 
   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)" [initialBreakpoint]="0.75"
-    [breakpoints]="[0.75]">
+    [breakpoints]="[0.75, 1.0]">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -41,27 +41,11 @@
           </div>
         </div>
         <div class="border"></div>
-        <div class="py-3">
-          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Most Sold +</ion-chip>
-          
-          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Lowest Sold +</ion-chip>
+        <div class="py-3" *ngFor="let filter of filters">
+          <div class="Nunito500 fs-14">{{filter.title}}</div>
+          <ion-chip *ngFor="let selection of filter.items" [outline]="true" color="primary" (click)="selection.active = !selection.active; filterOptions()" [ngClass]="{'chipColour1': selection.active === false, 'chipColour2' : selection.active === true }">{{selection.value}}</ion-chip>
         </div>
         <div class="border"></div>
-        <div class="py-3">
-          <div class="Nunito500 fs-14 pb-2">Color</div>
-          <ion-chip [outline]="true" color="primary" (click)="chipChange()" [ngClass]="{'chipColour1': this.color === false, 'chipColour2' : this.color === true }">Red +</ion-chip>
-          <ion-chip [outline]="true" color="primary">Black +</ion-chip>
-          <ion-chip [outline]="true" color="primary">Blue +</ion-chip>
-          <ion-chip [outline]="true" color="primary">Dark Blue +</ion-chip>
-          <ion-chip [outline]="true" color="primary">Grey +</ion-chip> 
-          <ion-chip [outline]="true" color="primary">Maroon +</ion-chip>
-          <ion-chip [outline]="true" color="primary">Yellow +</ion-chip>
-        </div>
-        <div class="border"></div>
-        <div class="py-3">
-          <div class="Nunito500 fs-14 pb-2">Availability</div>
-          <ion-chip [outline]="true" color="primary">Out of Stock +</ion-chip>
-        </div>
       </ion-content>
     </ng-template>
   </ion-modal>
