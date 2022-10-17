@@ -44,3 +44,4 @@ functions/node_modules/
 .firebase
 *-debug.log
 .runtimeconfig.json
+android/.idea/workspace.xml
