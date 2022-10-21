@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/services/Auth/auth.service';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +17,7 @@ export class SignUpPage implements OnInit {
     username: new FormControl(),
   });
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private alertify:AlertsAndNotificationsService, private router:Router) { }
 
   ngOnInit() { }
 
@@ -28,7 +30,9 @@ export class SignUpPage implements OnInit {
       alert('please enter your Password');
       return
     }
-    this.auth.signUpWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.username)
+    this.auth.signUpWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.username);
+    this.alertify.presentToast('Account created Successfully');
+    this.router.navigateByUrl("/")
 
   }
 

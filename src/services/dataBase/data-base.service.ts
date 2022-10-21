@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collection, doc, Firestore, getDoc, getDocs, increment, setDoc, updateDoc } from '@angular/fire/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
+import { query, where } from '@firebase/firestore';
 import { urls } from '../url';
 
 @Injectable({
@@ -9,6 +10,7 @@ import { urls } from '../url';
 export class DataBaseService {
 
   storage = getStorage();
+
   constructor(public fs: Firestore) { }
 
   generateId() {
@@ -27,14 +29,14 @@ export class DataBaseService {
   userCart(USER_ID: any, data: any) {
     const cartId = this.generateId()
     const userIDUrl = urls.user.replace('{USER_ID}', USER_ID);
-    return setDoc(doc(this.fs, `${userIDUrl}${urls.cart}${cartId}`), { ...data, cartId: cartId, cartQuantity:1 })
+    return setDoc(doc(this.fs, `${userIDUrl}${urls.cart}${cartId}`), { ...data, cartId: cartId, cartQuantity: 1 })
   }
 
   async upload(
     path: string,
     file: File | ArrayBuffer | Blob | Uint8Array
   ): Promise<any> {
-  
+
     if (file) {
       try {
         const storageRef = ref(this.storage, path);
@@ -54,11 +56,36 @@ export class DataBaseService {
 
   public billing(USER_ID: any, data: any) {
     const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
+    this.dailySales(data);
     return addDoc(collection(this.fs, billingUrl, urls.billing), data)
+
   }
 
   public sales(USER_ID: any) {
     const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
     return getDocs(collection(this.fs, billingUrl, urls.billing))
   }
+
+  public contactUs(data) {
+    return addDoc(collection(this.fs, urls.contactUs), data);
+  }
+
+  public async dailySales(data: any,) {
+    const date = new Date();
+    const todayData = await getDocs(query(collection(this.fs, urls.sales), where('date', '==', date.toLocaleDateString())))
+    if (todayData.docs.length > 0) {
+      updateDoc(doc(this.fs, urls.sale + '/' + todayData.docs[0].id), { sales: increment(1) })
+    }
+    else {
+       addDoc(collection(this.fs, urls.sales), { sales: 1, date: date.toLocaleDateString() })
+
+    }
+  }
+
+
+
+  public getDailySales(){
+    return getDocs(collection(this.fs, urls.sales))
+  }
+
 }

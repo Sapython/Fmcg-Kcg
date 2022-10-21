@@ -15,7 +15,7 @@ export class BillingPage implements OnInit {
 
   public currentStockData:any
   public stockId = this.router.snapshot.paramMap.get('id');
-
+  public numberOfPieces:any;
   public billingForm: FormGroup = new FormGroup({
     userName: new FormControl(''),
     userEmail: new FormControl(''),
@@ -35,6 +35,8 @@ export class BillingPage implements OnInit {
     Price: new FormControl(''),
     productId: new FormControl(''),
     img: new FormControl(''),
+    numberOfPieces:new FormControl('')
+    
   });
   
   constructor(public router:ActivatedRoute, public stock:StocksService, public dataBase:DataBaseService, public user: UserService, public dataProvider:DataProviderService, private nav:Router) { }
@@ -59,7 +61,7 @@ export class BillingPage implements OnInit {
     this.billingForm.value['StorageLocation'] = this.currentStockData?.StorageLocation;
     this.billingForm.value['Width'] = this.currentStockData?.Width;
     this.billingForm.value['productId'] = this.currentStockData?.id;
-    
+    this.billingForm.value['numberOfPieces'] = this.numberOfPieces;
 
 
     if(this.dataProvider.user){

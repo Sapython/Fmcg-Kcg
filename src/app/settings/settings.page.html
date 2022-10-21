@@ -4,19 +4,19 @@
 <ion-content>
   <div class="w-100">
     <div class="d-flex align-items-center w-100 p-3 mt-3">
-      <div>
-        <img src="assets/images/settingsProfile.png" alt="">
-      </div>
-      <div class="Nunito500 fs-18">Yennefer Doe</div>
+      <ion-avatar>
+        <img width="40px" src="{{this.dataprovider?.user['photoURL']}}" alt="">
+      </ion-avatar>
+      <div class="Nunito600 fs-18 ms-2">{{this.dataprovider?.user['displayName']}}</div>
     </div>
     <div class="border my-2"></div>
     <div class="w-100 px-3">
       <div class="Nunito700 t-lightGrey fs-18">Account Settings</div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
+      <div class="d-flex justify-content-between align-item-center Nunito400 py-3" routerLink="/profile">
         <div>Edit profile</div>
         <div uk-icon="icon: chevron-right"></div>
       </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
+      <div class="d-flex justify-content-between align-item-center Nunito400 py-3" routerLink="/notication">
         <div>Push notication</div>
         <div uk-icon="icon: chevron-right"></div>
       </div>
@@ -45,7 +45,7 @@
         <div uk-icon="icon: chevron-right"></div>
       </div>
     </div>
-    <div class="px-3 logoutBtn Nunito700 t-blue fs-18">
+    <div class="px-3 logoutBtn Nunito700 t-blue fs-18" (click)="logoutPopUp()">
       <span uk-icon="icon: sign-out"></span> Logout</div>
   </div>
 </ion-content>

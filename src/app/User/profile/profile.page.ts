@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 import { UserService } from 'src/services/User/user.service';
 
 @Component({
@@ -21,7 +23,7 @@ export class ProfilePage implements OnInit {
     dateOfBirth: new FormControl(''),
   });
 
-  constructor(public dataProvider: DataProviderService, private userService: UserService) { }
+  constructor(public dataProvider: DataProviderService, private userService: UserService,private router:Router,private alertify:AlertsAndNotificationsService) { }
 
   ngOnInit() {
     this.updateUserForm.patchValue(this.dataProvider.user)
@@ -32,7 +34,8 @@ export class ProfilePage implements OnInit {
   public updateUser() {
     console.log(this.updateUserForm.value)
     this.userService.updateUser(this.dataProvider.user["userId"], this.updateUserForm.value).then((res) => {
-      console.log(res);
+      this.alertify.presentToast('Profile Updated Successfully');
+      this.router.navigateByUrl("/")
     })
   }
 

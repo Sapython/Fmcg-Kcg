@@ -1,0 +1,28 @@
+<app-header title="Billing"></app-header>
+
+<ion-content>
+  <div class="Nunito600 fs-18 px-3 pt-5 pb-3">Send us a Message</div>
+  <form action="" [formGroup]="contactForm"  (ngSubmit)="contactUs()">
+    <div class="px-3">
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Name</label>
+        <input class="input" type="text" placeholder="Your Full Name" formControlName="name">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Email</label>
+        <input class="input" type="email" placeholder="username@email.com" formControlName="email">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Phone</label>
+        <input class="input" type="number" placeholder="+912323232323" formControlName="phone">
+      </div>
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Message</label>
+        <textarea class="input" type="textarea" rows="5" placeholder="Your message here" formControlName="message"></textarea>
+      </div>
+      <div class="d-flex justify-content-center align-item-center py-3">
+        <button class="btn-addStock" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</ion-content>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ExtraLoginEmailInfo, UserStructure } from 'src/structures/user.structure';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, User, UserCredential } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User, UserCredential } from '@angular/fire/auth';
 import { addDoc, collection, deleteDoc, doc, DocumentReference, Firestore, getDoc, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { urls } from '../url';
+import { DataProviderService } from '../Data-Provider/data-provider.service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { urls } from '../url';
 export class AuthService {
 
   userDocument: DocumentReference;
-  constructor(private fs: Firestore, private auth: Auth, private router: Router) { }
+  constructor(private fs: Firestore, private auth: Auth, private router: Router, private dataprovider:DataProviderService) { }
 
   public loginWithEmailPassword(email: any, password: any) {
     return signInWithEmailAndPassword(this.auth, email, password).then((credentials: UserCredential) => {
@@ -59,6 +60,14 @@ export class AuthService {
 
   getRandomImage(): string {
     return 'https://avatars.dicebear.com/api/gridy/' + (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)) + '.svg';
+  }
+
+
+  public async logout() {
+    this.dataprovider.LoggedInUser = false;
+    this.dataprovider.user = '';
+
+    return await signOut(this.auth);
   }
 
 }

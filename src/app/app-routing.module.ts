@@ -90,7 +90,15 @@ const routes: Routes = [
   {
     path: 'qr-scan',
     loadChildren: () => import('./qr-scan/qr-scan.module').then( m => m.QrScanPageModule)
+  },  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
   },
+  {
+    path: 'contact-us',
+    loadChildren: () => import('./contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+  },
+
 
 ];
 

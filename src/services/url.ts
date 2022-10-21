@@ -4,6 +4,9 @@ export const urls = {
     stocks:`/stocks/`,
     stock:`/stocks/{STOCK_ID}/`,
     cart:`/cart/`,
-    billing:`/billing`
+    billing:`/billing`,
+    contactUs:`/contactUs`,
+    sales:`/sales`,
+    sale:`/sales`
 
 }

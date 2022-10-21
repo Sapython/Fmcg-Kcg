@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/services/Auth/auth.service';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginPage implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router:Router,private alertify:AlertsAndNotificationsService) { }
 
   ngOnInit() { }
 
@@ -22,7 +24,11 @@ export class LoginPage implements OnInit {
     if (this.loginForm.value.email == '') { alert('please enter your email'); return }
     if (this.loginForm.value.password == '') { alert('please enter your Password'); return }
 
-    this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password).then((res) => { console.log(res) }).catch((err) => { console.log(err) });
+    this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password).then((res) => { 
+      this.alertify.presentToast('Logged Successfully');
+      this.router.navigateByUrl("/");
+
+    }).catch((err) => { console.log(err) });
   }
 
 }
