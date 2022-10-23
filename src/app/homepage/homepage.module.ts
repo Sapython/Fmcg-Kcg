@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomepagePageRoutingModule } from './homepage-routing.module';
 
 import { HomepagePage } from './homepage.page';
-import { MostSoldCardComponent } from '../most-sold-card/most-sold-card.component';
+import { MostSoldCardComponent } from './most-sold-card/most-sold-card.component';
 import { ComponentModule } from '../component/component.module';
 
 @NgModule({

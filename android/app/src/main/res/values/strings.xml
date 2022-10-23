@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Fmcg-Kcg</string>
-    <string name="title_activity_main">Fmcg-Kcg</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">KCG</string>
+    <string name="title_activity_main">KCG</string>
+    <string name="package_name">com.shreeva.kcg</string>
+    <string name="custom_url_scheme">com.shreeva.kcg</string>
 </resources>

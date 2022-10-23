@@ -18,7 +18,6 @@ export class UserService {
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
-
       this.user.subscribe((user: any) => {
         if (user) {
           console.log(user)

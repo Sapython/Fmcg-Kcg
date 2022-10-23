@@ -1,11 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "Fmcg-Kcg",
+	"appId": "com.shreeva.kcg",
+	"appName": "KCG",
 	"webDir": "www",
-	"bundledWebRuntime": false,
-	"plugins": {
-		"CapacitorHttp": {
-			"enabled": true
-		}
-	}
+	"bundledWebRuntime": false
 }

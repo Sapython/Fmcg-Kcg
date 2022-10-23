@@ -12,21 +12,19 @@ export class HomepagePage implements OnInit {
 
   public sales:any[]=[];
   public dailySales:any[]=[]
-  loading:boolean = true;
-  @ViewChild('barCanvas') private barCanvas: ElementRef;
-  
+  loading:boolean = true;  
 
   barChart: any;
   doughnutChart: Chart;
   lineChart: Chart;
 
   constructor(public dataProvider: DataProviderService, public dataBase:DataBaseService) { 
-    Chart.register(...registerables);
+    // Chart.register(...registerables);
   }
 
   ngOnInit() {
     this.getDailySales() 
-    // this.salesHistory()
+    this.salesHistory()
     const ctx = document.getElementById('myChart')as HTMLCanvasElement;
     const myChart = new Chart(ctx, {
       type: 'bar',
@@ -106,45 +104,7 @@ export class HomepagePage implements OnInit {
   }
 
 
-  // barChartMethod() {
-  //   this.barChart = new Chart(this.barCanvas.nativeElement,{
-  //     type:'bar',
-  //     data:{
-  //       labels:[2017,2018,2019],
-  //       datasets:[{
-  //         barPercentage:0.8,
-  //         barThickness:'flex',
-  //         label:"type 1",
-  //         stack: "Base",
-  //         backgroundColor:"red",
-  //         data:[0,10,15,20,30]
-  //       },{
-  //         barPercentage:0.8,
-  //         barThickness:'flex',
-  //         label:"type 1",
-  //         stack: "Sensitivity",
-  //         backgroundColor:"blue",
-  //         data:[10,15,25,30,35]
-  //       }]
-  //     },
-  //     options:{
-  //       scales:{
-  //         screenY:{
-  //           ticks:{
-  //             yAxes: [{
-  //               type: 'linear',
-  //               ticks: {
-                  
-  //               },
-  //               scaleLabel: {
-  //                 labelString: 'Höhe',
-  //                 display: true
-  //               }
-  //             }]
-  //           }
-  //         }
-  //       }
-  //     }
-  //   })
-  // }
+  barChartMethod() {
+    
+  }
 }

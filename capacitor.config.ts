@@ -1,15 +1,10 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Fmcg-Kcg',
+  appId: 'com.shreeva.kcg',
+  appName: 'KCG',
   webDir: 'www',
-  bundledWebRuntime: false,
-  plugins:{
-    CapacitorHttp: {
-      enabled: true
-    }
-  }
+  bundledWebRuntime: false
 };
 
 export default config;

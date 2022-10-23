@@ -11,7 +11,8 @@ export class DataBaseService {
 
   storage = getStorage();
 
-  constructor(public fs: Firestore) { }
+  constructor(public fs: Firestore) {
+  }
 
   generateId() {
     return Math.floor(Math.random() * 100000000000000000);

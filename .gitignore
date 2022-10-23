@@ -1,8 +1,6 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
-\node_modules\
-
 *~
 *.sw[mnpcod]
 .tmp
@@ -25,23 +23,16 @@ npm-debug.log*
 /.sass-cache
 /.sourcemaps
 /.versions
-/.vscode
+/.vscode/*
+!/.vscode/extensions.json
 /coverage
 /dist
 /node_modules
 /platforms
 /plugins
 /www
-functions/node_modules/
-
 
 # Firebase
 .firebase
 *-debug.log
 .runtimeconfig.json
-
-# Firebase
-.firebase
-*-debug.log
-.runtimeconfig.json
-android/.idea/workspace.xml
