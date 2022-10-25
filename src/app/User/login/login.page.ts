@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
 
     this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password).then((res) => { 
       this.alertify.presentToast('Logged Successfully');
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/homepage");
 
     }).catch((err) => { console.log(err) });
   }

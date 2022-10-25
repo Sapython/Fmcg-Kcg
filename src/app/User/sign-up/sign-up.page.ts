@@ -31,8 +31,7 @@ export class SignUpPage implements OnInit {
       return
     }
     this.auth.signUpWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.username);
-    this.alertify.presentToast('Account created Successfully');
-    this.router.navigateByUrl("/")
+    
 
   }
 

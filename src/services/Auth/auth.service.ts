@@ -5,6 +5,7 @@ import { addDoc, collection, deleteDoc, doc, DocumentReference, Firestore, getDo
 import { Router } from '@angular/router';
 import { urls } from '../url';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
+import { AlertsAndNotificationsService } from '../uiService/alerts-and-notifications.service';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ import { DataProviderService } from '../Data-Provider/data-provider.service';
 export class AuthService {
 
   userDocument: DocumentReference;
-  constructor(private fs: Firestore, private auth: Auth, private router: Router, private dataprovider:DataProviderService) { }
+  constructor(private fs: Firestore, private auth: Auth, private router: Router, private dataprovider:DataProviderService, private alertify:AlertsAndNotificationsService) { }
 
   public loginWithEmailPassword(email: any, password: any) {
     return signInWithEmailAndPassword(this.auth, email, password).then((credentials: UserCredential) => {
@@ -31,7 +32,7 @@ export class AuthService {
         dateOfBirth: Date.now(),
         gender: '',
         address: ''
-      })
+      });
     }).catch((err) => {
       console.log(err)
     })
@@ -52,7 +53,8 @@ export class AuthService {
     }
     this.userDocument = doc(this.fs, urls.users + user.uid);
     await setDoc(this.userDocument, data).then(() => {
-      alert('userDataSet')
+      this.alertify.presentToast('Account created Successfully');
+      this.router.navigateByUrl("/homepage")
     });
 
     // this.router.navigate(['/all-products'])
