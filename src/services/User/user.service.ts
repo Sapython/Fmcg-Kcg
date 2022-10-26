@@ -13,11 +13,13 @@ export class UserService {
   public readonly user: Observable<User | null> = EMPTY;
   
   public loggedInUserData: Subject<any> = new Subject();
+
   public userdata:any;
   
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
+      console.log(this.user)
       this.user.subscribe((user: any) => {
         if (user) {
           console.log(user)
@@ -29,9 +31,15 @@ export class UserService {
         }
         else {
           this.dataProvider.LoggedInUser = false;
+          this.loggedInUserData.next(false)
         }
       })
     }
+    else{
+      alert('loggedout')
+      
+    }
+    
   }
 
 

@@ -5,12 +5,11 @@
   <div class="px-3 mt-4">
     <div class="d-flex align-items-center justify-content-center searchbar">
       <input (input)="debounceSearch($event)" type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">
-      <button class="filter-btn" trigger="open-modal" (willDismiss)="onWillDismiss($event)">Filter</button>
-      <ion-button id="open-modal" expand="block">Open</ion-button>
+      <button id="open-modal" class="filter-btn" expand="block">Filter</button>
     </div>
 
-    <div class="spin">
-      <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+    <div class="spin" *ngIf="loading">
+      <ion-spinner name="crescent" ></ion-spinner>
     </div>
 
     <app-stock-list-card *ngFor="let stock of this.filteredStocks.length>0 ? this.filteredStocks : stocks"

@@ -58,6 +58,7 @@ export class DataBaseService {
   public billing(USER_ID: any, data: any) {
     const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
     this.dailySales(data);
+    this.mainSales(data)
     return addDoc(collection(this.fs, billingUrl, urls.billing), data)
 
   }
@@ -67,6 +68,16 @@ export class DataBaseService {
     return getDocs(collection(this.fs, billingUrl, urls.billing))
   }
 
+  // Public
+  public allSales() {
+    return getDocs(collection(this.fs, urls.billing))
+  }
+
+  public mainSales(data) {
+    return addDoc(collection(this.fs, urls.billing),data)
+  }
+
+  // Contact us
   public contactUs(data) {
     return addDoc(collection(this.fs, urls.contactUs), data);
   }

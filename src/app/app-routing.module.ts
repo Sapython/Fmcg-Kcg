@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule),
+    // canActivate: [AuthGuard]
   },
   {
     path: 'flash-screen',
@@ -21,11 +23,12 @@ const routes: Routes = [
   },
   {
     path: 'sign-up',
-    loadChildren: () => import('./User/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+    loadChildren: () => import('./User/sign-up/sign-up.module').then( m => m.SignUpPageModule),
+    // canActivate: [AuthGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./User/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./User/profile/profile.module').then( m => m.ProfilePageModule),
   },
   {
     path: 'add-stock',
@@ -81,7 +84,8 @@ const routes: Routes = [
   },
   {
     path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
+    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule),
+    // canActivate: [AuthGuard]
   },
   {
     path: 'billing/:id',

@@ -26,7 +26,7 @@ export class ProfilePage implements OnInit {
   constructor(public dataProvider: DataProviderService, private userService: UserService,private router:Router,private alertify:AlertsAndNotificationsService) { }
 
   ngOnInit() {
-    this.updateUserForm.patchValue(this.dataProvider.user)
+    this.updateUserForm.patchValue(this.dataProvider.user);
   }
 
   

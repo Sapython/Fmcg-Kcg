@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataProviderService {
 
-  public LoggedInUser:any;
+  public LoggedInUser:boolean;
   public user:any;
   public cartData:any[] = [];
   public product:any;

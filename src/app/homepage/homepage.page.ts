@@ -11,6 +11,7 @@ import { DataBaseService } from 'src/services/dataBase/data-base.service';
 export class HomepagePage implements OnInit {
 
   public sales:any[]=[];
+  public allSales:any[]=[];
   public dailySales:any[]=[]
   loading:boolean = true;  
 
@@ -24,7 +25,8 @@ export class HomepagePage implements OnInit {
 
   ngOnInit() {
     this.getDailySales() 
-    this.salesHistory()
+    this.allSalesHistory() 
+    // this.mySalesHistory()
     const ctx = document.getElementById('myChart')as HTMLCanvasElement;
     const myChart = new Chart(ctx, {
       type: 'bar',
@@ -63,8 +65,8 @@ export class HomepagePage implements OnInit {
       },
     });
   }
-  public salesHistory() {
-    return this.dataBase.sales(this.dataProvider.user["userId"]).then((res) => {
+  public mySalesHistory() {
+    return this.dataBase.sales(this.dataProvider?.user["userId"]).then((res) => {
       res.forEach((element: any) => {
         this.sales.push({
           ...element.data(),
@@ -72,6 +74,18 @@ export class HomepagePage implements OnInit {
         });
       });
       console.log(this.sales);
+    }).finally(() => {this.loading=false});
+  }
+
+  public allSalesHistory() {
+    return this.dataBase.allSales().then((res) => {
+      res.forEach((element: any) => {
+        this.allSales.push({
+          ...element.data(),
+          id: element.id,
+        });
+      });
+      console.log(this.allSales);
     }).finally(() => {this.loading=false});
   }
 
