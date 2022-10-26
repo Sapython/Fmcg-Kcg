@@ -74,7 +74,7 @@ export class DataBaseService {
   }
 
   public mainSales(data) {
-    return addDoc(collection(this.fs, urls.billing),data)
+    return addDoc(collection(this.fs, urls.billing), data)
   }
 
   // Contact us
@@ -82,6 +82,7 @@ export class DataBaseService {
     return addDoc(collection(this.fs, urls.contactUs), data);
   }
 
+  // Sales Charts 
   public async dailySales(data: any,) {
     const date = new Date();
     const todayData = await getDocs(query(collection(this.fs, urls.sales), where('date', '==', date.toLocaleDateString())))
@@ -89,14 +90,12 @@ export class DataBaseService {
       updateDoc(doc(this.fs, urls.sale + '/' + todayData.docs[0].id), { sales: increment(1) })
     }
     else {
-       addDoc(collection(this.fs, urls.sales), { sales: 1, date: date.toLocaleDateString() })
+      addDoc(collection(this.fs, urls.sales), { sales: 1, date: date.toLocaleDateString() })
 
     }
   }
 
-
-
-  public getDailySales(){
+  public getDailySales() {
     return getDocs(collection(this.fs, urls.sales))
   }
 

@@ -20,7 +20,7 @@ export class HomepagePage implements OnInit {
   lineChart: Chart;
 
   constructor(public dataProvider: DataProviderService, public dataBase:DataBaseService) { 
-    // Chart.register(...registerables);
+    Chart.register(...registerables);
   }
 
   ngOnInit() {
@@ -102,23 +102,4 @@ export class HomepagePage implements OnInit {
     }).finally(() => {this.loading=false});
   }
 
-
-
-
-
-
-  ngAfterViewInit() {
-    // this.barChartMethod();
-
-  }
-
-
-  ionViewWillEnter(){
-    // this.barChartMethod()
-  }
-
-
-  barChartMethod() {
-    
-  }
 }
