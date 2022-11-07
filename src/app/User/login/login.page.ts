@@ -24,11 +24,7 @@ export class LoginPage implements OnInit {
     if (this.loginForm.value.email == '') { alert('please enter your email'); return }
     if (this.loginForm.value.password == '') { alert('please enter your Password'); return }
 
-    this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password).then((res) => { 
-      this.alertify.presentToast('Logged Successfully');
-      this.router.navigateByUrl("/homepage");
-
-    }).catch((err) => { console.log(err) });
+    this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password)
   }
 
 }

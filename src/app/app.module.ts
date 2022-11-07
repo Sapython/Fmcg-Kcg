@@ -25,6 +25,7 @@ import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 import { UserService } from 'src/services/User/user.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,12 @@ import { UserService } from 'src/services/User/user.service';
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideStorage(() => getStorage()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

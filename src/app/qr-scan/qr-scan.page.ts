@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import jsQR from 'jsqr';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Camera } from '@capacitor/camera'
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 @Component({
   selector: 'app-qr-scan',
@@ -117,7 +118,17 @@ export class QrScanPage implements OnInit {
   }
 
   ngOnInit() {
-    this.startScan();
+    Camera.checkPermissions().then((res)=>{
+      if (res){
+        this.startScan()
+      }
+    }).catch((err)=>{
+      console.log(err)
+      Camera.requestPermissions().then((res)=>{
+        console.log(res)
+      })
+    })
+    // this.startScan();
   }
   
 }
