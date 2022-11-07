@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Auth, authState, User } from '@angular/fire/auth';
 import { Firestore, collectionSnapshots, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { urls } from 'src/services/url';
 import { UserService } from 'src/services/User/user.service';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 
 @Component({
   selector: 'app-root',
@@ -18,10 +21,19 @@ export class AppComponent implements OnInit {
   public userr: Observable<User | null> = EMPTY;
   
   public loggedInUserData: Subject<any> = new Subject();
-  constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth) { }
+  constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform) { 
+    this.platform.backButton.subscribe(async (res:any)=>{
+      // alert("back:"+this.router.url)
+      if(this.router.url.startsWith('/stock-list')){
+        (document.querySelector('app-root') as HTMLElement).style.display = 'block';
+        BarcodeScanner.showBackground();
+        await BarcodeScanner.stopScan()
+      }
+      window.history.back();
+    })
+  }
  
   ngOnInit() {
-    
     this.loading=true;
     this.user.loggedInUserData.subscribe((value) => { 
       console.log('new', value)

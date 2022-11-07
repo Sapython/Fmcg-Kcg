@@ -22,7 +22,7 @@ export class UserService {
       console.log(this.user)
       this.user.subscribe((user: any) => {
         console.log(user)
-        alert("User auth state changed")
+        // alert("User auth state changed")
         if (user) {
           console.log(user)
           this.dataProvider.LoggedInUser = true;

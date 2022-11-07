@@ -14,7 +14,7 @@ import QrCreator from 'qr-creator';
 })
 export class QrPagePage implements OnInit {
   product:any;
-  constructor(public dataProvider:DataProviderService,private activatedRoute:ActivatedRoute,private alertify:AlertsAndNotificationsService,private stokcService:StocksService) { }
+  constructor(public dataProvider:DataProviderService,private activatedRoute:ActivatedRoute,private alertify:AlertsAndNotificationsService,private stockService:StocksService) { }
 
   ngOnInit() {
     console.log(this.dataProvider.product)
@@ -23,14 +23,19 @@ export class QrPagePage implements OnInit {
     this.activatedRoute.params.subscribe((res)=>{
       if(!this.dataProvider.product){
         if (res.productId){
-          this.stokcService.getStock(res.productId).then((res)=>{
+          this.stockService.getStock(res.productId).then((res)=>{
             this.product = res.data()
           }).finally(()=>{
+            alert("Generating QR Code")
             this.generateQr(res.productId)
           })
         } else {
           this.alertify.presentToast('No product found','error')
         }
+      } else {
+        this.product = this.dataProvider.product
+        // alert("Generating QR Code 2"+this.dataProvider.product.id)
+        this.generateQr(this.dataProvider.product.id)
       }
     })
   }
@@ -41,8 +46,11 @@ export class QrPagePage implements OnInit {
     },300)
   }
   skip(){}
-  editProduct(){}
+  editProduct(){
+    
+  } 
   generateQr(id){
+    
     QrCreator.render({
       text: id,
       radius: 0.1, // 0.0 to 0.5

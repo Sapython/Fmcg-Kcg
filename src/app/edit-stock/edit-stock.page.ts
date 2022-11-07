@@ -45,7 +45,7 @@ export class EditStockPage implements OnInit {
     this.stock.getStock(this.stockId).then((res)=>{
       this.editstockForm.patchValue(res.data());
       this.alertify.presentToast('Stock updated Successfully');
-      this.nav.navigateByUrl("/")
+      // this.nav.navigateByUrl("/")
     })
   }
 }

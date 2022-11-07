@@ -11,10 +11,21 @@ import { UserService } from 'src/services/User/user.service';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-  public stockId = this.router.snapshot.paramMap.get('id');
+  public stockId = '';
   public currentStockData : any;
   @Output() addToCart: EventEmitter<any> = new EventEmitter(); 
-  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService, public dataBase:DataBaseService, public router:ActivatedRoute) { }
+  constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService, public dataBase:DataBaseService, public router:ActivatedRoute) {
+    this.router.params.subscribe((params) => {
+      // alert("Changed route "+params.id);
+      this.stockId = params.id;
+      this.getStock();
+      this.ionViewDidLoad()
+    })
+  }
+
+  ionViewDidLoad(){
+    // alert(window.location.href);
+  }
 
   ngOnInit() {
     this.getStock()

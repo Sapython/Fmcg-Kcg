@@ -9,27 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/capacitor.build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/capacitor.build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml.orig" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml.orig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/assets/scss/Responsive.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capacitor.settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor.settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/User/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/User/login/login.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/User/sign-up/sign-up.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/User/sign-up/sign-up.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/homepage/homepage.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/homepage/homepage.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/edit-stock/edit-stock.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/edit-stock/edit-stock.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/qr-page/qr-page.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/qr-page/qr-page.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/qr-page/qr-page.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/qr-page/qr-page.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/qr-scan/qr-scan.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/qr-scan/qr-scan.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/settings/settings.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/settings/settings.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/services/Auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/Auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/services/User/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/User/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
