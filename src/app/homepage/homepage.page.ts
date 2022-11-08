@@ -1,7 +1,21 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { Chart, registerables } from 'chart.js';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
+import { Camera } from '@capacitor/camera';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Router } from '@angular/router';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
+import { ThermalPrinterPlugin } from 'thermal-printer-cordova-plugin/src';
+
+declare let ThermalPrinter: ThermalPrinterPlugin;
 
 @Component({
   selector: 'app-homepage',
@@ -9,100 +23,178 @@ import { DataBaseService } from 'src/services/dataBase/data-base.service';
   styleUrls: ['./homepage.page.scss'],
 })
 export class HomepagePage implements OnInit {
-
-  public sales:any[]=[];
-  public allSales:any[]=[];
-  public dailySales:any[]=[]
-  loading:boolean = true;  
+  public sales: any[] = [];
+  public allSales: any[] = [];
+  public dailySales: any[] = [];
+  loading: boolean = true;
 
   barChart: any;
   doughnutChart: Chart;
   lineChart: Chart;
 
-  constructor(public dataProvider: DataProviderService, public dataBase:DataBaseService) { 
-    // Chart.register(...registerables);
+  constructor(
+    public dataProvider: DataProviderService,
+    public dataBase: DataBaseService,
+    private router: Router,
+    private alertify: AlertsAndNotificationsService
+  ) {
+    Chart.register(...registerables);
   }
 
   ngOnInit() {
-    this.getDailySales() 
-    this.allSalesHistory() 
+    this.getDailySales();
+    this.allSalesHistory();
     // this.mySalesHistory()
-    // const ctx = document.getElementById('myChart')as HTMLCanvasElement;
-    // const myChart = new Chart(ctx, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    //     datasets: [
-    //       {
-    //         label: '# of Votes',
-    //         data: [12, 19, 3, 5, 2, 3],
-    //         backgroundColor: [
-    //           'rgba(255, 99, 132, 0.2)',
-    //           'rgba(54, 162, 235, 0.2)',
-    //           'rgba(255, 206, 86, 0.2)',
-    //           'rgba(75, 192, 192, 0.2)',
-    //           'rgba(153, 102, 255, 0.2)',
-    //           'rgba(255, 159, 64, 0.2)',
-    //         ],
-    //         borderColor: [
-    //           'rgba(255, 99, 132, 1)',
-    //           'rgba(54, 162, 235, 1)',
-    //           'rgba(255, 206, 86, 1)',
-    //           'rgba(75, 192, 192, 1)',
-    //           'rgba(153, 102, 255, 1)',
-    //           'rgba(255, 159, 64, 1)',
-    //         ],
-    //         borderWidth: 1,
-    //       },
-    //     ],
-    //   },
-    //   options: {
-    //     scales: {
-    //       y: {
-    //         beginAtZero: true,
-    //       },
-    //     },
-    //   },
-    // });
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          '10-10-12',
+          '22-10-12',
+          '22-10-12',
+          '30-10-12',
+          '3-11-12',
+          '6-11-12',
+        ],
+        datasets: [
+          {
+            label: 'No. of Sales',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+    setTimeout(()=>{this.initPrinting()},5000)
   }
   public mySalesHistory() {
-    return this.dataBase.sales(this.dataProvider?.user["userId"]).then((res) => {
-      res.forEach((element: any) => {
-        this.sales.push({
-          ...element.data(),
-          id: element.id,
+    return this.dataBase
+      .sales()
+      .then((res) => {
+        res.forEach((element: any) => {
+          this.sales.push({
+            ...element.data(),
+            id: element.id,
+          });
         });
+        console.log(this.sales);
+      })
+      .finally(() => {
+        this.loading = false;
       });
-      console.log(this.sales);
-    }).finally(() => {this.loading=false});
   }
 
   public allSalesHistory() {
-    return this.dataBase.allSales().then((res) => {
-      res.forEach((element: any) => {
-        this.allSales.push({
-          ...element.data(),
-          id: element.id,
+    return this.dataBase
+      .allSales()
+      .then((res) => {
+        res.forEach((element: any) => {
+          this.allSales.push({
+            ...element.data(),
+            id: element.id,
+          });
         });
+        console.log(this.allSales);
+      })
+      .finally(() => {
+        // alert("Loaded "+this.allSales.length)
+        this.loading = false;
       });
-      console.log(this.allSales);
-    }).finally(() => {
-      // alert("Loaded "+this.allSales.length)
-      this.loading=false
-    });
   }
-
 
   public getDailySales() {
-    return this.dataBase.getDailySales().then((res) => {
-      res.forEach((element: any) => {
-        this.dailySales.push({
-          ...element.data(),
-          id: element.id,
+    return this.dataBase
+      .getDailySales()
+      .then((res) => {
+        res.forEach((element: any) => {
+          this.dailySales.push({
+            ...element.data(),
+            id: element.id,
+          });
+        });
+        console.log(this.dailySales);
+      })
+      .finally(() => {
+        this.loading = false;
+      });
+  }
+  globalSearch() {
+    Camera.checkPermissions()
+      .then(async (res) => {
+        if (res) {
+          const startScan = async () => {
+            // Check camera permission
+            // This is just a simple example, check out the better checks below
+            await BarcodeScanner.checkPermission({ force: true });
+
+            // make background of WebView transparent
+            // note: if you are using ionic this might not be enough, check below
+            (document.querySelector('app-root') as HTMLElement).style.display =
+              'none';
+            BarcodeScanner.hideBackground();
+
+            const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
+
+            // if the result has content
+            if (result.hasContent) {
+              console.log(result.content); // log the raw scanned content
+              this.router.navigateByUrl('product-details/' + result.content);
+              await Haptics.impact({ style: ImpactStyle.Heavy });
+              this.alertify.presentToast('Product Found');
+              (
+                document.querySelector('app-root') as HTMLElement
+              ).style.display = 'block';
+              BarcodeScanner.showBackground();
+              await BarcodeScanner.stopScan();
+            }
+          };
+          await startScan();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        Camera.requestPermissions().then((res) => {
+          console.log(res);
         });
       });
-      console.log(this.dailySales);
-    }).finally(() => {this.loading=false});
+    // this.startScan();
   }
 
+  initPrinting() {
+    ThermalPrinter.listPrinters(
+      { type: 'bluetooth' },
+      (printers) => {
+        console.log(printers);
+        alert(printers.length);
+        alert(printers.join(' ,'));
+      },
+      (error) => {
+        console.error('Ups, we cant list the printers!', error);
+      }
+    );
+  }
 }

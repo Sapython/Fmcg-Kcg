@@ -63,14 +63,17 @@ export class DataBaseService {
 
   }
 
-  public sales(USER_ID: any) {
-    const billingUrl = urls.user.replace('{USER_ID}', USER_ID,);
-    return getDocs(collection(this.fs, billingUrl, urls.billing))
+  public sales() {
+    return getDocs(collection(this.fs, urls.billing))
   }
 
   // Public
   public allSales() {
     return getDocs(collection(this.fs, urls.billing))
+  }
+
+  getSales(id){
+    return getDoc(doc(this.fs, urls.billing+'/'+id))
   }
 
   public mainSales(data) {

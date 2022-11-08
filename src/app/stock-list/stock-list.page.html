@@ -11,7 +11,7 @@
     <div class="spin" *ngIf="loading">
       <ion-spinner name="crescent" ></ion-spinner>
     </div>
-
+    <p>Showing {{this.filteredStocks.length>0 ? 'filtered' : 'all'}} stocks</p>
     <app-stock-list-card *ngFor="let stock of this.filteredStocks.length>0 ? this.filteredStocks : stocks"
       [img]="stock?.img" [Name]="stock?.Name" [Price]="stock?.Price" [Id]="stock?.id"></app-stock-list-card>
   </div>

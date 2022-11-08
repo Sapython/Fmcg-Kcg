@@ -1,16 +1,13 @@
 <app-header title="Sales History"></app-header>
-
 <ion-content>
   <div class="px-3 mt-4">
     <div class="d-flex align-items-center justify-content-center searchbar">
       <input type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product" (input)="debounceSearch($event)" >
       <button class="filter-btn">Filter</button>
     </div>
-    
     <div class="spin" *ngIf="loading">
       <ion-spinner name="crescent" ></ion-spinner>
     </div>
-    <app-sales-card  *ngFor="let sale of this.filteredsales.length>0 ? this.filteredsales : sales"  [Name]="sale?.Name" [img]="sale?.img" [Quantity]="sale?.Quality" [id]="sale?.productId"></app-sales-card>
+    <app-sales-card  *ngFor="let sale of this.filteredsales.length>0 ? this.filteredsales : sales" [Id]="sale.id" [Name]="sale?.Name" [img]="sale?.img" [Quantity]="sale?.Quality"></app-sales-card>
   </div>
-
 </ion-content>

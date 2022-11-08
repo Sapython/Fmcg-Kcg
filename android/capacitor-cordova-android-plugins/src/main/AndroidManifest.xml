@@ -5,5 +5,7 @@ xmlns:amazon="http://schemas.amazon.com/apk/res/android">
 <application  >
 
 </application>
-
+<uses-feature android:name="android.hardware.usb.host"/>
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

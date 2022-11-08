@@ -33,11 +33,11 @@
 
 
   <div class="d-flex align-items-center justify-content-between px-3">
-    <div class="homeCard">
+    <div class="homeCard" routerLink="/add-stock">
       <div class="outer-img">
         <img src="assets/illustrations/addStock.png" alt="">
       </div>
-      <div class="Nunito500 fs-16 pt-2" routerLink="/add-stock">Add stock</div>
+      <b class="Nunito500 fs-16 pt-2">Add stock</b>
     </div>
     <div class="homeCard" routerLink="../stock-list">
       <div class="outer-img">
@@ -55,7 +55,7 @@
 
 
   <div class="p-3">
-    <canvas id="myChart" ></canvas>
+    <canvas id="myChart"></canvas>
   </div>
 
   <div class="d-flex justify-content-between align-items-center px-3 mt-4">
@@ -83,8 +83,23 @@
     <!-- <div class="spin">
       <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
     </div> -->
-    <app-sales-card  *ngFor="let sale of allSales"  [Name]="sale?.Name" [img]="sale?.img" [Quantity]="sale?.Quality" [id]="sale?.productId"></app-sales-card>
+    <app-sales-card *ngFor="let sale of allSales" [Id]="sale.id" [Name]="sale?.Name" [img]="sale?.img" [Quantity]="sale?.Quality"
+      [id]="sale?.productId"></app-sales-card>
   </div>
-
-  
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary" routerLink="/add-stock">
+        <ion-icon name="cube"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" routerLink="/sales-history">
+        <ion-icon name="wallet"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" (click)="globalSearch()">
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

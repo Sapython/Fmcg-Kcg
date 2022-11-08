@@ -51,6 +51,7 @@ dependencies {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "cordova.variables.gradle"
+apply from: "../../node_modules/thermal-printer-cordova-plugin/src/android/build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 for (def func : cdvPluginPostBuildExtras) {

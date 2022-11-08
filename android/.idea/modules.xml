@@ -19,6 +19,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-96901089/android.capacitor-camera.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1112439507/android.capacitor-community-barcode-scanner.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.iml" filepath="$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.main.iml" filepath="$PROJECT_DIR$/.idea/modules/capacitor-cordova-android-plugins/android.capacitor-cordova-android-plugins.main.iml" />
@@ -35,6 +39,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142962510/android.capacitor-status-bar.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.iml" filepath="$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.main.iml" filepath="$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/211435230/android.codetrix-studio-capacitor-google-auth.unitTest.iml" />
     </modules>
   </component>
 </project>

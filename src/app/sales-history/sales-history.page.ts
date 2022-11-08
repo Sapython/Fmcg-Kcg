@@ -51,7 +51,7 @@ export class SalesHistoryPage implements OnInit {
   }
 
   salesHistory() {
-    return this.dataBase.sales(this.dataProvider.user["userId"]).then((res) => {
+    return this.dataBase.sales().then((res) => {
       res.forEach((element: any) => {
         this.sales.push({
           ...element.data(),
