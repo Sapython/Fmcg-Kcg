@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithCredential,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signInWithRedirect,
   signOut,
   User,
@@ -44,9 +45,8 @@ export class AuthService {
     private router: Router,
     private dataprovider: DataProviderService,
     private alertify: AlertsAndNotificationsService,
-    private platform: Platform,
-
-  ) { }
+    private platform: Platform
+  ) {}
 
   public loginWithEmailPassword(email: any, password: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
@@ -142,71 +142,116 @@ export class AuthService {
 
   public async signUpwithGoogle() {
     if (this.platform.is('capacitor')) {
+      alert('Capacitor')
       GoogleAuth.signIn()
         .then((googleUser: any) => {
           const credential = GoogleAuthProvider.credential(
             googleUser.authentication.idToken,
             googleUser.authentication.accessToken
           );
-          signInWithCredential(this.auth, credential).then((credentials: UserCredential) => {
-            console.log("Credentials ", credentials);
-            getDoc(doc(this.fs, urls.users + credentials.user.uid)).then((userDocument: any) => {
-              if (!userDocument.exists()) {
-
-                if (credentials.user.phoneNumber == null) {
-                  this.setEmailUserData(credentials.user, {
-                    phoneNumber: '',
-                    photoURL: '',
-                    displayName: '',
-                    dateOfBirth: Date.now(),
-                    gender: '',
-                    address: '',
-                  }).then(() => {
+          signInWithCredential(this.auth, credential)
+            .then((credentials: UserCredential) => {
+              console.log('Credentials ', credentials);
+              getDoc(doc(this.fs, urls.users + credentials.user.uid))
+                .then((userDocument: any) => {
+                  if (!userDocument.exists()) {
+                    this.setEmailUserData(credentials.user, {
+                      phoneNumber: credentials.user.phoneNumber,
+                      photoURL: credentials.user.photoURL,
+                      displayName: credentials.user.displayName,
+                      dateOfBirth: Date.now(),
+                      gender: '',
+                      address: '',
+                    }).then(() => {
+                      this.router.navigate(['']);
+                    });
+                  } else {
+                    this.alertify.presentToast(
+                      'Logged In.',
+                      'info',
+                      5000,
+                      [],
+                      true,
+                      ''
+                    );
                     this.router.navigate(['']);
-                  });;
-                }
-              } else {
-                this.alertify.presentToast('Logged In.', 'info', 5000, [], true, '');
-                this.router.navigate(['']);
-              }
-            }).catch((error) => {
-              console.log('ErrorCatched getting data', error);
-              this.alertify.presentToast(error.message, 'error', 5000, [], true, '');;
+                  }
+                })
+                .catch((error) => {
+                  console.log('ErrorCatched getting data', error);
+                  this.alertify.presentToast(
+                    error.message,
+                    'error',
+                    5000,
+                    [],
+                    true,
+                    ''
+                  );
+                });
             })
-          })
             .catch((error) => {
               console.log('ErrorCatched authorizing', error);
-              this.alertify.presentToast(error.message, 'error', 5000, [], true, '');
+              this.alertify.presentToast(
+                error.message,
+                'error',
+                5000,
+                [],
+                true,
+                ''
+              );
             });
         })
         .catch((error) => {
           console.log('ErrorCatched', error);
-          this.alertify.presentToast(error.message, 'error', 5000, [], true, '');
+          this.alertify.presentToast(
+            error.message,
+            'error',
+            5000,
+            [],
+            true,
+            ''
+          );
         });
-    }else {
-      const gauth = new GoogleAuthProvider()
-      signInWithRedirect(this.auth,gauth).then((credentials:UserCredential)=>{
-        console.log("Credentials ",credentials);
-        getDoc(doc(this.fs, urls.users + credentials.user.uid)).then((userDocument:any)=>{
-          if (!userDocument.exists()) {
-
-              this.setEmailUserData(credentials.user, {
-                phoneNumber: '',
-                photoURL: '',
-                displayName: '',
-                dateOfBirth: Date.now(),
-                gender: '',
-                address: '',
-              }).then(()=>{
-                this.router.navigate(['/homepage']);
-              });
-            }
-           
-        }).catch((error)=>{
-          console.log('ErrorCatched getting data',error);
-          this.alertify.presentToast(error.message, 'error', 5000, [], true, '');  ;
-        })
-      })
+    } else {
+      alert('Web')
+      const gauth = new GoogleAuthProvider();
+      signInWithPopup(this.auth, gauth).then(
+        (credentials: UserCredential) => {
+          console.log('Credentials ', credentials);
+          alert(credentials.user.uid);
+          getDoc(doc(this.fs, urls.users + credentials.user.uid))
+            .then((userDocument: any) => {
+              if (!userDocument.exists()) {
+                this.setEmailUserData(credentials.user, {
+                  phoneNumber: credentials.user.phoneNumber,
+                  photoURL: credentials.user.photoURL,
+                  displayName: credentials.user.displayName,
+                  dateOfBirth: Date.now(),
+                  gender: '',
+                  address: '',
+                }).then(() => {
+                  this.router.navigate(['/homepage']);
+                });
+              }
+            })
+            .catch((error) => {
+              console.log('ErrorCatched getting data', error);
+              this.alertify.presentToast(
+                error.message,
+                'error',
+                5000,
+                [],
+                true,
+                ''
+              );
+            });
+        }
+      ).catch((error) => {
+        alert(error.message);
+        alert('Error when signing in')
+      }).finally(() => {
+        alert('Finally')
+      });
     }
   }
 }
