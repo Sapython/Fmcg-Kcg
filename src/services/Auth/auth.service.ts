@@ -6,7 +6,10 @@ import {
 import {
   Auth,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithCredential,
   signInWithEmailAndPassword,
+  signInWithRedirect,
   signOut,
   User,
   UserCredential,
@@ -27,6 +30,8 @@ import { Router } from '@angular/router';
 import { urls } from '../url';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { AlertsAndNotificationsService } from '../uiService/alerts-and-notifications.service';
+import { Platform } from '@ionic/angular';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 @Injectable({
   providedIn: 'root',
@@ -38,8 +43,10 @@ export class AuthService {
     private auth: Auth,
     private router: Router,
     private dataprovider: DataProviderService,
-    private alertify: AlertsAndNotificationsService
-  ) {}
+    private alertify: AlertsAndNotificationsService,
+    private platform: Platform,
+
+  ) { }
 
   public loginWithEmailPassword(email: any, password: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
@@ -51,7 +58,7 @@ export class AuthService {
         this.router.navigateByUrl('/homepage');
       })
       .catch((err) => {
-        console.log(err); 
+        console.log(err);
         alert(err.message);
       });
   }
@@ -95,6 +102,28 @@ export class AuthService {
     // this.router.navigate(['/all-products'])
   }
 
+  public async setGoogleUserData(user: User, userData: ExtraLoginEmailInfo) {
+    let data: UserStructure = {
+      userId: user.uid || '',
+      email: user.email || '',
+      displayName: userData.displayName || '',
+      photoURL: userData.photoURL || this.getRandomImage(),
+      phoneNumber: userData.phoneNumber || '',
+      emailVerified: true,
+      access: { access: 'user' },
+      dateOfBirth: userData.dateOfBirth,
+      gender: userData.gender || '',
+      address: userData.address || '',
+    };
+    this.userDocument = doc(this.fs, urls.users + user.uid);
+    await setDoc(this.userDocument, data).then(() => {
+      this.alertify.presentToast('Account created Successfully');
+      this.router.navigateByUrl('/homepage');
+    });
+
+    // this.router.navigate(['/all-products'])
+  }
+
   getRandomImage(): string {
     return (
       'https://avatars.dicebear.com/api/gridy/' +
@@ -109,5 +138,75 @@ export class AuthService {
     this.dataprovider.user = undefined;
 
     return await signOut(this.auth);
+  }
+
+  public async signUpwithGoogle() {
+    if (this.platform.is('capacitor')) {
+      GoogleAuth.signIn()
+        .then((googleUser: any) => {
+          const credential = GoogleAuthProvider.credential(
+            googleUser.authentication.idToken,
+            googleUser.authentication.accessToken
+          );
+          signInWithCredential(this.auth, credential).then((credentials: UserCredential) => {
+            console.log("Credentials ", credentials);
+            getDoc(doc(this.fs, urls.users + credentials.user.uid)).then((userDocument: any) => {
+              if (!userDocument.exists()) {
+
+                if (credentials.user.phoneNumber == null) {
+                  this.setEmailUserData(credentials.user, {
+                    phoneNumber: '',
+                    photoURL: '',
+                    displayName: '',
+                    dateOfBirth: Date.now(),
+                    gender: '',
+                    address: '',
+                  }).then(() => {
+                    this.router.navigate(['']);
+                  });;
+                }
+              } else {
+                this.alertify.presentToast('Logged In.', 'info', 5000, [], true, '');
+                this.router.navigate(['']);
+              }
+            }).catch((error) => {
+              console.log('ErrorCatched getting data', error);
+              this.alertify.presentToast(error.message, 'error', 5000, [], true, '');;
+            })
+          })
+            .catch((error) => {
+              console.log('ErrorCatched authorizing', error);
+              this.alertify.presentToast(error.message, 'error', 5000, [], true, '');
+            });
+        })
+        .catch((error) => {
+          console.log('ErrorCatched', error);
+          this.alertify.presentToast(error.message, 'error', 5000, [], true, '');
+        });
+    }else {
+      const gauth = new GoogleAuthProvider()
+      signInWithRedirect(this.auth,gauth).then((credentials:UserCredential)=>{
+        console.log("Credentials ",credentials);
+        getDoc(doc(this.fs, urls.users + credentials.user.uid)).then((userDocument:any)=>{
+          if (!userDocument.exists()) {
+
+              this.setEmailUserData(credentials.user, {
+                phoneNumber: '',
+                photoURL: '',
+                displayName: '',
+                dateOfBirth: Date.now(),
+                gender: '',
+                address: '',
+              }).then(()=>{
+                this.router.navigate(['/homepage']);
+              });
+            }
+           
+        }).catch((error)=>{
+          console.log('ErrorCatched getting data',error);
+          this.alertify.presentToast(error.message, 'error', 5000, [], true, '');  ;
+        })
+      })
+    }
   }
 }

@@ -8,6 +8,7 @@ import { DataProviderService } from 'src/services/Data-Provider/data-provider.se
 import { urls } from 'src/services/url';
 import { UserService } from 'src/services/User/user.service';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 
 @Component({
@@ -22,6 +23,14 @@ export class AppComponent implements OnInit {
   
   public loggedInUserData: Subject<any> = new Subject();
   constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform) { 
+   
+   
+    GoogleAuth.initialize({
+      clientId: '690627613189-fglnifb9ggsg8qgrb1s17otedqhfm08h.apps.googleusercontent.com',
+      scopes: ['profile', 'email'],
+    });
+
+
     this.platform.backButton.subscribe(async (res:any)=>{
       // alert("back:"+this.router.url)
       if(this.router.url.startsWith('/stock-list')){
@@ -66,4 +75,6 @@ export class AppComponent implements OnInit {
   private getUser(uid:any) {
     this.user.getUser(uid).then((res:any) => { this.dataProvider.user = res.data(); console.log(this.dataProvider.user)})
   }
+  
+
 }

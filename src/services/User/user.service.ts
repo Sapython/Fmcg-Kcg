@@ -19,15 +19,12 @@ export class UserService {
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
-      console.log(this.user)
+      // console.log(this.user)
       this.user.subscribe((user: any) => {
-        console.log(user)
-        // alert("User auth state changed")
+        // console.log(user)
         if (user) {
-          console.log(user)
           this.dataProvider.LoggedInUser = true;
           this.dataProvider.user = user;
-          // this.userdata = user
           this.loggedInUserData.next(user)
           console.log(this.dataProvider.user)
         }

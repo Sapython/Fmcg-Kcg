@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private auth: AuthService, private router:Router,private alertify:AlertsAndNotificationsService) { }
+  constructor(public auth: AuthService, private router:Router,private alertify:AlertsAndNotificationsService) { }
 
   ngOnInit() { }
 
