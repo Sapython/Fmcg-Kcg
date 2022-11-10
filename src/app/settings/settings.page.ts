@@ -13,8 +13,8 @@ import { UserService } from 'src/services/User/user.service';
 export class SettingsPage implements OnInit {
 
   result: string;
-  constructor(public dataprovider:DataProviderService, private actionSheetCtrl: ActionSheetController, private router:Router, private auth:AuthService) { }
-
+  constructor(public dataProvider:DataProviderService, private actionSheetCtrl: ActionSheetController, private router:Router, private auth:AuthService) { }
+  imageLoaded: boolean = false;
   ngOnInit() {
   }
 

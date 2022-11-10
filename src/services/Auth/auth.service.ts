@@ -106,7 +106,7 @@ export class AuthService {
 
   public async logout() {
     this.dataprovider.LoggedInUser = false;
-    this.dataprovider.user = '';
+    this.dataprovider.user = undefined;
 
     return await signOut(this.auth);
   }

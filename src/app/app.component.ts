@@ -64,6 +64,6 @@ export class AppComponent implements OnInit {
   }
 
   private getUser(uid:any) {
-    this.user.getUser(uid).then((res) => { this.dataProvider.user = res.data(); console.log(this.dataProvider.user)})
+    this.user.getUser(uid).then((res:any) => { this.dataProvider.user = res.data(); console.log(this.dataProvider.user)})
   }
 }

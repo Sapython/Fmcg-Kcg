@@ -1,0 +1,26 @@
+<app-header title="Printer Settings"></app-header>
+<ion-content>
+  <form>
+    <ion-item>
+      <ion-label>Printer Type</ion-label>
+      <ion-select [value]="currentPrinterType" multiple="false" (ionChange)="ngOnInit()" placeholder="Select Printer Type">
+        <ion-select-option value="bluetooth">Bluetooth</ion-select-option>
+        <ion-select-option value="usb">USB</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-spinner name="crescent" color="primary" *ngIf="loading"></ion-spinner>
+    </ion-row>
+    <ion-item *ngIf="!loading">
+      <ion-label>Printer</ion-label>
+      <ion-select [value]="currentPrinter" (ionChange)="setPrinter($event)" multiple="false" placeholder="Select Printer">
+        <ion-select-option [value]="printer" *ngFor="let printer of printers">{{printer.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+    </ion-row>
+  </form>
+  <ion-button (click)="testPrint()" expand="block" fill="clear" shape="round">
+    Test Print
+  </ion-button>
+</ion-content>

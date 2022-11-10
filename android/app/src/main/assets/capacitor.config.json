@@ -2,5 +2,8 @@
 	"appId": "com.shreeva.kcg",
 	"appName": "KCG",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.29.228:8101"
+	}
 }

@@ -1,51 +1,43 @@
 <app-header title="Settings"></app-header>
-
-
 <ion-content>
-  <div class="w-100">
-    <div class="d-flex align-items-center w-100 p-3 mt-3">
-      <ion-avatar>
-        <img width="40px" src="{{this.dataprovider?.user?.photoURL}}" alt="">
-      </ion-avatar>
-      <div class="Nunito600 fs-18 ms-2">{{this.dataprovider?.user?.displayName}}</div>
-    </div>
-    <div class="border my-2"></div>
-    <div class="w-100 px-3">
-      <div class="Nunito700 t-lightGrey fs-18">Account Settings</div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3" routerLink="/profile">
-        <div>Edit profile</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3" routerLink="/notication">
-        <div>Push notication</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-    </div>
-    <div class="border my-2"></div>
-    <div class="w-100 px-3">
-      <div class="Nunito700 t-lightGrey fs-18">More</div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
-        <div>About us</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
-        <div>FAQ</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
-        <div >Contact Us</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
-        <div>Clear User Data</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-      <div class="d-flex justify-content-between align-item-center Nunito400 py-3">
-        <div>Terms and conditions</div>
-        <div uk-icon="icon: chevron-right"></div>
-      </div>
-    </div>
-    <div class="px-3 logoutBtn Nunito700 t-blue fs-18" (click)="logoutPopUp()">
-      <span uk-icon="icon: sign-out"></span> Logout</div>
-  </div>
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-spinner name="crescent" *ngIf="!imageLoaded"></ion-spinner>
+      <img [src]="dataProvider.user?.photoURL" (load)="imageLoaded=true" />
+    </ion-avatar>
+    <ion-label>{{dataProvider.user?.displayName || dataProvider.user?.email}}</ion-label>
+  </ion-item>
+  <ion-list>
+    <h4>&nbsp;&nbsp;Account Settings</h4>
+    <ion-item detail lines="none" button>
+      <ion-label>Edit Profile</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button>
+      <ion-label>Push Notifications</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button routerLink="../printer-settings">
+      <ion-label>Printer Settings</ion-label>
+    </ion-item>
+    <hr>
+    <h4>&nbsp;&nbsp;More</h4>
+    <ion-item detail lines="none" button>
+      <ion-label>About Us</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button>
+      <ion-label>FAQ</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button>
+      <ion-label>Contact Us</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button>
+      <ion-label>Privacy Policy</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" button>
+      <ion-label>Terms And Conditions</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="logoutPopUp()" color="danger" expand="block" fill="clear" shape="round">
+    <ion-icon slot="start" name="log-out"></ion-icon>
+    Logout
+  </ion-button>
 </ion-content>
