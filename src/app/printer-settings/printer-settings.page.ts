@@ -54,58 +54,51 @@ export class PrinterSettingsPage implements OnInit {
   }
 
   testPrint() {
-    alert(JSON.stringify(this.currentPrinter));
-    alert(BluetoothSerial.connectInsecure)
-    BluetoothSerial
-    .connectInsecure({
-      address: this.currentPrinter.address, 
-    })
-    .then(() => {
-      console.log('Successfully connected')
-      alert("Connected")
-    })
-    .catch(() => {
-      console.log('Error connecting...');
-      alert("Error connecting")
-    });
-    alert("Ran")
+    alert(JSON.stringify(this.currentPrinter))
+    alert(this.currentPrinterType)
+    alert(JSON.stringify( {
+      type: this.currentPrinterType,
+      id: this.currentPrinter.address,
+      text: `[C]<u><font size='big'>Hello World</font></u>\n`,
+    }))
     ThermalPrinter.printFormattedText(
       {
         type: this.currentPrinterType,
-        id: this.currentPrinter.id,
-        address: this.currentPrinter.address,
-        text: `[C]<u><font size='big'>Hello World</font></u>' // new lines with "\n`,
+        id: this.currentPrinter.address,
+        dotsFeedPaper:500,
+        mmFeedPaper:80,
+        text: "[C]<u><font size='big'>Hello World</font></u>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
       },
-      function () {
+      ()=>{
         console.log('Successfully printed!');
       },
-      function (error) {
+      (error)=>{
         console.error('Printing error', error);
         alert('Print error ' + error.error);
       }
     );
-    ThermalPrinter.requestPermissions(
-      this.currentPrinter,
-      (callback) => {
-        alert('Got permission');
-        ThermalPrinter.printFormattedText(
-          {
-            type: this.currentPrinterType,
-            id: this.currentPrinter.id,
-            text: `[C]<u><font size='big'>Hello World</font></u>' // new lines with "\n`,
-          },
-          function () {
-            console.log('Successfully printed!');
-          },
-          function (error) {
-            console.error('Printing error', error);
-          }
-        );
-      },
-      (error) => {
-        alert(error.error);
-      }
-    );
+    // ThermalPrinter.requestPermissions(
+    //   this.currentPrinter,
+    //   (callback) => {
+    //     alert('Got permission');
+    //     ThermalPrinter.printFormattedText(
+    //       {
+    //         type: this.currentPrinterType,
+    //         id: this.currentPrinter.id,
+    //         text: `[C]<u><font size='big'>Hello World</font></u>' // new lines with "\n`,
+    //       },
+    //       function () {
+    //         console.log('Successfully printed!');
+    //       },
+    //       function (error) {
+    //         console.error('Printing error', error);
+    //       }
+    //     );
+    //   },
+    //   (error) => {
+    //     alert(error.error);
+    //   }
+    // );
   }
 
   // searchBluetoothPrinter() {
