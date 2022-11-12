@@ -26,7 +26,7 @@ export class UserService {
           this.dataProvider.LoggedInUser = true;
           this.dataProvider.user = user;
           this.loggedInUserData.next(user)
-          console.log(this.dataProvider.user)
+          // console.log(this.dataProvider.user)
         }
         else {
           this.dataProvider.LoggedInUser = false;

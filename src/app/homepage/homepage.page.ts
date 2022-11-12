@@ -13,6 +13,7 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Router } from '@angular/router';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
+import { Chart, registerables } from 'chart.js';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class HomepagePage implements OnInit {
     this.getDailySales();
     this.allSalesHistory();
     // this.mySalesHistory()
-    // const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
     // const myChart = new Chart(ctx, {
     //   type: 'bar',
     //   data: {

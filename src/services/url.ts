@@ -7,6 +7,7 @@ export const urls = {
     billing:`/billing`,
     contactUs:`/contactUs`,
     sales:`/sales`,
-    sale:`/sales`
+    sale:`/sales`,
+    purchase:`/purchase`
 
 }

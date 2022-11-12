@@ -110,7 +110,11 @@ const routes: Routes = [
   {
     path: 'printer-settings',
     loadChildren: () => import('./printer-settings/printer-settings.module').then( m => m.PrinterSettingsPageModule)
+  },  {
+    path: 'add-purchase',
+    loadChildren: () => import('./add-purchase/add-purchase.module').then( m => m.AddPurchasePageModule)
   },
+
 ];
 
 @NgModule({
