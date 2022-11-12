@@ -9,7 +9,7 @@ import { urls } from 'src/services/url';
 import { UserService } from 'src/services/User/user.service';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-
+import { Camera } from '@capacitor/camera';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,9 @@ export class AppComponent implements OnInit {
   
   public loggedInUserData: Subject<any> = new Subject();
   constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform) { 
-   
+    Camera.checkPermissions().then((res)=>{
+      res.camera === 'prompt' ? Camera.requestPermissions({permissions:['camera','photos']}) : null
+    })
    
     GoogleAuth.initialize({
       clientId: '690627613189-fglnifb9ggsg8qgrb1s17otedqhfm08h.apps.googleusercontent.com',

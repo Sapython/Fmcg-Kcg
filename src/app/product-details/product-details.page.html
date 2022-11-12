@@ -17,9 +17,7 @@
     </div>
     <div class="border"></div>
     <div class="px-4 py-3 d-flex justify-content-evenly align-items-center ">
-      <button class="Nunito600 "><span uk-icon="icon: file-edit"></span> Edit</button>
-      <button class="Nunito600 "><span uk-icon="icon: file-edit"></span> Or</button>
-      <button class="Nunito600 "><span uk-icon="icon: file-edit"></span> Spilt</button>
+      <button class="Nunito600 " routerLink="../../edit-stock/{{stockId}}"><span uk-icon="icon: file-edit"></span> Edit Product</button>
     </div>
     <div class="border"></div>
     <div class="px-4">
@@ -63,10 +61,12 @@
       </div>
     </div>
     <div class="px-4 pt-4">
-      <!-- <div>
-        <input width="40px" type="text" value="1">
-      </div> -->
-      <button class="addToCart" ><span uk-icon="icon:  cart"></span>  Add to cart</button>
+      <ion-button routerLink="../../billing/{{stockId}}" expand="block" fill="solid">
+        Sell Item
+      </ion-button>
+      <!-- <ion-button expand="block" fill="solid">
+        Sell Item
+      </ion-button> -->
     </div>
   </div>
 </ion-content>
