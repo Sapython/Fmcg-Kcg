@@ -1,7 +1,5 @@
 package com.shreeva.kcg;
-
-import android.os.Bundle;
-
+import com.caysn.autoreplyprint.AutoReplyPrint;
 import com.getcapacitor.BridgeActivity;
 
 
