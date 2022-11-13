@@ -102,4 +102,20 @@ export class DataBaseService {
     return getDocs(collection(this.fs, urls.sales))
   }
 
+  public getModals(){
+    return getDocs(collection(this.fs, 'modals'))
+  }
+
+  public addModal(data:any){
+    return addDoc(collection(this.fs, 'modals'),data)
+  }
+
+  public addUnit(data:any){
+    return addDoc(collection(this.fs, 'units'), data)
+  }
+
+  public getUnits(){
+    return getDocs(collection(this.fs, 'units'))
+  }
+
 }

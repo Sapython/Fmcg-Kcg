@@ -1,61 +1,75 @@
 <app-header title="Add Purchase"></app-header>
 
-
 <ion-content>
   <div class="box-outer">
     <form action="" [formGroup]="searchTextFrom">
-      
-      
-     
-        <div class="uk-margin">
-          <label for="" class="Fredoka400 fs-16">Seller name</label>
-          <input  class="input" type="text" placeholder="Spike/32/D" (input)="handleChange($event)" (ionChange)="handleChange($event)" formControlName="searchText">
-        </div>
-      
-      
+      <div class="uk-margin">
+        <label for="" class="Fredoka400 fs-16">Seller name</label>
+        <input
+          class="input"
+          type="text"
+          placeholder="Spike/32/D"
+          (input)="handleChange($event)"
+          (ionChange)="handleChange($event)"
+          formControlName="searchText"
+        />
+      </div>
       <ion-list *ngIf="textIsempty">
-          <ion-item *ngFor="let result of results" (click)="setValue(result)">
-            <ion-label>{{ result }}</ion-label>
-          </ion-item>
+        <ion-item *ngFor="let result of results" (click)="setValue(result)">
+          <ion-label>{{ result }}</ion-label>
+        </ion-item>
       </ion-list>
-      
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Phone number</label>
-        <input class="input" type="text" placeholder="Spike/32/D" formControlName="phoneNumber">
+        <input
+          class="input"
+          type="text"
+          placeholder="Spike/32/D"
+          formControlName="phoneNumber"
+        />
       </div>
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Address</label>
-        <textarea class="inputText" rows="5" type="text" placeholder="18, Teacher Colony London" formControlName="address"></textarea>
+        <textarea
+          class="inputText"
+          rows="5"
+          type="text"
+          placeholder="18, Teacher Colony London"
+          formControlName="address"
+        ></textarea>
       </div>
     </form>
-
-
   </div>
-  <div class="box-outer">
+  <!-- <div class="box-outer">
     <div lass="Fredoka400 mb-4">To</div>
     <div class="Fredoka400">Recipent: <span>searchText</span></div>
     <div lass="Fredoka400">Phone Number: <span>123455676</span></div>
     <div lass="Fredoka400">Address: <span>Civil line, Pragraj</span></div>
-  </div>
+  </div> -->
 
-  <div class=" shadow">
+  <div class="shadow">
     <div class="d-flex justify-content-between align-items-center box-outer2">
-      <div class="Fredoka500 fs-16">items</div>
+      <div class="Fredoka500 fs-16">Items</div>
       <div class="d-flex align-items-center" (click)="add()">
-        <ion-icon class="fs-22" name="add-circle-outline"></ion-icon><span class="ms-2 Fredoka500"> Add</span>
+        <ion-icon class="fs-22" name="add-circle-outline"></ion-icon
+        ><span class="ms-2 Fredoka500">Add</span>
       </div>
     </div>
     <div id="content">
-      <form class="" [formGroup]="addChildStock" (ngSubmit)="addPurchase()">
-        <div id="contentInside" *ngFor="let container of containers">
-
-          <input class="input" type="text" placeholder="Spike/32/D" formControlName="name">
-          <input class="input" type="text" placeholder="Quality" formControlName="quantity">
-
-        </div>
-        <button class="btn-addStock">Save</button>
+      <form [formGroup]="addChildStock">
+        <ion-card *ngFor="let item of products">
+          <ion-item>
+            <ion-label>Modal</ion-label>
+            <ion-select interface="action-sheet" placeholder="Select Type">
+              <ion-select-option [formControl]="item.modalControl" *ngFor="let type of modals" [value]="type.id">{{type.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Quantity</ion-label>
+            <ion-input [formControl]="item.quantityControl"></ion-input>
+          </ion-item>
+        </ion-card>
       </form>
     </div>
-
   </div>
 </ion-content>

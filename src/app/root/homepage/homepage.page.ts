@@ -162,8 +162,12 @@ export class HomepagePage implements OnInit {
 
             // if the result has content
             if (result.hasContent) {
-              console.log(result.content); // log the raw scanned content
+              alert(result.content); // log the raw scanned content
               this.router.navigateByUrl('product-details/' + result.content);
+              setTimeout(()=>{
+
+                alert(this.router.url);
+              },1000)
               await Haptics.impact({ style: ImpactStyle.Heavy });
               this.alertify.presentToast('Product Found');
               (

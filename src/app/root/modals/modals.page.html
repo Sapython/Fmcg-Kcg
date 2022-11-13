@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modals</ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="modalOpen=true"
+        expand="block"
+        fill="outline"
+        shape="round"
+        color="primary"
+      >
+        <ion-icon slot="start" name="add"></ion-icon> Modal
+      </ion-button>
+      <ion-button
+        (click)="unitModal=true"
+        expand="block"
+        fill="outline"
+        shape="round"
+        color="tertiary"
+      >
+        <ion-icon slot="start" name="add"></ion-icon> Unit
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let modal of modals" detail button>
+      <ion-label>{{modal.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- Model Modal -->
+  <ion-modal [isOpen]="modalOpen" (willDismiss)="ngOnInit()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start" (click)="modalOpen=false">
+            <ion-button color="danger" fill="solid">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Add Model</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <form [formGroup]="addModalForm" (ngSubmit)="addModal()">
+          <ion-item>
+            <ion-label position="stacked">Enter your modal name</ion-label>
+            <ion-input formControlName="name" type="text" placeholder="Your modal name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Enter your modal description</ion-label>
+            <ion-textarea formControlName="description" type="text" placeholder="Your modal description"></ion-textarea>
+          </ion-item>
+          <ion-button (click)="addField()" expand="block" fill="solid">
+            Add Field
+          </ion-button>
+          <ion-list>
+            <ion-item *ngFor="let field of fields">
+              <ion-input type="text" [formControl]="field.name" placeholder="Field Name"></ion-input>
+              <ion-select multiple="false" [formControl]="field.unit" interface="action-sheet" placeholder="Select unit">
+                <ion-select-option *ngFor="let unit of units" [value]="unit"
+                  >{{unit.name}}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <ion-button type="submit" expand="block" fill="solid" >
+            Submit
+          </ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- Unit Modal -->
+  <ion-modal [isOpen]="unitModal" (willDismiss)="ngOnInit()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons (click)="unitModal=false" slot="start">
+            <ion-button color="danger" fill="solid">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Add Unit</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <form [formGroup]="addUnitForm" (ngSubmit)="addUnit()">
+          <ion-item>
+            <ion-label position="stacked">Enter your unit name</ion-label>
+            <ion-input formControlName="name" type="text" placeholder="Your name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Enter your unit description</ion-label>
+            <ion-input formControlName="description" type="text" placeholder="Your name"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="block" fill="solid" shape="round">
+            Add Unit
+          </ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

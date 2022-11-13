@@ -26,6 +26,8 @@ export class AddPurchasePage implements OnInit {
   public textIsempty: boolean = false
   public data = ['Rohan', 'Mohan', 'Sohan', 'Ranjnikant'];
   public results = [...this.data];
+  products = []
+  modals = []
 
   constructor(private seller: SellerUtilsService) { }
 

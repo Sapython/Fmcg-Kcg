@@ -5,7 +5,7 @@ import { AuthGuard } from 'src/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'homepage',
+    redirectTo: 'root',
     pathMatch: 'full'
   },
   {
@@ -82,11 +82,7 @@ const routes: Routes = [
     path: 'buyer-details',
     loadChildren: () => import('./buyer-details/buyer-details.module').then( m => m.BuyerDetailsPageModule)
   },
-  {
-    path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule),
-    // canActivate: [AuthGuard]
-  },
+  
   {
     path: 'billing/:id',
     loadChildren: () => import('./billing/billing.module').then( m => m.BillingPageModule)
@@ -110,11 +106,15 @@ const routes: Routes = [
   {
     path: 'printer-settings',
     loadChildren: () => import('./printer-settings/printer-settings.module').then( m => m.PrinterSettingsPageModule)
-  },  {
+  },
+  {
     path: 'add-purchase',
     loadChildren: () => import('./add-purchase/add-purchase.module').then( m => m.AddPurchasePageModule)
   },
-
+  {
+    path: 'root',
+    loadChildren: () => import('./root/root.module').then( m => m.RootPageModule)
+  },
 ];
 
 @NgModule({
