@@ -17,7 +17,6 @@ import { Camera } from '@capacitor/camera';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  loading:boolean = true;  
   public userId:any; 
   public userr: Observable<User | null> = EMPTY;
   
@@ -45,12 +44,12 @@ export class AppComponent implements OnInit {
   }
  
   ngOnInit() {
-    this.loading=true;
+    this.dataProvider.loading=true;
     this.user.loggedInUserData.subscribe((value) => { 
       console.log('new', value)
       if(!value){
          this.router.navigateByUrl('/login')
-         return this.loading=false;
+         return this.dataProvider.loading=false;
       }
       collectionSnapshots(
         collection(this.fs, urls.users + value.uid + urls.cart)
@@ -67,7 +66,7 @@ export class AppComponent implements OnInit {
           this.getUser(value.uid) 
         });
         console.log("CartItems", items);
-        this.loading=false;
+        this.dataProvider.loading=false;
         // this.router.navigate(['/homepage'])
       });
     });

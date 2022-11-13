@@ -15,8 +15,9 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
   styleUrls: ['./add-stock.page.scss'],
 })
 export class AddStockPage implements OnInit {
-
-
+  public modalOpen: boolean = true;
+  public modals: any[] = [];
+  public selectedModel: any = [];
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
@@ -32,31 +33,53 @@ export class AddStockPage implements OnInit {
     Price: new FormControl('4450'),
     id: new FormControl(''),
     img: new FormControl(''),
+    checkedModelName: new FormControl(''),
   });
 
-  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService, private alertify:AlertsAndNotificationsService, public router:Router) { }
+  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService, private alertify: AlertsAndNotificationsService, public router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataBase.getModals().then((res) => {
+      this.modals = []
+      res.forEach((item) => {
+        this.modals.push({ ...item.data(), id: item.id })
+      })
+      console.log(this.modals)
+    })
+    this.getModel()
+
+  }
 
   async uploadFile(files: FileList | null) {
     if (files) {
       const file = files[0]
       const url = await this.dataBase.upload('stock/' + file.name, file);
       this.url = url
-      
+
     }
   }
+
 
 
   async addStock() {
     await this.uploadFile(this.file.target.files);
     this.addstockForm.value['img'] = this.url
     if (this.url) {
-      this.stock.addStock(this.addstockForm.value).then((doc)=>{
+      this.stock.addStock(this.addstockForm.value).then((doc) => {
         this.alertify.presentToast('Stock Added Successfully');
         this.router.navigateByUrl("/")
       })
     }
+  }
+
+
+  public getModel() {
+    const data = this.addstockForm.controls["checkedModelName"]
+    console.log(data)
+    // this.dataBase.getModal(data).then((res) => {
+    //   this.selectedModel = res.data();
+    //   console.log(this.selectedModel)
+    // })
   }
 
 

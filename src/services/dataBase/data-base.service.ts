@@ -102,4 +102,25 @@ export class DataBaseService {
     return getDocs(collection(this.fs, urls.sales))
   }
 
+  public getModals(){
+    return getDocs(collection(this.fs, 'modals'))
+  }
+
+  public getModal(MODAL_ID){
+    const editModalUrl = urls.modal.replace('{MODAL_ID}', MODAL_ID);
+    return getDoc(doc(this.fs, editModalUrl))
+  }
+
+  public addModal(data:any){
+    return addDoc(collection(this.fs, 'modals'),data)
+  }
+
+  public addUnit(data:any){
+    return addDoc(collection(this.fs, 'units'), data)
+  }
+
+  public getUnits(){
+    return getDocs(collection(this.fs, 'units'))
+  }
+
 }

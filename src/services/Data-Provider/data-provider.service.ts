@@ -10,5 +10,6 @@ export class DataProviderService {
   public user:UserStructure;
   public cartData:any[] = [];
   public product:any;
+  public loading:boolean = false;
   constructor() { }
 }

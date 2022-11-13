@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       console.log("navigated",firstRoute,this.router.url);
       if  (firstRoute == this.router.url){
-        this.navController.navigateBack('/homepage');
+        this.navController.navigateBack('root/homepage');
       }
     },10)
   }
