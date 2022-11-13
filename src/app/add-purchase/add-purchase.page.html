@@ -3,15 +3,15 @@
 
 <ion-content>
   <div class="box-outer">
-    <form action="">
+    <form action="" [formGroup]="searchTextFrom">
       
       
-      <form action="" [formGroup]="searchTextFrom"  >
+     
         <div class="uk-margin">
           <label for="" class="Fredoka400 fs-16">Seller name</label>
           <input  class="input" type="text" placeholder="Spike/32/D" (input)="handleChange($event)" (ionChange)="handleChange($event)" formControlName="searchText">
         </div>
-      </form>
+      
       
       <ion-list *ngIf="textIsempty">
           <ion-item *ngFor="let result of results" (click)="setValue(result)">
@@ -21,11 +21,11 @@
       
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Phone number</label>
-        <input class="input" type="text" placeholder="Spike/32/D">
+        <input class="input" type="text" placeholder="Spike/32/D" formControlName="phoneNumber">
       </div>
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Address</label>
-        <textarea class="input" type="text" placeholder="Spike/32/D"></textarea>
+        <textarea class="inputText" rows="5" type="text" placeholder="18, Teacher Colony London" formControlName="address"></textarea>
       </div>
     </form>
 
@@ -33,7 +33,7 @@
   </div>
   <div class="box-outer">
     <div lass="Fredoka400 mb-4">To</div>
-    <div class="Fredoka400">Recipent: <span>KCG Distributer</span></div>
+    <div class="Fredoka400">Recipent: <span>searchText</span></div>
     <div lass="Fredoka400">Phone Number: <span>123455676</span></div>
     <div lass="Fredoka400">Address: <span>Civil line, Pragraj</span></div>
   </div>
@@ -46,12 +46,14 @@
       </div>
     </div>
     <div id="content">
-      <form class="">
+      <form class="" [formGroup]="addChildStock" (ngSubmit)="addPurchase()">
         <div id="contentInside" *ngFor="let container of containers">
 
-          <input class="input" type="text" placeholder="Spike/32/D">
-          <input class="input" type="text" placeholder="Quality">
+          <input class="input" type="text" placeholder="Spike/32/D" formControlName="name">
+          <input class="input" type="text" placeholder="Quality" formControlName="quantity">
+
         </div>
+        <button class="btn-addStock">Save</button>
       </form>
     </div>
 
