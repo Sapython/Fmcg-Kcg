@@ -54,7 +54,7 @@ export class PrinterSettingsPage implements OnInit {
 
   checkStatus(){
     PrinterIntegration.checkStatus().then((data)=>{
-      alert(data)
+      alert(JSON.stringify(data))
     })
   }
   setPrinter(event) {

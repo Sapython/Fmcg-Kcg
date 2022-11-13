@@ -113,11 +113,11 @@ public class MainActivity extends BridgeActivity {
     AutoReplyPrint.INSTANCE.CP_Pos_SetMultiByteEncoding(h, AutoReplyPrint.CP_MultiByteEncoding_UTF8);
 
     AutoReplyPrint.INSTANCE.CP_Label_PageBegin(h, 0, 0, 576, 240, 0);
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 170, 10, 24, 0, "Qlt: Spike/32/D");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 170, 40, 24, 0, "Width：48''");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 170, 70, 24, 0, "Shd: Grey(Dark)");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 170, 100, 24, 0, "Bkg：Black");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 170, 130, 24, 0, "Lng：12m");
+    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 10, 24, 0, "Qlt: Spike/32/D");
+    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 40, 24, 0, "Width：48''");
+    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 70, 24, 0, "Shd: Grey(Dark)");
+    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 100, 24, 0, "Bkg：Black");
+    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 130, 24, 0, "Lng：12m");
     AutoReplyPrint.INSTANCE.CP_Label_DrawQRCode(h, 10, 10, 0, AutoReplyPrint.CP_QRCodeECC_L, 7, AutoReplyPrint.CP_Label_Rotation_0, "49052825038959470");
     AutoReplyPrint.INSTANCE.CP_Label_PagePrint(h, 1);
     {
