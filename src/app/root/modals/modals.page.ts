@@ -61,9 +61,15 @@ export class ModalsPage implements OnInit {
     const data = {
       ...this.addModalForm.value,
     }
+    let fieldsData = []
     this.fields.forEach((field)=>{
-      data[field.name.value] = field.unit.value;
+      // data[field.name.value] = field.unit.value;
+      fieldsData.push({
+        name:field.name.value,
+        unit:field.unit.value
+      })
     })
+    data.fields = fieldsData;
     this.databaseService.addModal(data).then((res:any)=>{
       this.alertify.presentToast('Modal Added Successfully')
       this.modalOpen = false;
