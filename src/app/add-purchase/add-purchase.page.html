@@ -1,8 +1,9 @@
 <app-header title="Add Purchase"></app-header>
 
 <ion-content>
+  <form [formGroup]="addModalForm" (ngSubmit)="addPurchase()">
   <div class="box-outer">
-    <form action="" [formGroup]="searchTextFrom">
+    
       <div class="uk-margin">
         <label for="" class="Fredoka400 fs-16">Seller name</label>
         <input
@@ -38,7 +39,7 @@
           formControlName="address"
         ></textarea>
       </div>
-    </form>
+    
   </div>
   <!-- <div class="box-outer">
     <div lass="Fredoka400 mb-4">To</div>
@@ -48,28 +49,33 @@
   </div> -->
 
   <div class="shadow">
-    <div class="d-flex justify-content-between align-items-center box-outer2">
-      <div class="Fredoka500 fs-16">Items</div>
-      <div class="d-flex align-items-center" (click)="add()">
-        <ion-icon class="fs-22" name="add-circle-outline"></ion-icon
-        ><span class="ms-2 Fredoka500">Add</span>
-      </div>
-    </div>
+    
     <div id="content">
-      <form [formGroup]="addChildStock">
-        <ion-card *ngFor="let item of products">
-          <ion-item>
-            <ion-label>Modal</ion-label>
-            <ion-select interface="action-sheet" placeholder="Select Type">
-              <ion-select-option [formControl]="item.modalControl" *ngFor="let type of modals" [value]="type.id">{{type.name}}</ion-select-option>
+      
+        
+        <div class="d-flex justify-content-between align-items-center box-outer2">
+          <div class="Fredoka500 fs-16">Items</div>
+          <ion-button (click)="addField()" expand="block" fill="outline">
+            <ion-icon class="fs-22" name="add-circle-outline"></ion-icon
+              >Add Field
+          </ion-button>
+        </div>
+        <ion-list>
+          <ion-item *ngFor="let field of fields" class="justify-content-between align-items-center px-2">
+            
+            <ion-select class="w-100"  multiple="false" [formControl]="field.model" interface="action-sheet" placeholder="Select Model">
+              <ion-select-option *ngFor="let modal of modals" [value]="modal">{{modal.name}}</ion-select-option>
             </ion-select>
+            <div>
+              <ion-input  class="ms-4" type="text" [formControl]="field.quantity" placeholder="Quantity"></ion-input>
+            </div>
           </ion-item>
-          <ion-item>
-            <ion-label>Quantity</ion-label>
-            <ion-input [formControl]="item.quantityControl"></ion-input>
-          </ion-item>
-        </ion-card>
-      </form>
+        </ion-list>
+      
     </div>
   </div>
+  <ion-button class="mx-4" type="submit" expand="block" fill="solid" shape="round">
+    Add Purchase
+  </ion-button>
+</form>
 </ion-content>

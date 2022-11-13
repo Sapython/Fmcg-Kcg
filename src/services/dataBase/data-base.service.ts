@@ -106,6 +106,11 @@ export class DataBaseService {
     return getDocs(collection(this.fs, 'modals'))
   }
 
+  public getModal(MODAL_ID){
+    const editModalUrl = urls.modal.replace('{MODAL_ID}', MODAL_ID);
+    return getDoc(doc(this.fs, editModalUrl))
+  }
+
   public addModal(data:any){
     return addDoc(collection(this.fs, 'modals'),data)
   }

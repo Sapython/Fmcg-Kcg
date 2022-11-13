@@ -8,6 +8,7 @@ export const urls = {
     contactUs:`/contactUs`,
     sales:`/sales`,
     sale:`/sales`,
-    purchase:`/purchase`
+    purchase:`/purchase`,
+    modal:`/modals/{MODAL_ID}`
 
 }
