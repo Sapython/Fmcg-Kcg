@@ -4,8 +4,18 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
 import { ThermalPrinterPlugin } from 'thermal-printer-cordova-plugin/src';
 
 declare let ThermalPrinter: ThermalPrinterPlugin;
-import { Plugins } from "@capacitor/core";
-const { BluetoothSerial } = Plugins;
+import { registerPlugin } from '@capacitor/core';
+
+
+export interface PrinterIntegration {
+  echo(): Promise<{ addresses: string }>;
+  connectToPrinter(options: { address: string, type:'bt'|'ble' }): Promise<{ status: string }>;
+  printLabel(): Promise<{ status: string }>;
+  checkStatus(): Promise<{ status: string }>;
+}
+
+const PrinterIntegration = registerPlugin<PrinterIntegration>('PrinterIntegration');
+export default PrinterIntegration;
 
 @Component({
   selector: 'app-printer-settings',
@@ -23,13 +33,6 @@ export class PrinterSettingsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.searchBluetoothPrinter().then((data) => {
-    //   console.log(data)
-    //   alert(JSON.stringify(data))
-    // }, (err) => {
-    //   alert('Error'+err)
-    // })
-
     this.loading = true;
     if (this.platform.is('capacitor')) {
       ThermalPrinter.listPrinters(
@@ -49,85 +52,31 @@ export class PrinterSettingsPage implements OnInit {
     }
   }
 
+  checkStatus(){
+    PrinterIntegration.checkStatus().then((data)=>{
+      alert(data)
+    })
+  }
   setPrinter(event) {
     this.currentPrinter = event.detail.value;
   }
-
-  testPrint() {
-    alert(JSON.stringify(this.currentPrinter))
-    alert(this.currentPrinterType)
-    alert(JSON.stringify( {
-      type: this.currentPrinterType,
-      id: this.currentPrinter.address,
-      text: `[C]<u><font size='big'>Hello World</font></u>\n`,
-    }))
-    ThermalPrinter.printFormattedText(
-      {
-        type: this.currentPrinterType,
-        id: this.currentPrinter.address,
-        dotsFeedPaper:500,
-        mmFeedPaper:80,
-        text: "[C]<u><font size='big'>Hello World</font></u>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-      },
-      ()=>{
-        console.log('Successfully printed!');
-      },
-      (error)=>{
-        console.error('Printing error', error);
-        alert('Print error ' + error.error);
-      }
-    );
-    // ThermalPrinter.requestPermissions(
-    //   this.currentPrinter,
-    //   (callback) => {
-    //     alert('Got permission');
-    //     ThermalPrinter.printFormattedText(
-    //       {
-    //         type: this.currentPrinterType,
-    //         id: this.currentPrinter.id,
-    //         text: `[C]<u><font size='big'>Hello World</font></u>' // new lines with "\n`,
-    //       },
-    //       function () {
-    //         console.log('Successfully printed!');
-    //       },
-    //       function (error) {
-    //         console.error('Printing error', error);
-    //       }
-    //     );
-    //   },
-    //   (error) => {
-    //     alert(error.error);
-    //   }
-    // );
+  printLabel(){
+    PrinterIntegration.printLabel().then((data)=>{
+      alert(data)
+    })
   }
-
-  // searchBluetoothPrinter() {
-  //   return this.btSerial.list();
-  // }
-
-  // connectToBluetoothPrinter(macAddress) {
-  //   return this.btSerial.connect(macAddress);
-  // }
-
-  // disconnectBluetoothPrinter() {
-  //   return this.btSerial.disconnect();
-  // }
-
-  // sendToBluetoothPrinter(macAddress, data_string) {
-  //   this.connectToBluetoothPrinter(macAddress).subscribe(
-  //     (_) => {
-  //       this.btSerial.write(data_string).then(
-  //         (_) => {
-  //           this.disconnectBluetoothPrinter();
-  //         },
-  //         (err) => {
-  //           alert('Error sending data to printer');
-  //         }
-  //       );
-  //     },
-  //     (err) => {
-  //       alert('Error connecting to printer');
-  //     }
-  //   );
-  // }
+  connectBluetoothFour(){
+    alert(this.currentPrinter.address)
+    PrinterIntegration.connectToPrinter({ address: this.currentPrinter.address,type:'bt' }).then((data)=>{
+      alert('Received')
+      alert(data)
+    })
+  }
+  connectBluetoothTwo() {
+    alert(this.currentPrinter.address)
+    PrinterIntegration.connectToPrinter({ address: this.currentPrinter.address,type:'ble' }).then((data)=>{
+      alert('Received')
+      alert(data)
+    })
+  }
 }
