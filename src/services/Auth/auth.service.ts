@@ -55,7 +55,7 @@ export class AuthService {
         alert(credentials);
         alert('Logged in successfully');
         this.alertify.presentToast('Logged In Successfully');
-        this.router.navigateByUrl('/homepage');
+        this.router.navigateByUrl('/root/homepage');
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +96,7 @@ export class AuthService {
     this.userDocument = doc(this.fs, urls.users + user.uid);
     await setDoc(this.userDocument, data).then(() => {
       this.alertify.presentToast('Account created Successfully');
-      this.router.navigateByUrl('/homepage');
+      this.router.navigateByUrl('/root/homepage');
     });
 
     // this.router.navigate(['/all-products'])
@@ -118,7 +118,7 @@ export class AuthService {
     this.userDocument = doc(this.fs, urls.users + user.uid);
     await setDoc(this.userDocument, data).then(() => {
       this.alertify.presentToast('Account created Successfully');
-      this.router.navigateByUrl('/homepage');
+      this.router.navigateByUrl('/root/homepage');
     });
 
     // this.router.navigate(['/all-products'])
@@ -230,7 +230,7 @@ export class AuthService {
                   gender: '',
                   address: '',
                 }).then(() => {
-                  this.router.navigate(['/homepage']);
+                  this.router.navigate(['/root/homepage']);
                 });
               }
             })

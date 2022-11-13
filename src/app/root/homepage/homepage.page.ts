@@ -143,7 +143,8 @@ export class HomepagePage implements OnInit {
       });
   }
   
-  globalSearch() {
+  globalSearch() { 
+    // this.router.navigateByUrl('product-details/' + '49052825038959470');
     Camera.checkPermissions()
       .then(async (res) => {
         if (res) {
@@ -162,12 +163,11 @@ export class HomepagePage implements OnInit {
 
             // if the result has content
             if (result.hasContent) {
-              alert(result.content); // log the raw scanned content
+              // alert(result.content); // log the raw scanned content
               this.router.navigateByUrl('product-details/' + result.content);
               setTimeout(()=>{
-
-                alert(this.router.url);
-              },1000)
+                location.reload();
+              },500)
               await Haptics.impact({ style: ImpactStyle.Heavy });
               this.alertify.presentToast('Product Found');
               (

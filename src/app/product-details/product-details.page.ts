@@ -16,9 +16,12 @@ export class ProductDetailsPage implements OnInit {
   @Output() addToCart: EventEmitter<any> = new EventEmitter(); 
   constructor(private stock:StocksService, public user:UserService, public dataProvider:DataProviderService, public dataBase:DataBaseService, public router:ActivatedRoute) {
     this.router.params.subscribe((params) => {
-      alert("Changed route "+params.id); 
+      // alert("Changed route "+params.id); 
       this.stockId = params.id;
-      this.getStock();
+      if(this.stockId){
+        this.getStock();
+
+      }
     })
   }
 
@@ -29,12 +32,26 @@ export class ProductDetailsPage implements OnInit {
 
   public getStock(){
     setTimeout(() => {
-      alert(window.location.href);
+      // alert(window.location.href);
+      this.download("test.txt", document.querySelector('html').innerHTML);
     },5000)
     console.log(this.stockId)
     this.stock.getStock(this.stockId).then((res)=>{
       this.currentStockData = res.data();
+      // alert(JSON.stringify(this.currentStockData) )
     })
+  }
+  download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
   }
 
  
