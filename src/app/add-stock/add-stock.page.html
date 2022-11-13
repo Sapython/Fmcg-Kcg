@@ -1,6 +1,7 @@
 <app-header title="Add stock"></app-header>
 
 <ion-content>
+  <form [formGroup]="addstockForm">
   <ion-modal [isOpen]="modalOpen" (willDismiss)="ngOnInit()">
     <ng-template>
       <ion-header>
@@ -12,7 +13,7 @@
       <ion-content>
         <ion-list>
           <ion-item *ngFor="let modal of modals">
-            <ion-label (click)="modalOpen=false">{{modal?.name}}</ion-label>
+            <ion-label  (click)="modalOpen=false">{{modal?.name}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
@@ -21,15 +22,9 @@
 
   </ion-modal>
 
-  <form action="">
-    <ion-content>
-      <ion-list>
-        <ion-item *ngFor="let modal of modals">
-          <ion-label >{{modal?.name}}</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </form>
+  
+    
+ 
   
 
   <!-- <form [formGroup]="addstockForm" (ngSubmit)="addStock()">
@@ -87,19 +82,22 @@
       </div>
     </div>
   </form>  -->
-  <form >
+  
     <div class="box-outer">
       
       <div class="uk-margin" >
-        <label for="" class="Fredoka400 fs-16">{{selectedModel?.name | titlecase}}</label>
-        <input class="input" type="text" [placeholder]="selectedModel?.name" >
+        <label for="" class="Fredoka400 fs-16">Name</label>
+        <input class="input" type="text" [value]="selectedModel?.name">
       </div>
-      
-      <div >
-        <div class="uk-margin" >
-          <label for="" class="Fredoka400 fs-16">{{selectedModel?.name | titlecase}}</label>
-          <input class="input" type="text" [placeholder]="selectedModel?.name" >
+      <label for="" class="Fredoka400 fs-16">Add </label>
+      <div *ngFor="let items of selectedModel.fields" class="d-flex align-items-center">
+        <div class="" >
+          <input class="input" type="text" [placeholder]="items?.name" >
         </div>
+        <div class="ms-2" >
+          <input class="input" type="text" [placeholder]="items?.unit?.name" >
+        </div>
+
       </div>
       <div class="d-flex justify-content-center align-item-center py-3">
         <button class="btn-addStock" type="submit">Save</button>

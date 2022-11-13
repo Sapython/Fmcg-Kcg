@@ -17,7 +17,7 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
 export class AddStockPage implements OnInit {
   public modalOpen: boolean = true;
   public modals: any[] = [];
-  public selectedModel: any;
+  public selectedModel: any = [];
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
@@ -33,6 +33,7 @@ export class AddStockPage implements OnInit {
     Price: new FormControl('4450'),
     id: new FormControl(''),
     img: new FormControl(''),
+    checkedModelName: new FormControl(''),
   });
 
   constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService, private alertify: AlertsAndNotificationsService, public router: Router) { }
@@ -73,12 +74,12 @@ export class AddStockPage implements OnInit {
 
 
   public getModel() {
-    const data = 'amnhQhPIjcDAL9jUSLjc';
+    const data = this.addstockForm.controls["checkedModelName"]
     console.log(data)
-    this.dataBase.getModal(data).then((res) => {
-      this.selectedModel = res.data();
-      console.log(this.selectedModel)
-    })
+    // this.dataBase.getModal(data).then((res) => {
+    //   this.selectedModel = res.data();
+    //   console.log(this.selectedModel)
+    // })
   }
 
 
