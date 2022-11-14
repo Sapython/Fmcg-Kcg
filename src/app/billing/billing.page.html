@@ -21,10 +21,14 @@
       <button class="btn-addStock mb-3" type="submit">Sell</button>
     </form>
   </div>
-
+  
   <div class="border"></div>
   <div class="Nunito600 fs-17 mt-3 mb-3 px-3">Billing Summary</div>
   
+  <div class="px-3">
+    <ion-label>Number of pieces:</ion-label>
+    <ion-range [ticks]="true" [pin]="true" [snaps]="true" [min]="0" [max]="10" [(ngModel)]="numberOfPieces"></ion-range>
+  </div>
   <div class="pt-2 ">
     <ion-item *ngIf="currentStockData?.Name">
       <ion-label>Name:</ion-label>
@@ -54,9 +58,5 @@
   </div>
   <div class="px-3">
     <app-stock-list-card [img]="currentStockData?.img" [Name]="currentStockData?.Name" [Price]="currentStockData?.Price" [Id]="currentStockData?.id"></app-stock-list-card>
-  </div>
-  <div class="px-3">
-    <ion-label>Number of pieces:</ion-label>
-    <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10" [(ngModel)]="numberOfPieces"></ion-range>
   </div>
 </ion-content>

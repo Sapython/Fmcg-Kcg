@@ -1,110 +1,37 @@
 <app-header title="Add stock"></app-header>
 
 <ion-content>
-  <form [formGroup]="addstockForm">
-  <ion-modal [isOpen]="modalOpen" (willDismiss)="ngOnInit()">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          
-          <ion-title>Choose Model</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-item *ngFor="let modal of modals">
-            <ion-label  (click)="modalOpen=false">{{modal?.name}}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-      
-    </ng-template>
-
-  </ion-modal>
-
-  
-    
- 
-  
-
-  <!-- <form [formGroup]="addstockForm" (ngSubmit)="addStock()">
-    <div class="box-outer">
-      <div class="uk-margin">
-        <div class="uk-form-custom w-100">
-          <input type="file" (change)="file = $event" id="" formControlName="img">
-          <button class="uk-button uk-button-default w-100" type="button" tabindex="-1">Upload Image</button>
-        </div>
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Name</label>
-        <input class="input" type="text" placeholder="Spike/32/D" formControlName="Name">
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Quality</label>
-        <input class="input" type="text" placeholder="Spike/32/D" formControlName="Quality">
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Shade</label>
-        <input class="input" type="text" placeholder="Grey (Dark)" formControlName="Shade">
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Price</label>
-        <input class="input" type="text" placeholder="Rs 5000" formControlName="Price">
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Backing</label>
-        <input class="input" type="text" placeholder="Black" formControlName="Backing">
-      </div>
-      <div class="uk-margin d-flex justify-content-center align-item-center">
-        <div class="pe-1">
-          <label for="" class="Fredoka400 fs-16">Length</label>
-          <input class="input" type="text" placeholder="12.00 Mt" formControlName="Length">
-        </div>
-        <div class="pe-1">
-          <label for="" class="Fredoka400 fs-16">Width</label>
-          <input class="input" type="text" placeholder="1.22 Mt" formControlName="Width">
-        </div>
-        <div>
-          <label for="" class="Fredoka400 fs-16">Thickness</label>
-          <input class="input" type="text" placeholder="8 mm" formControlName="Thickness">
-        </div>
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Quantity</label>
-        <input class="input" type="text" placeholder="213" formControlName="Quantity">
-      </div>
-      <div class="uk-margin">
-        <label for="" class="Fredoka400 fs-16">Storage Location</label>
-        <input class="input" type="text" placeholder="Section A" formControlName="StorageLocation">
-      </div>
-      <div class="d-flex justify-content-center align-item-center py-3">
-        <button class="btn-addStock" type="submit">Save</button>
-      </div>
-    </div>
-  </form>  -->
-  
-    <div class="box-outer">
-      
-      <div class="uk-margin" >
-        <label for="" class="Fredoka400 fs-16">Name</label>
-        <input class="input" type="text" [value]="selectedModel?.name">
-      </div>
-      <label for="" class="Fredoka400 fs-16">Add </label>
-      <div *ngFor="let items of selectedModel.fields" class="d-flex align-items-center">
-        <div class="" >
-          <input class="input" type="text" [placeholder]="items?.name" >
-        </div>
-        <div class="ms-2" >
-          <input class="input" type="text" [placeholder]="items?.unit?.name" >
-        </div>
-
-      </div>
-      <div class="d-flex justify-content-center align-item-center py-3">
-        <button class="btn-addStock" type="submit">Save</button>
-      </div>
-    </div>
+  <form [formGroup]="addstockForm" (ngSubmit)="addStock()">
+    <ion-modal [isOpen]="modalOpen" (willDismiss)="ngOnInit()">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Choose Model</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item *ngFor="let modal of modals" (click)="setModel(modal)">
+              <ion-label (click)="modalOpen=false">{{modal?.name |titlecase}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    <ng-container *ngIf="selectedModel">
+      <ion-item>
+        <ion-label position="floating">{{selectedModel.name}} Name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-item *ngFor="let field of selectedModel.fields">
+          <ion-label position="floating">{{field.name | titlecase}}</ion-label>
+          <ion-input [type]="field.unit.value" [formControl]="field.control"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" expand="block" fill="solid">
+        Submit
+      </ion-button>
+    </ng-container>
   </form>
-  
-
-
 </ion-content>

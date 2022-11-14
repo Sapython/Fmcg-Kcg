@@ -15,7 +15,52 @@ export class ModalsPage implements OnInit {
   unitModal:boolean = false;
   fields:any[] = []
   modals: any[] = []
-  units:any[] = []
+  units:any[] = [
+    {
+      name:'Text',
+      value:'text'
+    },
+    {
+      name:'Number',
+      value:'number'
+    },
+    {
+      name:'Date',
+      value:'date'
+    },
+    {
+      name:'Time',
+      value:'time'
+    },
+    {
+      name:'Select',
+      value:'select'
+    },
+    {
+      name:'Checkbox',
+      value:'checkbox'
+    },
+    {
+      name:'Radio',
+      value:'radio'
+    },
+    {
+      name:'File',
+      value:'file'
+    },
+    {
+      name:'Email',
+      value:'email'
+    },
+    {
+      name:'Phone',
+      value:'tel'
+    },
+    {
+      name:'Link',
+      value:'url'
+    },
+  ]
   addUnitForm:FormGroup = new FormGroup({
     name:new FormControl('',[Validators.required]),
     description:new FormControl('',[Validators.maxLength(200)]),
@@ -34,12 +79,12 @@ export class ModalsPage implements OnInit {
         this.modals.push({...item.data(),id:item.id})
       })
     })
-    this.databaseService.getUnits().then((res)=>{
-      this.units = []
-      res.forEach((unit:any)=>{
-        this.units.push({...unit.data(),id:unit.id})
-      })
-    })
+    // this.databaseService.getUnits().then((res)=>{
+    //   // this.units = []
+    //   res.forEach((unit:any)=>{
+    //     // this.units.push({...unit.data(),id:unit.id})
+    //   })
+    // })
   }
 
   addUnit(){

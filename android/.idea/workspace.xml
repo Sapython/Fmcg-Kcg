@@ -16,22 +16,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/billing/billing.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/billing/billing.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/services/Auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/Auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/services/Stock/stocks.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/Stock/stocks.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/modals/modals.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/modals/modals.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_2_API_28.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_5_API_31_1.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -100,8 +101,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="android.app.main" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="android.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />

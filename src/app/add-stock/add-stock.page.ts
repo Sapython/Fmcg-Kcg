@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { StocksService } from 'src/services/Stock/stocks.service';
@@ -7,7 +7,6 @@ import { UserService } from 'src/services/User/user.service';
 import QrCreator from 'qr-creator';
 import { Router } from '@angular/router';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-
 
 @Component({
   selector: 'app-add-stock',
@@ -17,73 +16,64 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
 export class AddStockPage implements OnInit {
   public modalOpen: boolean = true;
   public modals: any[] = [];
-  public selectedModel: any = [];
+  public selectedModel: any;
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
-    Name: new FormControl('test'),
-    Quality: new FormControl('random'),
-    Shade: new FormControl('black'),
-    Backing: new FormControl('red'),
-    Length: new FormControl('24'),
-    Width: new FormControl('12'),
-    Thickness: new FormControl('2'),
-    Quantity: new FormControl('1'),
-    StorageLocation: new FormControl('Garage'),
-    Price: new FormControl('4450'),
-    id: new FormControl(''),
-    img: new FormControl(''),
-    checkedModelName: new FormControl(''),
+    name: new FormControl('test'),
   });
 
-  constructor(private stock: StocksService, public user: UserService, public dataProvider: DataProviderService, public dataBase: DataBaseService, private alertify: AlertsAndNotificationsService, public router: Router) { }
+  constructor(
+    private stock: StocksService,
+    public user: UserService,
+    public dataProvider: DataProviderService,
+    public dataBase: DataBaseService,
+    private alertify: AlertsAndNotificationsService,
+    public router: Router
+  ) {}
 
   ngOnInit() {
     this.dataBase.getModals().then((res) => {
-      this.modals = []
+      this.modals = [];
       res.forEach((item) => {
-        this.modals.push({ ...item.data(), id: item.id })
-      })
-      console.log(this.modals)
-    })
-    this.getModel()
-
+        this.modals.push({ ...item.data(), id: item.id });
+      });
+    });
   }
 
   async uploadFile(files: FileList | null) {
     if (files) {
-      const file = files[0]
+      const file = files[0];
       const url = await this.dataBase.upload('stock/' + file.name, file);
-      this.url = url
-
+      this.url = url;
     }
   }
-
-
 
   async addStock() {
-    await this.uploadFile(this.file.target.files);
-    this.addstockForm.value['img'] = this.url
-    if (this.url) {
+    console.log({...this.addstockForm.value,type:this.selectedModel.id,date:new Date()});
+    if (confirm('Are you sure you want to add this stock?')) {
       this.stock.addStock(this.addstockForm.value).then((doc) => {
         this.alertify.presentToast('Stock Added Successfully');
-        this.router.navigateByUrl("/")
-      })
+        this.router.navigateByUrl('/');
+      });
     }
   }
-
-
-  public getModel() {
-    const data = this.addstockForm.controls["checkedModelName"]
-    console.log(data)
-    // this.dataBase.getModal(data).then((res) => {
-    //   this.selectedModel = res.data();
-    //   console.log(this.selectedModel)
-    // })
+  setModel(model: any) {
+    let fields = [];
+    model.fields.forEach((field) => {
+      if (field.required) {
+        var control = new FormControl('', [Validators.required]);
+      } else {
+        var control = new FormControl('');
+      }
+      this.addstockForm.addControl(field.name, control);
+      fields.push({
+        name: field.name,
+        unit: field.unit,
+        required: field.required,
+        control: control,
+      });
+    });
+    this.selectedModel = {...model,fields:fields};
   }
-
-
-
-
-
 }

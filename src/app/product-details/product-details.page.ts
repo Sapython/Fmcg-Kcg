@@ -20,24 +20,20 @@ export class ProductDetailsPage implements OnInit {
       this.stockId = params.id;
       if(this.stockId){
         this.getStock();
-
       }
     })
   }
-
+  dataKeys: string[] = [];
 
   ngOnInit() {
     this.getStock()
   }
 
   public getStock(){
-    setTimeout(() => {
-      // alert(window.location.href);
-      this.download("test.txt", document.querySelector('html').innerHTML);
-    },5000)
     console.log(this.stockId)
     this.stock.getStock(this.stockId).then((res)=>{
       this.currentStockData = res.data();
+      this.dataKeys = Object.keys(this.currentStockData);
       // alert(JSON.stringify(this.currentStockData) )
     })
   }
