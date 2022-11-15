@@ -28,12 +28,14 @@ export class HomepagePage implements OnInit {
   loading: boolean = true;
   printers:any[] = []
   barChart: any;
+  validIds: string[] = [];
+  purchaseIds: string[] = [];
   // doughnutChart: Chart;
   // lineChart: Chart;
 
   constructor(
     public dataProvider: DataProviderService,
-    public dataBase: DataBaseService,
+    public dataBaseService: DataBaseService,
     private router: Router,
     private alertify: AlertsAndNotificationsService
   ) {
@@ -92,7 +94,7 @@ export class HomepagePage implements OnInit {
   }
 
   public mySalesHistory() {
-    return this.dataBase
+    return this.dataBaseService
       .sales()
       .then((res) => {
         res.forEach((element: any) => {
@@ -109,7 +111,7 @@ export class HomepagePage implements OnInit {
   }
 
   public allSalesHistory() {
-    return this.dataBase
+    return this.dataBaseService
       .allSales()
       .then((res) => {
         res.forEach((element: any) => {
@@ -127,7 +129,7 @@ export class HomepagePage implements OnInit {
   }
 
   public getDailySales() {
-    return this.dataBase
+    return this.dataBaseService
       .getDailySales()
       .then((res) => {
         res.forEach((element: any) => {
@@ -142,8 +144,20 @@ export class HomepagePage implements OnInit {
         this.loading = false;
       });
   }
+
+  getValidIds() {
+    this.dataBaseService.getPurchases().then((res) => {
+      res.forEach((element: any) => {
+        element.data().purchases.forEach((purchase) => {
+          this.validIds.push(...purchase.items);
+          this.purchaseIds.push(element.id);
+        });
+      });
+    })
+  }
   
   globalSearch() { 
+    this.getValidIds()
     // this.router.navigateByUrl('product-details/' + '49052825038959470');
     Camera.checkPermissions()
       .then(async (res) => {
@@ -162,19 +176,30 @@ export class HomepagePage implements OnInit {
             const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
 
             // if the result has content
-            if (result.hasContent) {
+            if (result.hasContent && this.validIds.includes(result.content)) {
+              console.log("result.content",result.content);
               // alert(result.content); // log the raw scanned content
-              this.router.navigateByUrl('product-details/' + result.content);
-              setTimeout(()=>{
-                location.reload();
-              },500)
-              await Haptics.impact({ style: ImpactStyle.Heavy });
-              this.alertify.presentToast('Product Found');
-              (
-                document.querySelector('app-root') as HTMLElement
-              ).style.display = 'block';
+              const purchaseId = this.purchaseIds[
+                this.validIds.indexOf(result.content)
+              ];
+              console.log("purchaseId",purchaseId);
+              (document.querySelector('app-root') as HTMLElement).style.display = 'block';
               BarcodeScanner.showBackground();
               await BarcodeScanner.stopScan();
+              this.dataProvider.loading = true;
+              this.dataBaseService.getPurchaseItem(purchaseId, result.content).then(async (res) => {
+                this.router.navigateByUrl('product-details/' + res.data().id);
+                setTimeout(()=>{
+                  location.reload();
+                },500)
+                await Haptics.impact({ style: ImpactStyle.Heavy });
+                this.alertify.presentToast('Product Found');
+              }).catch((err) => {
+                this.dataProvider.loading = false;
+                this.alertify.presentToast('Product Not Found');                
+              }).finally(async () => {
+                  this.dataProvider.loading = false;
+              })
             }
           };
           await startScan();

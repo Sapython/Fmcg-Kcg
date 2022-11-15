@@ -102,19 +102,25 @@ export class ModalsPage implements OnInit {
   }
 
   addModal(){
+    console.log(this.fields)
     this.dataProvider.loading = true;
     const data = {
       ...this.addModalForm.value,
     }
     let fieldsData = []
+    let printables:string[] = []
     this.fields.forEach((field)=>{
       // data[field.name.value] = field.unit.value;
+      if(field.printable.value){
+        printables.push(field.name.value)
+      }
       fieldsData.push({
         name:field.name.value,
         unit:field.unit.value
       })
     })
     data.fields = fieldsData;
+    data.printables = printables;
     this.databaseService.addModal(data).then((res:any)=>{
       this.alertify.presentToast('Modal Added Successfully')
       this.modalOpen = false;
@@ -130,7 +136,8 @@ export class ModalsPage implements OnInit {
     const unitControl = new FormControl('',[Validators.required])
     this.fields.push({
       name: nameControl,
-      unit:unitControl
+      unit:unitControl,
+      printable:new FormControl(false)
     })
   }
 

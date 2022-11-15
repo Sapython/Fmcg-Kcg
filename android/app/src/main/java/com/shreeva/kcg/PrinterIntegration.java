@@ -9,6 +9,8 @@ import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import org.json.JSONException;
+
 @CapacitorPlugin(name = "PrinterIntegration")
 public class PrinterIntegration extends Plugin {
   @PluginMethod()
@@ -31,9 +33,9 @@ public class PrinterIntegration extends Plugin {
   }
 
   @PluginMethod()
-  public void printLabel(PluginCall call) {
+  public void printLabel(PluginCall call) throws JSONException {
     Toast.makeText(((MainActivity) getActivity()), "Printing Wait", Toast.LENGTH_SHORT).show();
-    ((MainActivity) getActivity()).printLabel();
+    ((MainActivity) getActivity()).printLabel(call.getArray("labels").toList(),call.getString("qrData"));
     call.resolve();
     Toast.makeText(((MainActivity) getActivity()), "Printed", Toast.LENGTH_SHORT).show();
   }

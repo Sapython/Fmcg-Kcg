@@ -15,6 +15,8 @@ import com.getcapacitor.BridgeActivity;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
 
+import java.util.List;
+
 
 public class MainActivity extends BridgeActivity {
   private Pointer h = Pointer.NULL;
@@ -98,8 +100,8 @@ public class MainActivity extends BridgeActivity {
     h = AutoReplyPrint.INSTANCE.CP_Port_OpenBtBle(address, 1);
   }
 
-  public void printLabel(){
-    Test_Label_SampleTicket_80MM_1(h);
+  public void printLabel(List<String> labels,String qrData){
+    Test_Label_SampleTicket_80MM_1(h,labels,qrData);
   }
 
   void Test_Pos_QueryPrintResult(Pointer h)
@@ -107,18 +109,15 @@ public class MainActivity extends BridgeActivity {
     boolean result = AutoReplyPrint.INSTANCE.CP_Pos_QueryPrintResult(h, 30000);
   }
 
-  void Test_Label_SampleTicket_80MM_1(Pointer h)
+  void Test_Label_SampleTicket_80MM_1(Pointer h, List<String> labels, String qrData)
   {
     AutoReplyPrint.INSTANCE.CP_Pos_SetMultiByteMode(h);
     AutoReplyPrint.INSTANCE.CP_Pos_SetMultiByteEncoding(h, AutoReplyPrint.CP_MultiByteEncoding_UTF8);
-
     AutoReplyPrint.INSTANCE.CP_Label_PageBegin(h, 0, 0, 576, 240, 0);
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 10, 24, 0, "Qlt: Spike/32/D");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 40, 24, 0, "Width：48''");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 70, 24, 0, "Shd: Grey(Dark)");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 100, 24, 0, "Bkg：Black");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 175, 130, 24, 0, "Lng：12m");
-    AutoReplyPrint.INSTANCE.CP_Label_DrawQRCode(h, 10, 10, 0, AutoReplyPrint.CP_QRCodeECC_L, 7, AutoReplyPrint.CP_Label_Rotation_0, "49052825038959470");
+    for (int i = 0; i < labels.size(); i++) {
+      AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 205, (i*30)+10, 24, 0, labels.get(i));
+    }
+    AutoReplyPrint.INSTANCE.CP_Label_DrawQRCode(h, 15, 10, 0, AutoReplyPrint.CP_QRCodeECC_L, 7, AutoReplyPrint.CP_Label_Rotation_0, qrData);
     AutoReplyPrint.INSTANCE.CP_Label_PagePrint(h, 1);
     {
       Test_Pos_QueryPrintResult(h);

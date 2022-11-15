@@ -10,7 +10,7 @@ import { registerPlugin } from '@capacitor/core';
 export interface PrinterIntegration {
   echo(): Promise<{ addresses: string }>;
   connectToPrinter(options: { address: string, type:'bt'|'ble' }): Promise<{ status: string }>;
-  printLabel(): Promise<{ status: string }>;
+  printLabel(options: { labels: string[], qrData:string }): Promise<{ status: string }>;
   checkStatus(): Promise<{ status: string }>;
 }
 
@@ -61,7 +61,7 @@ export class PrinterSettingsPage implements OnInit {
     this.currentPrinter = event.detail.value;
   }
   printLabel(){
-    PrinterIntegration.printLabel().then((data)=>{
+    PrinterIntegration.printLabel({labels:["abcedfgh","abcedfgh","abcedfgh"],qrData:"1234567890"}).then((data)=>{
       alert(data)
     })
   }

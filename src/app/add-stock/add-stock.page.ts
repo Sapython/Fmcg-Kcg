@@ -20,7 +20,8 @@ export class AddStockPage implements OnInit {
   public url: any;
   public file: any;
   public addstockForm: FormGroup = new FormGroup({
-    name: new FormControl('test'),
+    name: new FormControl('', [Validators.required]),
+    price: new FormControl(0,[Validators.required]),
   });
 
   constructor(
@@ -50,11 +51,13 @@ export class AddStockPage implements OnInit {
   }
 
   async addStock() {
-    console.log({...this.addstockForm.value,type:this.selectedModel.id,date:new Date()});
     if (confirm('Are you sure you want to add this stock?')) {
-      this.stock.addStock(this.addstockForm.value).then((doc) => {
+      this.dataProvider.loading = true;
+      this.stock.addStock({...this.addstockForm.value,type:this.selectedModel.id,printables:this.selectedModel.printables,date:new Date()}).then((doc) => {
         this.alertify.presentToast('Stock Added Successfully');
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/'); 
+      }).finally(() => {
+        this.dataProvider.loading = false;
       });
     }
   }

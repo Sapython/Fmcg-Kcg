@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, getDoc, getDocs, increment, setDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, increment, setDoc, updateDoc } from '@angular/fire/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { query, where } from '@firebase/firestore';
 import { urls } from '../url';
@@ -130,5 +130,33 @@ export class DataBaseService {
 
   getWarehouses(){
     return getDocs(collection(this.fs, 'warehouses'))
+  }
+
+  getMatchingItems(id:string){
+    return getDocs(query(collection(this.fs, 'stocks'), where('type', '==', id)))
+  }
+
+  updatePurchase(id:string,data:any){
+    return updateDoc(doc(this.fs, 'purchase/'+id), data)
+  }
+
+  addPurchaseItem(purchaseId:string,itemData:any){
+    return addDoc(collection(this.fs, 'purchase/'+purchaseId+'/items'), itemData)
+  }
+
+  removePurchaseItem(purchaseId:string,itemId:string){
+    return deleteDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId))
+  }
+
+  finalizePurchase(purchaseId:string){
+    return updateDoc(doc(this.fs, 'purchase/'+purchaseId), {status:'finalized'})
+  }
+
+  getPurchases(){
+    return getDocs(collection(this.fs, 'purchase'))
+  }
+
+  getPurchaseItem(purchaseId:string,itemId:string){
+    return getDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId)) 
   }
 }

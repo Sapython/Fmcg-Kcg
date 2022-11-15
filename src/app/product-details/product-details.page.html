@@ -1,17 +1,16 @@
 <app-header title="Product Details"></app-header>
 <ion-content>
   <div class="">
-    <div class="img-outer mx-4 mt-4">
+    <div class="img-outer mx-4 mt-4" *ngIf="currentStockData?.img">
       <img [src]="currentStockData?.img" alt="">
     </div>
     <div class="px-4">
-      <div class="Nunito500 fs-16 py-2">{{currentStockData?.Name}}</div>
-      <div class="Nunito700 fs-15 t-blue">Rs {{currentStockData?.Price}}</div>
+      <h2 class="Nunito500 py-2">{{currentStockData?.name}}</h2>
+      <h3 class="Nunito700 t-blue">Rs {{currentStockData?.price}}</h3>
     </div>
     <div class="Nunito500 fs-13 py-3 px-4">
-      <div>Product Code <span class="Nunito700">3258444</span></div>
-      <div>Created Date <span class="Nunito700">02 oct,2022</span></div>
-      <div>Last Updated <span class="Nunito700">04 oct,2022</span></div>
+      <div>Product Code <span class="Nunito700">{{currentStockData?.id}}</span></div>
+      <div>Created Date <span class="Nunito700">{{currentStockData?.date.toDate() | date}}</span></div>
     </div>
     <div class="border"></div>
     <div class="px-4 py-3 d-flex justify-content-evenly align-items-center ">
@@ -22,7 +21,8 @@
     <ion-list>
       <ion-item *ngFor="let key of dataKeys">
         <ion-label>{{key | titlecase}}</ion-label>
-        <ion-label color="primary">{{currentStockData[key]}}</ion-label>
+        <ion-label *ngIf="key.toLowerCase() !='date'" color="primary">{{currentStockData[key]}}</ion-label>
+        <ion-label *ngIf="key.toLowerCase() =='date'" color="primary">{{currentStockData[key].toDate() | date}}</ion-label>
       </ion-item>
     </ion-list>
     <div class="px-4 pt-4">

@@ -1,0 +1,37 @@
+<app-header title="Product Details"></app-header>
+<ion-content>
+  <div class="">
+    <div class="img-outer mx-4 mt-4" *ngIf="currentStockData?.img">
+      <img [src]="currentStockData?.img" alt="">
+    </div>
+    <div class="px-4">
+      <div class="Nunito500 fs-16 py-2">{{currentStockData?.name}}</div>
+      <div class="Nunito700 fs-15 t-blue">Rs {{currentStockData?.price}}</div>
+    </div>
+    <div class="Nunito500 fs-13 py-3 px-4">
+      <div>Product Code <span class="Nunito700">3258444</span></div>
+      <div>Created Date <span class="Nunito700">02 oct,2022</span></div>
+      <div>Last Updated <span class="Nunito700">04 oct,2022</span></div>
+    </div>
+    <div class="border"></div>
+    <div class="px-4 py-3 d-flex justify-content-evenly align-items-center ">
+      <!-- <button class="Nunito600 " routerLink="../../edit-stock/{{stockId}}"><span uk-icon="icon: file-edit"></span> Edit
+        Product</button> -->
+    </div>
+    <div class="border"></div>
+    <ion-list>
+      <ion-item *ngFor="let key of dataKeys">
+        <ion-label>{{key | titlecase}}</ion-label>
+        <ion-label color="primary">{{currentStockData[key]}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <div class="px-4 pt-4">
+      <!-- <ion-button routerLink="../../billing/{{stockId}}" expand="block" fill="solid">
+        Sell Item
+      </ion-button> -->
+      <!-- <ion-button expand="block" fill="solid">
+        Sell Item
+      </ion-button> -->
+    </div>
+  </div>
+</ion-content>

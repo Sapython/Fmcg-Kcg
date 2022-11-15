@@ -55,6 +55,7 @@
           </ion-button>
           <ion-list>
             <ion-item *ngFor="let field of fields">
+              <ion-checkbox slot="start" mode="ios" [formControl]="field.printable"></ion-checkbox>
               <ion-input type="text" [formControl]="field.name" placeholder="Field Name"></ion-input>
               <ion-select multiple="false" [formControl]="field.unit" interface="action-sheet" placeholder="Select unit">
                 <ion-select-option *ngFor="let unit of units" [value]="unit"
@@ -63,7 +64,7 @@
               </ion-select>
             </ion-item>
           </ion-list>
-          <ion-button type="submit" expand="block" fill="solid" >
+          <ion-button color="secondary" type="submit" expand="block" fill="solid" >
             Submit
           </ion-button>
         </form>

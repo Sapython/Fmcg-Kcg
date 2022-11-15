@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center" routerLink="/product-details/{{Id}}">
     <div class="img-outer">
       <img
-        [src]="img"
+        [src]="img || 'https://via.placeholder.com/250'"
         alt="">
     </div>
     <div class="ps-2">

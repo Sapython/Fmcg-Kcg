@@ -115,6 +115,11 @@ const routes: Routes = [
     path: 'root',
     loadChildren: () => import('./root/root.module').then( m => m.RootPageModule)
   },
+  {
+    path: 'product-scanned-details:/scannedId',
+    loadChildren: () => import('./product-scanned-details/product-scanned-details.module').then( m => m.ProductScannedDetailsPageModule)
+  },
+
 ];
 
 @NgModule({

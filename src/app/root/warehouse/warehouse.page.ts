@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
@@ -15,8 +15,8 @@ export class WarehousePage implements OnInit {
   constructor(private databaseService:DataBaseService,private dataProvider:DataProviderService,private alertify:AlertsAndNotificationsService,private router:Router) { }
   modalOpen: boolean = false;
   addWarehouseForm:FormGroup = new FormGroup({
-    name: new FormControl(''),
-    location: new FormControl(''),
+    name: new FormControl('',[Validators.required]),
+    location: new FormControl('',[Validators.required]),
     capacity: new FormControl(''),
     description: new FormControl(''),
   });

@@ -27,5 +27,8 @@
 			"serverClientId": "690627613189-fglnifb9ggsg8qgrb1s17otedqhfm08h.apps.googleusercontent.com",
 			"forceCodeForRefreshToken": true
 		}
+	},
+	"server": {
+		"url": "http://192.168.1.18:8100"
 	}
 }

@@ -18,21 +18,38 @@
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/PrinterIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/PrinterIntegration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/User/forget-password/forget-password.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/User/forget-password/forget-password.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-stock/add-stock.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/billing/billing.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/billing/billing.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/component/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/component/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/component/stock-list-card/stock-list-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/component/stock-list-card/stock-list-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/printer-settings/printer-settings.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/printer-settings/printer-settings.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/modals/modals.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/modals/modals.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/root/modals/modals.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/modals/modals.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_5_API_31_1.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[MZAMLNO799TOHQLF]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -101,8 +118,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="android.app" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="android.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
