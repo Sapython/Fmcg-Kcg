@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>warehouse</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addWarehouse()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Warehouse
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-modal [isOpen]="modalOpen" (willDismiss)="ngOnInit()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start" (click)="modalOpen=false">
+            <ion-button color="danger" fill="solid">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Add Warehouse</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <form [formGroup]="addWarehouseForm" (ngSubmit)="addWarehouse()">
+          <ion-item>
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input formControlName="name" type="text" placeholder="Your Warehouse name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Location</ion-label>
+            <ion-input formControlName="location" type="text" placeholder="Your warehouse location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Capacity</ion-label>
+            <ion-input formControlName="capacity" type="text" placeholder="Your warehouse capacity"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea formControlName="description" type="text" placeholder="Description"></ion-textarea>
+          </ion-item> 
+          <ion-button type="submit" expand="block" fill="solid" >
+            Submit
+          </ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-list>
+    <ion-item *ngFor="let warehouse of warehouses">
+      <ion-label>{{warehouse.name}}</ion-label>
+      <ion-label color="primary">{{warehouse.location}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

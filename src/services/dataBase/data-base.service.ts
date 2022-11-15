@@ -123,4 +123,12 @@ export class DataBaseService {
     return getDocs(collection(this.fs, 'units'))
   }
 
+
+  public addWarehouse(data){
+    return addDoc(collection(this.fs, 'warehouses'), data)
+  }
+
+  getWarehouses(){
+    return getDocs(collection(this.fs, 'warehouses'))
+  }
 }

@@ -22,8 +22,13 @@ const routes: Routes = [
         path: 'modals',
         loadChildren: () => import('./modals/modals.module').then( m => m.ModalsPageModule)
       },
+      {
+        path: 'warehouse',
+        loadChildren: () => import('./warehouse/warehouse.module').then( m => m.WarehousePageModule)
+      },
     ]
   },
+
 ];
 
 @NgModule({
