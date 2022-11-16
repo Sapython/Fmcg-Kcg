@@ -1,0 +1,39 @@
+<app-header title="Purchases"></app-header>
+<ion-content>
+  <ion-list>
+    <div class="card" *ngFor="let purchase of purchases">
+      <ion-row>
+        <ion-label class="title" color="primary">{{purchase.name | titlecase}}</ion-label>
+        <ion-label class="title" color="tertiary">{{purchase.date?.toDate() | date}}</ion-label>
+      </ion-row>
+      <hr>
+      <div class="column">
+        <ion-label>Total no of items
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{purchase.items.length}}</ion-label>
+          </ion-chip>
+        </ion-label>
+        <ion-label>Total no of models
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{purchase.purchases.length}}</ion-label>
+          </ion-chip>
+        </ion-label>
+        <ion-label>Total no of stocks
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{purchase.stocks.length}}</ion-label>
+          </ion-chip>
+        </ion-label>
+      </div>
+      <ion-label class="warehouse"> <ion-icon slot="start" name="location" color="primary"></ion-icon> {{purchase.warehouse.location}}</ion-label>
+      <hr>
+      <ion-row>
+        <ion-chip routerLink="../purchase-detail/{{purchase.id}}" color="primary" mode="ios" outline="true">
+          <ion-label>See Purchase</ion-label>
+        </ion-chip>
+        <ion-chip (click)="deletePurchase()" color="danger" mode="ios" outline="true">
+          <ion-label>Delete</ion-label>
+        </ion-chip>
+      </ion-row>
+    </div>
+  </ion-list>
+</ion-content>

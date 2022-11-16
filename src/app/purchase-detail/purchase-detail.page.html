@@ -1,0 +1,40 @@
+<app-header title="Purchase Detail"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <h3>Seller Details</h3>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-label>{{purchaseData?.address}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-label>{{purchaseData?.address}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-label>{{purchaseData?.phoneNumber}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Purchases</ion-label>
+      <ion-label>{{purchaseData?.purchases.length}}</ion-label>
+    </ion-item>
+    <h3>Warehouse</h3>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-label>{{purchaseData?.name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <ion-label>{{purchaseData?.location}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-label>{{purchaseData?.description}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Id</ion-label>
+      <ion-label>{{purchaseData?.id}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

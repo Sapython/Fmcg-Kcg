@@ -149,7 +149,7 @@ export class DataBaseService {
   }
 
   finalizePurchase(purchaseId:string){
-    return updateDoc(doc(this.fs, 'purchase/'+purchaseId), {status:'finalized'})
+    return updateDoc(doc(this.fs, 'purchase/'+purchaseId), {status:'finalized',endDate:new Date() })
   }
 
   getPurchases(){
@@ -158,5 +158,9 @@ export class DataBaseService {
 
   getPurchaseItem(purchaseId:string,itemId:string){
     return getDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId)) 
+  }
+
+  getPurchase(purchaseId:string){
+    return getDoc(doc(this.fs, 'purchase/'+purchaseId))
   }
 }

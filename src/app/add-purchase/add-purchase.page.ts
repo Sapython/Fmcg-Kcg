@@ -79,9 +79,9 @@ export class AddPurchasePage implements OnInit {
       this.slides.slideNext();
       this.dataProvider.loading = true;
       this.seller
-        .addPurchase({ ...this.addPurchaseForm.value, purchases: [] })
+        .addPurchase({ ...this.addPurchaseForm.value, purchases: [], date: new Date() })
         .then((res: any) => {
-          this.purchaseData = { ...this.addPurchaseForm.value, purchases: [] };
+          this.purchaseData = { ...this.addPurchaseForm.value, purchases: [],date: new Date()  };
           this.currentPurchaseRef = res;
           console.log('Purchase added', res);
           this.alertify.presentToast('Modal Added Successfully');
@@ -145,7 +145,7 @@ export class AddPurchasePage implements OnInit {
       .then((res) => {
         this.purchaseData.purchases.forEach((purchase, index) => {
           if (field.model.value.id == purchase.model) {
-            this.purchaseData.purchases[index].items.push(res.id);
+            this.purchaseData.purchases[index].items.push(res.id+'|'+item.id);
           }
         });
         this.updatePurchase();

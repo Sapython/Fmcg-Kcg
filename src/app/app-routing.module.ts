@@ -119,6 +119,15 @@ const routes: Routes = [
     path: 'product-scanned-details:/scannedId',
     loadChildren: () => import('./product-scanned-details/product-scanned-details.module').then( m => m.ProductScannedDetailsPageModule)
   },
+  {
+    path: 'purchases',
+    loadChildren: () => import('./purchases/purchases.module').then( m => m.PurchasesPageModule)
+  },
+  {
+    path: 'purchase-detail/:id',
+    loadChildren: () => import('./purchase-detail/purchase-detail.module').then( m => m.PurchaseDetailPageModule)
+  },
+
 
 ];
 

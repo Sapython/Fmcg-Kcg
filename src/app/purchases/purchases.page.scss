@@ -1,0 +1,26 @@
+.card{
+    box-shadow: 1px 3px 15px rgba(0,0,0,0.2);
+    margin: 10px;
+    padding:20px;
+    border-radius: 10px;
+    ion-row{
+        justify-content: space-between;
+        .title{
+            font-size: 20px;
+        }
+    }
+    hr{
+        margin:5px;
+        border: 1px solid rgb(230, 230, 230);
+        height: 0px;
+    }
+    .warehouse{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

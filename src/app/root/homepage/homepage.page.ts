@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 import { Chart, registerables } from 'chart.js';
 
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.page.html',
@@ -26,7 +25,7 @@ export class HomepagePage implements OnInit {
   public allSales: any[] = [];
   public dailySales: any[] = [];
   loading: boolean = true;
-  printers:any[] = []
+  printers: any[] = [];
   barChart: any;
   validIds: string[] = [];
   purchaseIds: string[] = [];
@@ -40,11 +39,12 @@ export class HomepagePage implements OnInit {
     private alertify: AlertsAndNotificationsService
   ) {
     // Chart.register(...registerables);
-  } 
+  }
 
   ngOnInit() {
     this.getDailySales();
     this.allSalesHistory();
+    // this.getValidIds()
     // this.mySalesHistory()
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
     // const myChart = new Chart(ctx, {
@@ -149,15 +149,20 @@ export class HomepagePage implements OnInit {
     this.dataBaseService.getPurchases().then((res) => {
       res.forEach((element: any) => {
         element.data().purchases.forEach((purchase) => {
-          this.validIds.push(...purchase.items);
-          this.purchaseIds.push(element.id);
+          // this.validIds.push(...purchase.items);
+          purchase.items.forEach((item) => {
+            this.validIds.push(item.split('|')[0]);
+            this.purchaseIds.push(item.split('|')[1]);
+          });
         });
       });
-    })
+      console.log('this.validIds', this.validIds);
+      console.log('this.purchaseIds', this.purchaseIds);
+    });
   }
-  
-  globalSearch() { 
-    this.getValidIds()
+
+  globalSearch() {
+    this.getValidIds();
     // this.router.navigateByUrl('product-details/' + '49052825038959470');
     Camera.checkPermissions()
       .then(async (res) => {
@@ -177,29 +182,22 @@ export class HomepagePage implements OnInit {
 
             // if the result has content
             if (result.hasContent && this.validIds.includes(result.content)) {
-              console.log("result.content",result.content);
+              console.log('result.content', result.content);
               // alert(result.content); // log the raw scanned content
-              const purchaseId = this.purchaseIds[
-                this.validIds.indexOf(result.content)
-              ];
-              console.log("purchaseId",purchaseId);
-              (document.querySelector('app-root') as HTMLElement).style.display = 'block';
+              const purchaseId =
+                this.purchaseIds[this.validIds.indexOf(result.content)];
+              console.log('purchaseId', purchaseId);
+              (
+                document.querySelector('app-root') as HTMLElement
+              ).style.display = 'block';
               BarcodeScanner.showBackground();
               await BarcodeScanner.stopScan();
-              this.dataProvider.loading = true;
-              this.dataBaseService.getPurchaseItem(purchaseId, result.content).then(async (res) => {
-                this.router.navigateByUrl('product-details/' + res.data().id);
-                setTimeout(()=>{
-                  location.reload();
-                },500)
-                await Haptics.impact({ style: ImpactStyle.Heavy });
-                this.alertify.presentToast('Product Found');
-              }).catch((err) => {
-                this.dataProvider.loading = false;
-                this.alertify.presentToast('Product Not Found');                
-              }).finally(async () => {
-                  this.dataProvider.loading = false;
-              })
+              this.router.navigateByUrl('product-details/' + purchaseId);
+              setTimeout(() => {
+                location.reload();
+              }, 500);
+              await Haptics.impact({ style: ImpactStyle.Heavy });
+              this.alertify.presentToast('Product Found');
             }
           };
           await startScan();
