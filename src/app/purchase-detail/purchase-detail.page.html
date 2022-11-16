@@ -19,6 +19,11 @@
       <ion-label>Purchases</ion-label>
       <ion-label>{{purchaseData?.purchases.length}}</ion-label>
     </ion-item>
+    <h3>Stocks</h3>
+    <ion-item *ngFor="let stock of purchaseData?.entries">
+      <ion-label>{{stock?.stock.name}}</ion-label>
+      <ion-label>{{stock?.items.length}}</ion-label>
+    </ion-item>
     <h3>Warehouse</h3>
     <ion-item>
       <ion-label>Name</ion-label>

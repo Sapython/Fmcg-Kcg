@@ -127,8 +127,11 @@ const routes: Routes = [
     path: 'purchase-detail/:id',
     loadChildren: () => import('./purchase-detail/purchase-detail.module').then( m => m.PurchaseDetailPageModule)
   },
-
-
+  {
+    path:"**",
+    redirectTo: 'root',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

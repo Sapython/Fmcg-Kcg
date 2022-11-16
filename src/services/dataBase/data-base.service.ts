@@ -163,4 +163,8 @@ export class DataBaseService {
   getPurchase(purchaseId:string){
     return getDoc(doc(this.fs, 'purchase/'+purchaseId))
   }
+
+  getStock(stockId:string){
+    return getDoc(doc(this.fs, 'stocks/'+stockId))
+  }
 }

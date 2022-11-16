@@ -201,8 +201,8 @@ export class AddPurchasePage implements OnInit {
     console.log('labels, qrData', labels, qrData);
     this.printingService.printLabel(labels, qrData);
     this.printingService.printLabel(labels, qrData);
-    this.printingService.printLabel(labels, qrData);
-    this.printingService.printLabel(labels, qrData);
+    // this.printingService.printLabel(labels, qrData);
+    // this.printingService.printLabel(labels, qrData);
   }
   finalizePurchase() {
     this.dataProvider.loading = true;
