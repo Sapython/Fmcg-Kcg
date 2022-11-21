@@ -17,14 +17,26 @@
   <component name="ChangeListManager">
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml.orig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/capacitor.build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/capacitor.build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor.settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor.settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/root.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/root.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/purchases/purchases.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchases/purchases.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/purchases/purchases.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchases/purchases.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/services/Data-Provider/data-provider.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/Data-Provider/data-provider.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +44,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_2_API_28.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[MZAMLNO799TOHQLF]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -101,7 +113,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="android.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />

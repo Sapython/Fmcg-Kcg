@@ -10,6 +10,7 @@ import { DataBaseService } from 'src/services/dataBase/data-base.service';
 })
 export class PurchaseDetailPage implements OnInit {
   purchaseData:any;
+  
   constructor(private activatedRoute:ActivatedRoute,private databaseService:DataBaseService,private dataProvider:DataProviderService) {
     this.activatedRoute.params.subscribe((params) => {
       this.getPurchase(params.id)
@@ -20,7 +21,7 @@ export class PurchaseDetailPage implements OnInit {
     this.dataProvider.loading = true
     this.databaseService.getPurchase(id).then(async (data) => {
       if(data.exists()){
-        let items =[]
+        let items = []
         let stocks = []
         this.purchaseData = {...data.data(),id:data.id}
         data.data().purchases.forEach((item) => {

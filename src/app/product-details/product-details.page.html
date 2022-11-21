@@ -4,9 +4,11 @@
     <div class="img-outer mx-4 mt-4" *ngIf="currentStockData?.img">
       <img [src]="currentStockData?.img" alt="">
     </div>
+    
     <div class="px-4">
       <h2 class="Nunito500 py-2">{{currentStockData?.name}}</h2>
       <h3 class="Nunito700 t-blue">Rs {{currentStockData?.price}}</h3>
+      <h3 *ngIf="dataProvider.purchaseProductId">ID: {{dataProvider.purchaseProductId}}</h3>
     </div>
     <div class="Nunito500 fs-13 py-3 px-4">
       <div>Product Code <span class="Nunito700">{{currentStockData?.id}}</span></div>
@@ -21,17 +23,45 @@
     <ion-list>
       <ion-item *ngFor="let key of dataKeys">
         <ion-label>{{key | titlecase}}</ion-label>
-        <ion-label *ngIf="key.toLowerCase() !='date'" color="primary">{{currentStockData[key]}}</ion-label>
+        <ion-label *ngIf="key.toLowerCase() !='date' && key.toLowerCase() !='warehouse'" color="primary">{{currentStockData[key]}}</ion-label>
         <ion-label *ngIf="key.toLowerCase() =='date'" color="primary">{{currentStockData[key].toDate() | date}}</ion-label>
+        <ion-label *ngIf="key.toLowerCase() =='warehouse'" color="primary">{{currentStockData[key].name | titlecase}}</ion-label>
       </ion-item>
     </ion-list>
     <div class="px-4 pt-4">
+      <ion-button *ngIf="dataProvider.purchaseProductId && dataProvider.purchaseId" expand="block" fill="solid">
+        Sell Scanned Item
+      </ion-button>
+      <ion-button *ngIf="dataProvider.purchaseProductId && dataProvider.purchaseId" (click)="transferModalOpen = true" expand="block" fill="solid">
+        Transfer Scanned Item
+      </ion-button>
       <ion-button routerLink="../../billing/{{stockId}}" expand="block" fill="solid">
         Sell Item
       </ion-button>
-      <!-- <ion-button expand="block" fill="solid">
-        Sell Item
-      </ion-button> -->
     </div>
   </div>
 </ion-content>
+
+<ion-modal [isOpen]="transferModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Warehouses</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="transferModalOpen = false"><ion-text color="danger">
+            Close
+          </ion-text></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ng-container *ngFor="let warehouse of warehouses" >
+          <ion-item detail button (click)="setWarehouse(warehouse)">
+            <ion-label>{{warehouse.location}}</ion-label>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>

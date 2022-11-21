@@ -28,6 +28,7 @@ export class HomepagePage implements OnInit {
   printers: any[] = [];
   barChart: any;
   validIds: string[] = [];
+  stocksIds: string[] = [];
   purchaseIds: string[] = [];
   // doughnutChart: Chart;
   // lineChart: Chart;
@@ -147,17 +148,21 @@ export class HomepagePage implements OnInit {
 
   getValidIds() {
     this.dataBaseService.getPurchases().then((res) => {
+      this.validIds = []
+      this.stocksIds = []
+      this.purchaseIds = []
       res.forEach((element: any) => {
         element.data().purchases.forEach((purchase) => {
           // this.validIds.push(...purchase.items);
           purchase.items.forEach((item) => {
             this.validIds.push(item.split('|')[0]);
-            this.purchaseIds.push(item.split('|')[1]);
+            this.stocksIds.push(item.split('|')[1]);
+            this.purchaseIds.push(element.id);
           });
         });
       });
       console.log('this.validIds', this.validIds);
-      console.log('this.purchaseIds', this.purchaseIds);
+      console.log('this.purchaseIds', this.stocksIds);
     });
   }
 
@@ -184,15 +189,18 @@ export class HomepagePage implements OnInit {
             if (result.hasContent && this.validIds.includes(result.content)) {
               console.log('result.content', result.content);
               // alert(result.content); // log the raw scanned content
-              const purchaseId =
-                this.purchaseIds[this.validIds.indexOf(result.content)];
-              console.log('purchaseId', purchaseId);
+              const stockId =
+                this.stocksIds[this.validIds.indexOf(result.content)];
+              const purchaseId = this.purchaseIds[this.validIds.indexOf(result.content)];
+              console.log('purchaseId', stockId);
               (
                 document.querySelector('app-root') as HTMLElement
               ).style.display = 'block';
               BarcodeScanner.showBackground();
               await BarcodeScanner.stopScan();
-              this.router.navigateByUrl('product-details/' + purchaseId);
+              this.dataProvider.purchaseProductId = result.content;
+              this.dataProvider.purchaseId = purchaseId;
+              this.router.navigateByUrl('product-details/' + stockId);
               setTimeout(() => {
                 location.reload();
               }, 500);

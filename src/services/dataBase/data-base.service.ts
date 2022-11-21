@@ -167,4 +167,14 @@ export class DataBaseService {
   getStock(stockId:string){
     return getDoc(doc(this.fs, 'stocks/'+stockId))
   }
+
+
+  updatePurchaseItem(purchaseId:string,itemId:string,data:any){
+    return updateDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId), data)
+  }
+
+
+  getMatchingWarehousePurchases(warehouseId:string){
+    return getDocs(query(collection(this.fs, 'purchase'), where('warehouses', 'array-contains', warehouseId)))
+  }
 }

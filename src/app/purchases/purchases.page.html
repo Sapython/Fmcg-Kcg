@@ -1,39 +1,71 @@
 <app-header title="Purchases"></app-header>
 <ion-content>
+  <ion-button (click)="export()" expand="block" fill="solid" shape="round">
+    Export
+  </ion-button>
   <ion-list>
-    <div class="card" *ngFor="let purchase of purchases">
-      <ion-row>
-        <ion-label class="title" color="primary">{{purchase.name | titlecase}}</ion-label>
-        <ion-label class="title" color="tertiary">{{purchase.date?.toDate() | date}}</ion-label>
-      </ion-row>
-      <hr>
-      <div class="column">
-        <ion-label>Total no of items
-          <ion-chip color="primary" mode="ios" outline="true">
-            <ion-label>{{purchase.items.length}}</ion-label>
+    <ng-container *ngFor="let purchase of purchases">
+      <div class="card" *ngIf="purchase.items.length > 0">
+        <ion-row>
+          <ion-label class="title" color="primary">{{purchase.name | titlecase}}</ion-label>
+          <ion-label class="title" color="tertiary">{{purchase.date?.toDate() | date}}</ion-label>
+        </ion-row>
+        <hr>
+        <div class="column">
+          <ion-label>Total no of items
+            <ion-chip color="primary" mode="ios" outline="true">
+              <ion-label>{{purchase.items.length}}</ion-label>
+            </ion-chip>
+          </ion-label>
+          <ion-label>Total no of models
+            <ion-chip color="primary" mode="ios" outline="true">
+              <ion-label>{{purchase.purchases.length}}</ion-label>
+            </ion-chip>
+          </ion-label>
+          <ion-label>Total no of stocks
+            <ion-chip color="primary" mode="ios" outline="true">
+              <ion-label>{{purchase.stocks.length}}</ion-label>
+            </ion-chip>
+          </ion-label>
+        </div>
+        <ion-label class="warehouse"> <ion-icon slot="start" name="location" color="primary"></ion-icon> {{purchase.warehouse.location}}</ion-label>
+        <hr>
+        <ion-row>
+          <ion-chip routerLink="../purchase-detail/{{purchase.id}}" color="primary" mode="ios" outline="true">
+            <ion-label>See Purchase</ion-label>
           </ion-chip>
-        </ion-label>
-        <ion-label>Total no of models
-          <ion-chip color="primary" mode="ios" outline="true">
-            <ion-label>{{purchase.purchases.length}}</ion-label>
+          <ion-chip (click)="transferPurchase(purchase)" color="primary" mode="ios" outline="true">
+            <ion-label>Transfer Purchase</ion-label>
           </ion-chip>
-        </ion-label>
-        <ion-label>Total no of stocks
-          <ion-chip color="primary" mode="ios" outline="true">
-            <ion-label>{{purchase.stocks.length}}</ion-label>
+          <ion-chip (click)="deletePurchase()" color="danger" mode="ios" outline="true">
+            <ion-label>Delete</ion-label>
           </ion-chip>
-        </ion-label>
+        </ion-row>
       </div>
-      <ion-label class="warehouse"> <ion-icon slot="start" name="location" color="primary"></ion-icon> {{purchase.warehouse.location}}</ion-label>
-      <hr>
-      <ion-row>
-        <ion-chip routerLink="../purchase-detail/{{purchase.id}}" color="primary" mode="ios" outline="true">
-          <ion-label>See Purchase</ion-label>
-        </ion-chip>
-        <ion-chip (click)="deletePurchase()" color="danger" mode="ios" outline="true">
-          <ion-label>Delete</ion-label>
-        </ion-chip>
-      </ion-row>
-    </div>
+    </ng-container>
   </ion-list>
 </ion-content>
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Warehouses</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="isModalOpen = false"><ion-text color="danger">
+            Close
+          </ion-text></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ng-container *ngFor="let warehouse of warehouses" >
+          <ion-item *ngIf="warehouse.id!=selectedPurchase?.warehouse.id" detail button (click)="setWarehouse(selectedPurchase,warehouse)">
+            <ion-label>{{warehouse.location}}</ion-label>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>

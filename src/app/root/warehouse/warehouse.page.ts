@@ -12,7 +12,7 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
 })
 export class WarehousePage implements OnInit {
 
-  constructor(private databaseService:DataBaseService,private dataProvider:DataProviderService,private alertify:AlertsAndNotificationsService,private router:Router) { }
+  constructor(private databaseService:DataBaseService,public dataProvider:DataProviderService,private alertify:AlertsAndNotificationsService,private router:Router) { }
   modalOpen: boolean = false;
   addWarehouseForm:FormGroup = new FormGroup({
     name: new FormControl('',[Validators.required]),
@@ -52,6 +52,10 @@ export class WarehousePage implements OnInit {
     } else {
       alert('Invalid details')
     }
+  }
+
+  openDetail(){
+    
   }
 
 }

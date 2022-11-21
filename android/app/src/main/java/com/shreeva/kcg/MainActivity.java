@@ -6,9 +6,12 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.caysn.autoreplyprint.AutoReplyPrint;
 import com.getcapacitor.BridgeActivity;
@@ -26,9 +29,15 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     registerPlugin(PrinterIntegration.class);
     super.onCreate(savedInstanceState);
+    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED)
+    {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+      {
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
+      }
+    }
+
   }
-
-
 
   public boolean checkGPSEnabled() {
     boolean isEnabled = false;

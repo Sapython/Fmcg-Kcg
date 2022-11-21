@@ -24,10 +24,10 @@ export class AddPurchasePage implements OnInit {
   currentPurchaseRef: any;
   purchaseData: any;
   public addPurchaseForm: FormGroup = new FormGroup({
-    name: new FormControl('test'),
-    phoneNumber: new FormControl('9517457296'),
-    address: new FormControl('address'),
-    warehouse: new FormControl(''),
+    name: new FormControl('',[Validators.required]),
+    phoneNumber: new FormControl(''),
+    address: new FormControl(''),
+    warehouse: new FormControl('',[Validators.required]),
   });
 
   public containers = [];
@@ -74,12 +74,12 @@ export class AddPurchasePage implements OnInit {
   }
 
   addPurchase() {
-    if (confirm('Are you sure you want to add this purchase?')) {
+    if (this.addPurchaseForm.valid && confirm('Are you sure you want to add this purchase?')) {
       this.imageVisible = false;
       this.slides.slideNext();
       this.dataProvider.loading = true;
       this.seller
-        .addPurchase({ ...this.addPurchaseForm.value, purchases: [], date: new Date() })
+        .addPurchase({ ...this.addPurchaseForm.value, purchases: [], date: new Date(), warehouses:[this.addPurchaseForm.value.warehouse.id] })
         .then((res: any) => {
           this.purchaseData = { ...this.addPurchaseForm.value, purchases: [],date: new Date()  };
           this.currentPurchaseRef = res;
@@ -92,6 +92,8 @@ export class AddPurchasePage implements OnInit {
         .finally(() => {
           this.dataProvider.loading = false;
         });
+    } else {
+      this.alertify.presentToast('Purchase not added because of invalid data or cancelled request.');
     }
   }
 
@@ -200,7 +202,7 @@ export class AddPurchasePage implements OnInit {
     });
     console.log('labels, qrData', labels, qrData);
     this.printingService.printLabel(labels, qrData);
-    this.printingService.printLabel(labels, qrData);
+    // this.printingService.printLabel(labels, qrData);
     // this.printingService.printLabel(labels, qrData);
     // this.printingService.printLabel(labels, qrData);
   }
