@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Capacitor/Console" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="permission" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
@@ -16,6 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/capacitor.build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/capacitor.build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
@@ -23,20 +26,10 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shreeva/kcg/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capacitor.settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor.settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/add-purchase/add-purchase.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/product-details/product-details.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchase-detail/purchase-detail.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/purchases/purchases.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchases/purchases.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/purchases/purchases.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/purchases/purchases.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/homepage/homepage.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/warehouse.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/stock-list/stock-list.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/services/Data-Provider/data-provider.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/Data-Provider/data-provider.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/printer-settings/printer-settings.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/printer-settings/printer-settings.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/root/warehouse/detail/detail.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/dataBase/data-base.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +37,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[MZAMLNO799TOHQLF]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZ8N22677XL]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -102,9 +95,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="ToolWindowEmulator.ShowToolbar" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -114,7 +107,7 @@
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="android.app.main" />
+      <module name="android.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />

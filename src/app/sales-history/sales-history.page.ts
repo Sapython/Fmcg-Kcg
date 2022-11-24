@@ -50,16 +50,30 @@ export class SalesHistoryPage implements OnInit {
     }
   }
 
-  salesHistory() {
-    return this.dataBase.sales().then((res) => {
+  salesHistory(event?) {
+    this.sales = []
+    this.dataBase.sales().then((res) => {
       res.forEach((element: any) => {
-        this.sales.push({
-          ...element.data(),
-          id: element.id,
-        });
+        if(element.data().status!='deleted'){
+          this.sales.push({
+            ...element.data(),
+            id: element.id,
+          });
+        }
       });
       console.log(this.sales);
-    }).finally(() => {this.loading=false});
+    }).finally(() => {
+      if (event){
+        event.target.complete();
+      }
+      this.loading=false
+    });
+  }
+
+  deletePurchase(id){
+    this.dataBase.deletePurchase(id).then(()=>{
+      this.salesHistory()
+    })
   }
 
 }

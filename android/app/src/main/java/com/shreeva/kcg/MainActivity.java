@@ -29,13 +29,23 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     registerPlugin(PrinterIntegration.class);
     super.onCreate(savedInstanceState);
-    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED)
-    {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-      {
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
-      }
+    Toast.makeText(this, "SDK"+Build.VERSION.SDK_INT, Toast.LENGTH_SHORT).show();
+    System.out.println("Test start");
+    if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.BLUETOOTH_CONNECT)) {
+      Toast.makeText(this, "Get data", Toast.LENGTH_SHORT).show();
     }
+    System.out.println("Test end");
+    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R)
+    {
+      Toast.makeText(this, "SDK Passed", Toast.LENGTH_SHORT).show();
+      ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.BLUETOOTH_CONNECT,Manifest.permission.BLUETOOTH_SCAN,Manifest.permission.BLUETOOTH_ADMIN,Manifest.permission.BLUETOOTH,Manifest.permission.BLUETOOTH_ADVERTISE}, 2);
+//      ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
+    }
+    if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
+      Toast.makeText(this, "Bluetooth not supported", Toast.LENGTH_SHORT).show();
+      finish();
+    }
+
 
   }
 

@@ -12,6 +12,20 @@ export class DataBaseService {
   storage = getStorage();
 
   constructor(public fs: Firestore) {
+    // alert("Running")
+    // getDocs(collection(this.fs, 'purchase')).then((data)=>{
+    //   for(let document of data.docs){
+    //     if (document.data().status != 'finalized') {
+    //       continue
+    //     }
+    //     console.log("DAMMMNNN", document.id)
+    //     document.data().purchases.forEach((item:any)=>{
+    //       item.items.forEach((id:string)=>{
+    //         updateDoc(doc(this.fs,'stocks/'+id.split('|')[1]), {quantity: increment(1)})
+    //       })
+    //     })
+    //   }
+    // })
   }
 
   generateId() {
@@ -94,13 +108,17 @@ export class DataBaseService {
     }
     else {
       addDoc(collection(this.fs, urls.sales), { sales: 1, date: date.toLocaleDateString() })
-
     }
   }
 
   public getDailySales() {
     return getDocs(collection(this.fs, urls.sales))
   }
+
+  addSales(data){
+    return addDoc(collection(this.fs, 'billing'), data)
+  }
+
 
   public getModals(){
     return getDocs(collection(this.fs, 'modals'))
@@ -126,6 +144,10 @@ export class DataBaseService {
 
   public addWarehouse(data){
     return addDoc(collection(this.fs, 'warehouses'), data)
+  }
+
+  deleteWarehouse(id:string){
+    return deleteDoc(doc(this.fs, 'warehouses/'+id))
   }
 
   getWarehouses(){
@@ -160,6 +182,10 @@ export class DataBaseService {
     return getDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId)) 
   }
 
+  getPurchaseItems(purchaseId:string){
+    return getDocs(collection(this.fs, 'purchase/'+purchaseId+'/items'))
+  }
+
   getPurchase(purchaseId:string){
     return getDoc(doc(this.fs, 'purchase/'+purchaseId))
   }
@@ -168,6 +194,13 @@ export class DataBaseService {
     return getDoc(doc(this.fs, 'stocks/'+stockId))
   }
 
+  updateStock(stockId:string,data:any){
+    return updateDoc(doc(this.fs, 'stocks/'+stockId), data)
+  }
+
+  getStocks(){
+    return getDocs(collection(this.fs, 'stocks'))
+  }
 
   updatePurchaseItem(purchaseId:string,itemId:string,data:any){
     return updateDoc(doc(this.fs, 'purchase/'+purchaseId+'/items/'+itemId), data)
@@ -176,5 +209,9 @@ export class DataBaseService {
 
   getMatchingWarehousePurchases(warehouseId:string){
     return getDocs(query(collection(this.fs, 'purchase'), where('warehouses', 'array-contains', warehouseId)))
+  }
+
+  deletePurchase(purchaseId:string){
+    return updateDoc(doc(this.fs, 'purchase/'+purchaseId),{status:'deleted'})
   }
 }

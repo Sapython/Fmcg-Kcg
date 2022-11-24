@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { increment } from '@firebase/firestore';
 import { IonSlides } from '@ionic/angular';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
@@ -151,6 +152,9 @@ export class AddPurchasePage implements OnInit {
           }
         });
         this.updatePurchase();
+        this.databaseService.updateStock(item.id,{
+          quantity: increment(1),
+        })
         item.quantity++;
         this.printLabel({ ...item, qrId: res.id });
         this.alertify.presentToast('Item Added Successfully');
@@ -181,6 +185,9 @@ export class AddPurchasePage implements OnInit {
             }
           });
           this.updatePurchase();
+          this.databaseService.updateStock(item.id,{
+            quantity: increment(-1),
+          })
           item.quantity--;
           this.alertify.presentToast('Item Removed Successfully');
         })

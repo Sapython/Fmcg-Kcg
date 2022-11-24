@@ -32,6 +32,7 @@ export class PrintingService {
   ) {}
 
   printLabel(labels: string[], qrData: string) {
+    labels.push("ID:"+qrData);
     return PrinterIntegration.printLabel({labels: labels,qrData: qrData})
   }
 }

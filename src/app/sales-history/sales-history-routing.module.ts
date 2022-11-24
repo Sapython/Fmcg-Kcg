@@ -6,8 +6,14 @@ import { SalesHistoryPage } from './sales-history.page';
 const routes: Routes = [
   {
     path: '',
-    component: SalesHistoryPage
-  }
+    component: SalesHistoryPage,
+    children:[
+      {
+        path: 'detail:/id',
+        loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+      }
+    ]
+  },
 ];
 
 @NgModule({

@@ -50,6 +50,9 @@ export class PrinterSettingsPage implements OnInit {
     } else {
       this.loading = false;
     }
+    PrinterIntegration.echo().then((data)=>{
+      alert(JSON.stringify(data))
+    })
   }
 
   checkStatus(){
@@ -62,21 +65,22 @@ export class PrinterSettingsPage implements OnInit {
   }
   printLabel(){
     PrinterIntegration.printLabel({labels:["abcedfgh","abcedfgh","abcedfgh"],qrData:"1234567890"}).then((data)=>{
-      alert(data)
     })
   }
   connectBluetoothFour(){
     alert(this.currentPrinter.address)
     PrinterIntegration.connectToPrinter({ address: this.currentPrinter.address,type:'bt' }).then((data)=>{
-      alert('Received')
-      alert(data)
+      this.alertify.presentToast("Connected");
+    }).catch((error)=>{
+      this.alertify.presentToast("Failed to connect to printer",'error');
     })
   }
   connectBluetoothTwo() {
     alert(this.currentPrinter.address)
     PrinterIntegration.connectToPrinter({ address: this.currentPrinter.address,type:'ble' }).then((data)=>{
-      alert('Received')
-      alert(data)
+      this.alertify.presentToast("Connected");
+    }).catch((error)=>{
+      this.alertify.presentToast("Failed to connect to printer",'error');
     })
   }
 }

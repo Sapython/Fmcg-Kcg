@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { increment } from '@angular/fire/firestore';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { arrayUnion } from '@firebase/firestore';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
@@ -17,16 +19,29 @@ export class ProductDetailsPage implements OnInit {
   public currentStockData: any;
   public transferModalOpen: boolean = false;
   public warehouses = [];
+  saleModalOpen: boolean = false;
   @Output() addToCart: EventEmitter<any> = new EventEmitter();
+  billingForm:FormGroup = new FormGroup({
+    customerName:new FormControl(''),
+    customerPhone:new FormControl(''),
+    customerAddress:new FormControl(''),
+    customerEmail:new FormControl(''),
+    customerGST:new FormControl(''),
+    price:new FormControl(''),
+    discount:new FormControl(''),
+    tax:new FormControl(''),
+  })
+  mode:'full'|'partial' = 'full';
   constructor(
     private stock: StocksService,
-    public user: UserService,
+    private user: UserService,
     public dataProvider: DataProviderService,
-    public dataBase: DataBaseService,
-    public router: ActivatedRoute,
+    private dataBase: DataBaseService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
     private alertify: AlertsAndNotificationsService
   ) {
-    this.router.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params) => {
       // alert("Changed route "+params.id);
       this.stockId = params.id;
       if (this.stockId && this.dataProvider.purchaseId && this.dataProvider.purchaseProductId) {
@@ -104,5 +119,45 @@ export class ProductDetailsPage implements OnInit {
         this.dataProvider.loading = false;
       });
     }
+  }
+
+  sellItem(){
+    this.dataProvider.loading = true;
+    if (this.mode=='full'){
+      this.dataBase.updatePurchaseItem(this.dataProvider.purchaseId, this.dataProvider.purchaseProductId, {
+        sold: true,
+        mode:this.mode,
+      })
+      this.dataBase.updatePurchase(this.dataProvider.purchaseId, {
+        sales:arrayUnion(this.dataProvider.purchaseProductId)
+      })
+      this.dataBase.updateStock(this.stockId, {
+        quantity:increment(-1)
+      })
+    }
+    let data = {
+      ...this.currentStockData,
+      stockId:this.stockId,
+      warehouse:this.currentStockData.warehouse,
+      date:new Date(),
+      sold:true,
+      ...this.billingForm.value,
+      mode:this.mode
+    }
+    this.dataBase.addSales(data).then((res)=>{
+      this.alertify.presentToast('Item sold successfully');
+      this.saleModalOpen = false;
+      this.router.navigate(['/sales-history']);
+    }).catch((err)=>{
+      this.alertify.presentToast('An error occurred');
+    }).finally(()=>{
+      this.dataProvider.loading = false;
+    })
+  }
+  
+  modeChanged(event:any){
+    // this.router.navigate(['/sales-history']);
+    console.log(event.detail.value);
+    this.mode = event.detail.value;
   }
 }
