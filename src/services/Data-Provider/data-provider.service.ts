@@ -12,7 +12,7 @@ export class DataProviderService {
   public product:any;
   public routeData:any;
   public loading:boolean = false;
-  public purchaseProductId:string = "6NplLWJaIAXRjtWMuRaM";
-  public purchaseId:string = "EEA0bRQ7oChnktgYZ6Xj";
+  public purchaseProductId:string = "";
+  public purchaseId:string = "";
   constructor() { }
 }

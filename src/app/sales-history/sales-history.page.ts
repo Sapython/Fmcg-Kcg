@@ -71,9 +71,11 @@ export class SalesHistoryPage implements OnInit {
   }
 
   deletePurchase(id){
-    this.dataBase.deletePurchase(id).then(()=>{
-      this.salesHistory()
-    })
+    if(confirm("Are you sure you want to delete this purchase?")){
+      this.dataBase.deletePurchase(id).then(()=>{
+        this.salesHistory()
+      })
+    }
   }
 
 }

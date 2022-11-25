@@ -30,13 +30,13 @@
         <ion-label>{{sale.date.toDate() | date}}</ion-label>
       </ion-item>
       <ion-row class="ion-justify-content-between">
-        <ion-chip color="primary" routerLink="./sales-history/detail/{{sale.id}}" outline="true">
-          See Purchase&nbsp;
+        <ion-chip color="primary" (click)="this.dataProvider.routeData=sale" routerLink="detail/{{sale.id}}" outline="true">
+          See Sale&nbsp;
           <ion-icon name="arrow-forward"></ion-icon>
         </ion-chip>
-        <ion-chip color="danger" outline="true">
-          Delete Purchase&nbsp;
-          <ion-icon (click)="deletePurchase(sale)" name="trash"></ion-icon>
+        <ion-chip (click)="deletePurchase(sale)" color="danger" outline="true">
+          Delete Sale&nbsp;
+          <ion-icon name="trash"></ion-icon>
         </ion-chip>
       </ion-row>
     </ion-card>

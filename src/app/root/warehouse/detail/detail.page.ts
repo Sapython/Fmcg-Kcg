@@ -25,10 +25,10 @@ export class DetailPage implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((data) => {
       if (data.warehouseId) {
-        alert('Warehouse id');
+        // alert('Warehouse id');
         if (this.dataProvider.routeData) {
           this.dataProvider.routeData.id = data.warehouseId;
-          alert('Route data: ' + JSON.stringify(this.dataProvider.routeData));
+          // alert('Route data: ' + JSON.stringify(this.dataProvider.routeData));
           this.getMatchingPurchases(data.warehouseId);
           // this.databaseSerivce.getPurchases().then((data:any)=>{
           //   data.forEach((element:any) => {
@@ -39,6 +39,8 @@ export class DetailPage implements OnInit {
           //     }
           //   });
           // })
+        } else {
+          this.alertify.presentToast('Error loading data', 'error');
         }
       }
     });
