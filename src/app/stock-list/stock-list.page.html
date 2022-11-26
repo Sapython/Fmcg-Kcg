@@ -2,6 +2,9 @@
 
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="px-3 mt-4">
     <div class="d-flex align-items-center justify-content-center searchbar">
       <input (input)="debounceSearch($event)" type="text" class="searchBox me-2 Nunito500" placeholder="Seach Product">

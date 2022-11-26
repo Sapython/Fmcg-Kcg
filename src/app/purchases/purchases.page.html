@@ -1,5 +1,8 @@
 <app-header title="Purchases"></app-header>
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-button (click)="export()" expand="block" fill="solid" shape="round">
     Export
   </ion-button>
