@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
 
 
     this.platform.backButton.subscribe(async (res:any)=>{
-      // alert("back:"+this.router.url)
       if(this.router.url.startsWith('/stock-list')){
         (document.querySelector('app-root') as HTMLElement).style.display = 'block';
         BarcodeScanner.showBackground();

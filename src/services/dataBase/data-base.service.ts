@@ -12,7 +12,7 @@ export class DataBaseService {
   storage = getStorage();
 
   constructor(public fs: Firestore) {
-    // alert("Running")
+    // console.log("Running")
     // getDocs(collection(this.fs, 'purchase')).then((data)=>{
     //   for(let document of data.docs){
     //     if (document.data().status != 'finalized') {

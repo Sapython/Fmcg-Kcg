@@ -26,7 +26,6 @@ export class StocksService {
 
   public getStock(STOCK_ID: any) {
     const getStockUrl = urls.stock.replace('{STOCK_ID}', STOCK_ID);
-    // alert('Getting stock from '+getStockUrl)
     return getDoc(doc(this.fs, getStockUrl));
   }
 

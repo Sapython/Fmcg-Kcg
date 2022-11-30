@@ -21,8 +21,8 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   loginWithEmail() {
-    if (this.loginForm.value.email == '') { alert('please enter your email'); return }
-    if (this.loginForm.value.password == '') { alert('please enter your Password'); return }
+    if (this.loginForm.value.email == '') {  return }
+    if (this.loginForm.value.password == '') {  return }
 
     this.auth.loginWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password)
   }

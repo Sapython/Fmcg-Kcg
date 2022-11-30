@@ -124,7 +124,6 @@ export class HomepagePage implements OnInit {
         console.log(this.allSales);
       })
       .finally(() => {
-        // alert("Loaded "+this.allSales.length)
         this.loading = false;
       });
   }
