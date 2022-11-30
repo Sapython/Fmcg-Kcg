@@ -15,6 +15,7 @@ export class UserService {
   public loggedInUserData: Subject<any> = new Subject();
 
   public userdata:any;
+  public fetchedData:boolean = false;
   
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
@@ -26,19 +27,19 @@ export class UserService {
           this.dataProvider.LoggedInUser = true;
           this.dataProvider.user = user;
           this.loggedInUserData.next(user)
+          this.fetchedData = true;
           // console.log(this.dataProvider.user)
         }
         else {
           this.dataProvider.LoggedInUser = false;
           this.loggedInUserData.next(false)
+          this.fetchedData = true;
         }
       })
     }
     else{
       alert('loggedout')
-      
     }
-    
   }
 
 
