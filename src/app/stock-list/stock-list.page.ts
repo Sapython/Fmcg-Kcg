@@ -28,7 +28,6 @@ export class StockListPage implements OnInit {
   }
   async refresh(event) {
     await this.stockList();
-    // alert("DONE")
     event.target.complete();
   }
 
@@ -79,7 +78,6 @@ export class StockListPage implements OnInit {
     });
     this.loading = false;
     let itemAttributes = {};
-    // alert("DONE 1")
     this.stocks.forEach((item) => {
       for (var key of Object.keys(item)) {
         if (this.ignoredFields.includes(key) || Number(item[key])) {
@@ -113,7 +111,6 @@ export class StockListPage implements OnInit {
         }
       }
     });
-    // alert("DONE 2")
     console.log(itemAttributes);
     // sort itemAttributes by key name
     let sortedItemAttributes = {};
@@ -131,7 +128,6 @@ export class StockListPage implements OnInit {
     });
     console.log(filteredKeys);
     this.filters = filteredKeys;
-    // alert("DONE 3")
   }
 
   filterOptions() {

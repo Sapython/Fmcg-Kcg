@@ -35,7 +35,7 @@ export class UserService {
       })
     }
     else{
-      alert('loggedout')
+      console.log('logged out')
       
     }
     

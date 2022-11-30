@@ -52,14 +52,11 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then((credentials: UserCredential) => {
         console.log(credentials);
-        alert(credentials);
-        alert('Logged in successfully');
         this.alertify.presentToast('Logged In Successfully');
         this.router.navigateByUrl('/root/homepage');
       })
       .catch((err) => {
         console.log(err);
-        alert(err.message);
       });
   }
 
@@ -142,7 +139,6 @@ export class AuthService {
 
   public async signUpwithGoogle() {
     if (this.platform.is('capacitor')) {
-      alert('Capacitor')
       GoogleAuth.signIn()
         .then((googleUser: any) => {
           const credential = GoogleAuthProvider.credential(
@@ -213,12 +209,10 @@ export class AuthService {
           );
         });
     } else {
-      alert('Web')
       const gauth = new GoogleAuthProvider();
       signInWithPopup(this.auth, gauth).then(
         (credentials: UserCredential) => {
           console.log('Credentials ', credentials);
-          alert(credentials.user.uid);
           getDoc(doc(this.fs, urls.users + credentials.user.uid))
             .then((userDocument: any) => {
               if (!userDocument.exists()) {
@@ -247,10 +241,10 @@ export class AuthService {
             });
         }
       ).catch((error) => {
-        alert(error.message);
-        alert('Error when signing in')
+        // console.log(error.message);
+        console.log('Error when signing in')
       }).finally(() => {
-        alert('Finally')
+        console.log('Finally')
       });
     }
   }
