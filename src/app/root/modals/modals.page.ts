@@ -69,22 +69,29 @@ export class ModalsPage implements OnInit {
     name:new FormControl('',[Validators.required]),
     description:new FormControl('',[Validators.maxLength(200)]),
   })
-  constructor(private databaseService:DataBaseService,private dataProvider:DataProviderService,private alertify:AlertsAndNotificationsService) { }
+  constructor(private databaseService:DataBaseService,public dataProvider:DataProviderService,private alertify:AlertsAndNotificationsService) { }
 
   ngOnInit() {
+    this.refresh()
+    this.dataProvider.modalUpdated.subscribe((res)=>{
+      this.refresh()
+    })
+  }
+
+  refresh(event?:any){
+    this.dataProvider.loading = true;
     this.databaseService.getModals().then((res)=>{
       // this.modals = res
       this.modals = []
       res.forEach((item)=>{
         this.modals.push({...item.data(),id:item.id})
       })
+      if(event){
+        event.target.complete();
+      }
+    }).finally(()=>{
+      this.dataProvider.loading = false;
     })
-    // this.databaseService.getUnits().then((res)=>{
-    //   // this.units = []
-    //   res.forEach((unit:any)=>{
-    //     // this.units.push({...unit.data(),id:unit.id})
-    //   })
-    // })
   }
 
   addUnit(){

@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detail</ion-title>
+    <ion-title>Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <form [formGroup]="addModalForm" (ngSubmit)="updateModal()">
+    <ion-item>
+      <ion-label position="stacked">Enter your modal name</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Your modal name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Enter your modal description</ion-label>
+      <ion-textarea formControlName="description" type="text" placeholder="Your modal description"></ion-textarea>
+    </ion-item>
+    <ion-button (click)="addField()" expand="block" fill="solid">
+      Add Field
+    </ion-button>
+    <ion-list>
+      <ion-item *ngFor="let field of fields">
+        <ion-checkbox slot="start" mode="ios" [formControl]="field.printable"></ion-checkbox>
+        <ion-input type="text" [formControl]="field.name" placeholder="Field Name"></ion-input>
+        <ion-select multiple="false" [formControl]="field.unit" interface="action-sheet" placeholder="Select unit">
+          <ion-select-option *ngFor="let unit of units" [value]="unit.value"
+            >{{unit.name}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button color="secondary" type="submit" expand="block" fill="solid" >
+      Submit
+    </ion-button>
+  </form>
 </ion-content>

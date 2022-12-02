@@ -5,11 +5,6 @@ import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'loading',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule),
     canActivate: [LoginGuard]
@@ -157,15 +152,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path:"**",
-    redirectTo: 'root',
-    pathMatch: 'full'
-  },
-  {
     path: 'loading',
     loadChildren: () => import('./loading/loading.module').then( m => m.LoadingPageModule)
-  }
-
+  },
 ];
 
 @NgModule({

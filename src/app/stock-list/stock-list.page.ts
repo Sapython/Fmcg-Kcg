@@ -20,7 +20,7 @@ export class StockListPage implements OnInit {
   stocks: any[] = [];
   filteredStocks: any[] = [];
   searchDebounceTimer: any;
-  ignoredFields = ['id', 'Name', 'Price', 'Quality', 'Quantity', 'img'];
+  ignoredFields = ['id', 'name','img'];
   constructor(private stockService: StocksService) {}
   loading: boolean = true;
   ngOnInit() {
@@ -45,14 +45,7 @@ export class StockListPage implements OnInit {
     if (event.target.value.length > 0) {
       let fuse = new Fuse(this.stocks, {
         keys: [
-          'Backing',
-          'Name',
-          'Length',
-          'Price',
-          'Quality',
-          'Quantity',
-          'Shade',
-          'StorageLocation',
+          'name',
         ],
       });
       const res = fuse.search(event.target.value);
@@ -111,7 +104,7 @@ export class StockListPage implements OnInit {
         }
       }
     });
-    console.log(itemAttributes);
+    console.log("itemAttributes",itemAttributes);
     // sort itemAttributes by key name
     let sortedItemAttributes = {};
     Object.keys(itemAttributes)

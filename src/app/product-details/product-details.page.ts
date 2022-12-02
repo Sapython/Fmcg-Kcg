@@ -59,6 +59,8 @@ export class ProductDetailsPage implements OnInit {
   }
 
   getPurchaseItem(){
+    console.log(this.dataProvider.purchaseId, this.dataProvider.purchaseProductId);
+    
     this.dataBase.getPurchaseItem(this.dataProvider.purchaseId, this.dataProvider.purchaseProductId).then((res)=>{
       this.currentStockData = res.data();
       this.dataKeys = Object.keys(this.currentStockData);

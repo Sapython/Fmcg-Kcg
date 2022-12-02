@@ -72,7 +72,7 @@ export class SalesHistoryPage implements OnInit {
 
   deletePurchase(id){
     if(confirm("Are you sure you want to delete this purchase?")){
-      this.dataBase.deletePurchase(id).then(()=>{
+      this.dataBase.deleteSales(id).then(()=>{
         this.salesHistory()
       })
     }

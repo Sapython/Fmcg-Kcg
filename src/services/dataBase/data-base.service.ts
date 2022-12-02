@@ -133,6 +133,11 @@ export class DataBaseService {
     return addDoc(collection(this.fs, 'modals'),data)
   }
 
+  public updateModal(MODAL_ID: any, data: any) {
+    const editModalUrl = urls.modal.replace('{MODAL_ID}', MODAL_ID);
+    return updateDoc(doc(this.fs, editModalUrl), data);
+  }
+
   public addUnit(data:any){
     return addDoc(collection(this.fs, 'units'), data)
   }
@@ -213,5 +218,9 @@ export class DataBaseService {
 
   deletePurchase(purchaseId:string){
     return updateDoc(doc(this.fs, 'purchase/'+purchaseId),{status:'deleted'})
+  }
+
+  deleteSales(salesId:string){
+    return updateDoc(doc(this.fs, 'billing/'+salesId),{status:'deleted'})
   }
 }

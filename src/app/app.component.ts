@@ -16,11 +16,8 @@ import { Camera } from '@capacitor/camera';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  public userId:any; 
-  public userr: Observable<User | null> = EMPTY;
+export class AppComponent {
   
-  public loggedInUserData: Subject<any> = new Subject();
   constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform) { 
     if(platform.is('capacitor')){
       Camera.checkPermissions().then((res)=>{
@@ -35,48 +32,23 @@ export class AppComponent implements OnInit {
 
 
     this.platform.backButton.subscribe(async (res:any)=>{
-      if(this.router.url.startsWith('/stock-list')){
+      if(this.router.url.startsWith('/stock-list') || this.router.url.startsWith('/root/homepage')){
         (document.querySelector('app-root') as HTMLElement).style.display = 'block';
         BarcodeScanner.showBackground();
         await BarcodeScanner.stopScan()
       }
       window.history.back();
     })
-  }
- 
-  ngOnInit() {
     this.dataProvider.loading=true;
-    this.user.loggedInUserData.subscribe((value) => { 
-      console.log('new', value)
-      if(!value){
-         this.router.navigateByUrl('/login')
-         return this.dataProvider.loading=false;
+    this.user.loggedInUserData.subscribe((data:any)=>{
+      console.log("LOADING",data)
+      if(data){
+        this.router.navigate(['./root'])
+      } else {
+        this.router.navigate(['./login'])
       }
-      collectionSnapshots(
-        collection(this.fs, urls.users + value.uid + urls.cart)
-      ).subscribe((dataChange) => {
-        console.log('new', value.uid)
-        console.log("Started listening to cart changes");
-        let items: any = [];
-        dataChange.forEach((doc: any) => {
-          items.push({ ...doc.data() });
-        });
-        this.dataProvider.cartData = items;
-        this.user.getUserData.subscribe((res) => {
-          console.log(value.uid)
-          this.getUser(value.uid) 
-        });
-        console.log("CartItems", items);
-        this.dataProvider.loading=false;
-        // this.router.navigate(['/homepage'])
-      });
-    });
-    
+      this.dataProvider.loading=false;
+    })
   }
-
-  private getUser(uid:any) {
-    this.user.getUser(uid).then((res:any) => { this.dataProvider.user = res.data(); console.log(this.dataProvider.user)})
-  }
-  
 
 }
