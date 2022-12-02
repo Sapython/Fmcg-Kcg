@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, increment, setDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, increment, limit, orderBy, setDoc, updateDoc } from '@angular/fire/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { query, where } from '@firebase/firestore';
 import { urls } from '../url';
@@ -26,6 +26,38 @@ export class DataBaseService {
     //     })
     //   }
     // })
+    if(false){
+      let totalQuantity = 0;
+      getDocs(collection(this.fs, 'stocks')).then((data)=>{
+        for(let document of data.docs){
+          if (document.data().quantity) {
+            totalQuantity += document.data().quantity
+          }
+        }
+        updateDoc(doc(this.fs,'counters/counters'),{totalQuantity: totalQuantity})
+      })
+      let totalSales = 0;
+      let totalNoSales = 0;
+      getDocs(collection(this.fs, 'billing')).then((data)=>{
+        for(let document of data.docs){
+          if (document.data().price) {
+            totalSales += (document.data().price)
+          }
+        }
+        totalNoSales = data.docs.length
+        updateDoc(doc(this.fs,'counters/counters'),{totalSales: totalSales, totalNoSales: totalNoSales})
+      })
+      let totalModals = 0;
+      getDocs(collection(this.fs,'purchase')).then((data)=>{
+        totalModals = data.docs.length
+        updateDoc(doc(this.fs,'counters/counters'),{totalModals: totalModals})
+      })
+      let totalUsers = 0;
+      getDocs(collection(this.fs,'users')).then((data)=>{
+        totalUsers = data.docs.length
+        updateDoc(doc(this.fs,'counters/counters'),{totalUsers: totalUsers})
+      })
+    }
   }
 
   generateId() {
@@ -84,6 +116,10 @@ export class DataBaseService {
   // Public
   public allSales() {
     return getDocs(collection(this.fs, urls.billing))
+  }
+
+  public topSales(){
+    return getDocs(query(collection(this.fs, 'billing'),limit(5),orderBy('date','desc')))
   }
 
   getSales(id){
@@ -222,5 +258,9 @@ export class DataBaseService {
 
   deleteSales(salesId:string){
     return updateDoc(doc(this.fs, 'billing/'+salesId),{status:'deleted'})
+  }
+
+  getCounters(){
+    return getDocs(collection(this.fs, 'counters/counters'))
   }
 }

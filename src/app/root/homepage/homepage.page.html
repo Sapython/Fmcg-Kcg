@@ -63,24 +63,27 @@
     <div class="me-2 card-shadow p-3">
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
-        <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div>
+        <!-- <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div> -->
       </div>
-      <div class="fs-24 Nunito700">1,234</div>
-      <div class="Nunito500 fs-10">Total Custumer</div>
+      <div class="fs-24 Nunito700">{{totalSales}}</div>
+      <div class="Nunito500 fs-10">Total Sales</div>
     </div>
     <div class="ms-2 card-shadow p-3">
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
-        <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div>
+        <!-- <div class="ms-3 Nunito500 t-green fs-14">+2.40%</div> -->
       </div>
-      <div class="fs-24 Nunito700">1,234</div>
-      <div class="Nunito500 fs-10">Total Custumer</div>
+      <div class="fs-24 Nunito700">{{totalStocks}}</div>
+      <div class="Nunito500 fs-10">Total Stocks</div>
     </div>
   </div>
-  <div class="Nunito700 fs-22 px-3 mt-4">Most sold</div>
+  <div class="Nunito700 fs-22 px-3 mt-4">Latest sales</div>
   <div class="px-3 my-3">
-    <app-sales-card *ngFor="let sale of allSales" [Id]="sale.id" [Name]="sale?.Name" [img]="sale?.img"
-      [Quantity]="sale?.Quality" [id]="sale?.productId"></app-sales-card>
+    <ion-item *ngFor="let sale of mostSales">
+      <ion-label >{{sale.name}}</ion-label>
+      <ion-label color="primary">&#8377;{{sale.price}}</ion-label>
+      <ion-label color="success">{{sale.date.toDate() | date:'shortDate'}}</ion-label>
+    </ion-item>
   </div>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>
