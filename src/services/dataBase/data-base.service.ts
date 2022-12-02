@@ -260,7 +260,7 @@ export class DataBaseService {
     return updateDoc(doc(this.fs, 'billing/'+salesId),{status:'deleted'})
   }
 
-  getCounters(){
-    return getDocs(collection(this.fs, 'counters/counters'))
+  getCounter(){
+    return getDoc(doc(this.fs, 'counters/counters'))
   }
 }

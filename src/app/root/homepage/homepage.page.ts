@@ -29,6 +29,7 @@ export class HomepagePage implements OnInit {
   totalStocks: number = 0;
   totalSales: number = 0;
   mostSales: any[] = [];
+  counters:any;
   constructor(
     public dataProvider: DataProviderService,
     public dataBaseService: DataBaseService,
@@ -46,8 +47,8 @@ export class HomepagePage implements OnInit {
   getCounters(){
     this.totalSales = 0;
     this.totalStocks = 0;
-    this.dataBaseService.getCounters().then((res) => {
-      
+    this.dataBaseService.getCounter().then((res) => {
+      this.counters = res.data();
     })
   }
 
