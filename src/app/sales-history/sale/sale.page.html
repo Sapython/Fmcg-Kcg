@@ -1,0 +1,70 @@
+<app-header title="Sale History"></app-header>
+<ion-content>
+  <form [formGroup]="saleForm" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Customer Name</ion-label>
+        <ion-input type="text" formControlName="customerName" placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Customer Phone</ion-label>
+        <ion-input type="text" formControlName="customerPhone" placeholder="Phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Customer Address</ion-label>
+        <ion-input type="text" formControlName="customerAddress" placeholder="Address"></ion-input>
+      </ion-item>
+      <hr>
+      <ion-card *ngFor="let stock of selectedStocks">
+        <ion-card-title>{{stock.name}}</ion-card-title>
+        <ion-item>
+          <ion-label>Quantity</ion-label>
+          <ion-input color="primary" type="number" [formControl]="stock.control" placeholder="Quantity"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Price</ion-label>
+          <ion-input color="primary" type="number" [formControl]="stock.priceControl" placeholder="Price"></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-button color="primary" (click)="addStockModal = true">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      <hr>
+      <ng-container *ngIf="selectedStocks.length > 0">
+        <ion-card>
+          <ion-item>
+            <ion-label>Final Price</ion-label>
+            <ion-label>{{finalPrice}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Total Items</ion-label>
+            <ion-label>{{totalItems}}</ion-label>
+          </ion-item>
+        </ion-card>
+        <hr>
+      </ng-container>
+      <ion-button *ngIf="selectedStocks.length > 0" color="success" type="submit" expand="block" fill="solid">
+        Submit
+      </ion-button>
+    </ion-list>
+  </form>
+  <ion-modal [isOpen]="addStockModal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Add Stock</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="addStockModal = false">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+          <ion-item *ngFor="let stock of stocks" detail button (click)="selectedStocks.push(stock);addStockModal=false">
+            <ion-label>{{stock.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -81,6 +81,10 @@ export class DataBaseService {
     return getDocs(collection(this.fs, urls.billing))
   }
 
+  public getMultiItemSales(){
+    return getDocs(collection(this.fs, 'multipartySales'))
+  }
+
   // Public
   public allSales() {
     return getDocs(collection(this.fs, urls.billing))
@@ -119,6 +123,9 @@ export class DataBaseService {
     return addDoc(collection(this.fs, 'billing'), data)
   }
 
+  public addMultipartySales(data){
+    return addDoc(collection(this.fs, 'multipartySales'), data)
+  }
 
   public getModals(){
     return getDocs(collection(this.fs, 'modals'))

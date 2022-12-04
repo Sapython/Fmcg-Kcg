@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "738798707302",
+    "firebase_url": "https://fmcg-kcg-default-rtdb.firebaseio.com",
+    "project_id": "fmcg-kcg",
+    "storage_bucket": "fmcg-kcg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738798707302:android:77e109fd760052c44403a7",
+        "android_client_info": {
+          "package_name": "com.shreeva.kcg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYTh3M9A00zkBo0gnOly6kuIAulTl1_f8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

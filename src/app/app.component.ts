@@ -10,6 +10,8 @@ import { UserService } from 'src/services/User/user.service';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { Camera } from '@capacitor/camera';
+import { PushNotifications } from '@capacitor/push-notifications';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +20,31 @@ import { Camera } from '@capacitor/camera';
 })
 export class AppComponent {
   
-  constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform) { 
+  constructor(public dataProvider: DataProviderService, public fs: Firestore, public user:UserService,private router:Router, public auth: Auth,private platform: Platform,private alertify:AlertsAndNotificationsService) { 
     if(platform.is('capacitor')){
       Camera.checkPermissions().then((res)=>{
         res.camera === 'prompt' ? Camera.requestPermissions({permissions:['camera','photos']}) : null
+      })
+      PushNotifications.checkPermissions().then((res)=>{
+        if (res.receive == 'granted'){
+          PushNotifications.register().then((res)=>{
+            
+          });
+          PushNotifications.addListener('registration',(data)=>{
+            console.log("TOKEN: ",data.value);
+          })
+          PushNotifications.addListener('registrationError',(data)=>{
+            console.log("TOKEN: ",data.error);
+          })
+        } else {
+          PushNotifications.requestPermissions().then((res)=>{
+            if (res.receive == 'granted'){
+
+            } else {
+              this.alertify.presentToast('Push notifications are not allowed','error')
+            }
+          })
+        }
       })
     }
    

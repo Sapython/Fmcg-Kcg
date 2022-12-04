@@ -117,11 +117,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'sale/:saleId',
-    loadChildren: () => import('./sale/sale.module').then( m => m.SalePageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'printer-settings',
     loadChildren: () => import('./printer-settings/printer-settings.module').then( m => m.PrinterSettingsPageModule),
     canActivate: [AuthGuard]

@@ -45,8 +45,6 @@ public class MainActivity extends BridgeActivity {
       Toast.makeText(this, "Bluetooth not supported", Toast.LENGTH_SHORT).show();
       finish();
     }
-
-
   }
 
   public boolean checkGPSEnabled() {
@@ -148,5 +146,4 @@ public class MainActivity extends BridgeActivity {
     Toast.makeText(this,"Validity " + valid,Toast.LENGTH_LONG).show();
     return valid;
   }
-
 }
