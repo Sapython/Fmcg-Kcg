@@ -1,9 +1,6 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ElementRef,
-  ViewChild,
 } from '@angular/core';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 // import { Chart, registerables } from 'chart.js';
@@ -13,7 +10,6 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Router } from '@angular/router';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-homepage',
@@ -30,68 +26,30 @@ export class HomepagePage implements OnInit {
   validIds: string[] = [];
   stocksIds: string[] = [];
   purchaseIds: string[] = [];
-  // doughnutChart: Chart;
-  // lineChart: Chart;
-
+  totalStocks: number = 0;
+  totalSales: number = 0;
+  mostSales: any[] = [];
+  counters:any;
   constructor(
     public dataProvider: DataProviderService,
     public dataBaseService: DataBaseService,
     private router: Router,
     private alertify: AlertsAndNotificationsService
   ) {
-    // Chart.register(...registerables);
   }
 
   ngOnInit() {
     this.getDailySales();
     this.allSalesHistory();
-    // this.getValidIds()
-    // this.mySalesHistory()
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
-    // const myChart = new Chart(ctx, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: [
-    //       '10-10-12',
-    //       '22-10-12',
-    //       '22-10-12',
-    //       '30-10-12',
-    //       '3-11-12',
-    //       '6-11-12',
-    //     ],
-    //     datasets: [
-    //       {
-    //         label: 'No. of Sales',
-    //         data: [12, 19, 3, 5, 2, 3],
-    //         backgroundColor: [
-    //           'rgba(255, 99, 132, 0.2)',
-    //           'rgba(54, 162, 235, 0.2)',
-    //           'rgba(255, 206, 86, 0.2)',
-    //           'rgba(75, 192, 192, 0.2)',
-    //           'rgba(153, 102, 255, 0.2)',
-    //           'rgba(255, 159, 64, 0.2)',
-    //         ],
-    //         borderColor: [
-    //           'rgba(255, 99, 132, 1)',
-    //           'rgba(54, 162, 235, 1)',
-    //           'rgba(255, 206, 86, 1)',
-    //           'rgba(75, 192, 192, 1)',
-    //           'rgba(153, 102, 255, 1)',
-    //           'rgba(255, 159, 64, 1)',
-    //         ],
-    //         borderWidth: 1,
-    //       },
-    //     ],
-    //   },
-    //   options: {
-    //     scales: {
-    //       y: {
-    //         beginAtZero: true,
-    //       },
-    //     },
-    //   },
-    // });
-    // setTimeout(()=>{this.initPrinting()},50)
+  }
+
+  getCounters(){
+    this.totalSales = 0;
+    this.totalStocks = 0;
+    this.dataBaseService.getCounter().then((res) => {
+      this.counters = res.data();
+    })
   }
 
   public mySalesHistory() {
@@ -116,7 +74,7 @@ export class HomepagePage implements OnInit {
       .allSales()
       .then((res) => {
         res.forEach((element: any) => {
-          this.allSales.push({
+          this.mostSales.push({
             ...element.data(),
             id: element.id,
           });
