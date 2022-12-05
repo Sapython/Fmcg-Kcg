@@ -41,6 +41,7 @@ export class HomepagePage implements OnInit {
   ngOnInit() {
     this.getDailySales();
     this.allSalesHistory();
+    this.getCounters();
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
   }
 

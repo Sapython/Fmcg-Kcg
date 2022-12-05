@@ -39,12 +39,9 @@
     "chart.js": "^3.9.1",
     "cordova-plugin-bluetooth-serial": "^0.4.7",
     "fuse.js": "^6.6.2",
-    "ionicons": "^6.0.3",
-    "jsqr": "^1.4.0",
     "qr-creator": "^1.0.0",
     "rxjs": "~6.6.0",
     "start": "^5.1.0",
-    "thermal-printer-cordova-plugin": "^1.0.6",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
