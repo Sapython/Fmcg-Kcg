@@ -29,8 +29,8 @@ const config: CapacitorConfig = {
         "profile",
         "email"
       ],
-      serverClientId: "690627613189-fglnifb9ggsg8qgrb1s17otedqhfm08h.apps.googleusercontent.com",
-      forceCodeForRefreshToken: true
+      clientId: "738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com",
+      forceCodeForRefreshToken: false
     }
   }
 };

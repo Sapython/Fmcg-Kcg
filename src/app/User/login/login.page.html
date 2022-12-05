@@ -15,10 +15,12 @@
           <label for="" class="Fredoka400 fs-16">Password</label>
           <input class="input" type="password" placeholder="Enter Your Password" formControlName="password">
         </div>
-        <div class="Fredoka400 fs-16 t-blue" routerLink="/sign-up">Create an account</div>
-        <div class="Fredoka400 fs-16 mt-2 t-blue">forgot Password ?</div>
+        <p><a [routerLink]="['/forget-password']" >Forgot Password</a></p>
+        <p><a [routerLink]="['/sign-up']" >Don't have an acount? Sign Up</a></p>
+        <!-- <p><button type="button" class="Fredoka400 fs-16 t-blue" routerLink="../sign-up">Create an account</button></p> -->
+        <!-- <p><button type="button" class="Fredoka400 fs-16 mt-2 t-blue" routerLink="../forget-password">Forgot Password ?</button></p> -->
         <div>
-          <button class="login-btn">Login</button>
+          <button type="submit" class="login-btn">Login</button>
         </div>
       </form>
   

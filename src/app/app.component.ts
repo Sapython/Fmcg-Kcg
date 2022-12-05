@@ -48,11 +48,13 @@ export class AppComponent {
       })
     }
    
-    GoogleAuth.initialize({
-      clientId: '690627613189-fglnifb9ggsg8qgrb1s17otedqhfm08h.apps.googleusercontent.com',
-      scopes: ['profile', 'email'],
-    });
-
+    // this.platform.ready().then(()=>{
+    //   GoogleAuth.initialize({
+    //     clientId: '738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com',
+    //     scopes: ['profile', 'email'],
+    //     grantOfflineAccess: false
+    //   });
+    // })
 
     this.platform.backButton.subscribe(async (res:any)=>{
       if(this.router.url.startsWith('/stock-list') || this.router.url.startsWith('/root/homepage')){

@@ -4,4 +4,5 @@
     <string name="title_activity_main">KCG</string>
     <string name="package_name">com.shreeva.kcg</string>
     <string name="custom_url_scheme">com.shreeva.kcg</string>
+    <string name="server_client_id">738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com</string>
 </resources>

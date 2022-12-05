@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.caysn.autoreplyprint.AutoReplyPrint;
+import com.codetrixstudio.capacitor.GoogleAuth.GoogleAuth;
 import com.getcapacitor.BridgeActivity;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
@@ -28,6 +29,7 @@ public class MainActivity extends BridgeActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     registerPlugin(PrinterIntegration.class);
+    registerPlugin(GoogleAuth.class);
     super.onCreate(savedInstanceState);
     Toast.makeText(this, "SDK"+Build.VERSION.SDK_INT, Toast.LENGTH_SHORT).show();
     System.out.println("Test start");

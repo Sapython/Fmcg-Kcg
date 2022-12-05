@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ThermalPrinterPlugin } from 'thermal-printer-cordova-plugin/src';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
-declare let ThermalPrinter: ThermalPrinterPlugin;
 import { registerPlugin } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 

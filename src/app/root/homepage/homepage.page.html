@@ -16,6 +16,7 @@
 
 <ion-content>
   <div class="p-3 d-flex  align-items-center">
+    <!-- <p>{{this.dataProvider?.user?.photoURL}}</p> -->
     <ion-avatar>
       <img [src]="this.dataProvider?.user?.photoURL" referrerpolicy="no-referrer" />
     </ion-avatar>
@@ -52,14 +53,14 @@
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
       </div>
-      <div class="fs-24 Nunito700">{{counters.totalSales}}</div>
+      <div class="fs-24 Nunito700">{{counters?.totalSales}}</div>
       <div class="Nunito500 fs-10">Total Sales</div>
     </div>
     <div class="ms-2 card-shadow p-3">
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
       </div>
-      <div class="fs-24 Nunito700">{{counters.totalQuantity}}</div>
+      <div class="fs-24 Nunito700">{{counters?.totalQuantity}}</div>
       <div class="Nunito500 fs-10">Total Stocks</div>
     </div>
   </div>
@@ -68,14 +69,14 @@
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
       </div>
-      <div class="fs-24 Nunito700">{{counters.totalModals}}</div>
+      <div class="fs-24 Nunito700">{{counters?.totalModals}}</div>
       <div class="Nunito500 fs-10">Total Modals</div>
     </div>
     <div class="ms-2 card-shadow p-3">
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
       </div>
-      <div class="fs-24 Nunito700">{{counters.totalUsers}}</div>
+      <div class="fs-24 Nunito700">{{counters?.totalUsers}}</div>
       <div class="Nunito500 fs-10">Total Users</div>
     </div>
   </div>

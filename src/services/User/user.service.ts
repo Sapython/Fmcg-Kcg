@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState, User } from '@angular/fire/auth';
-import { addDoc, collection, doc, Firestore, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
-import { EMPTY, Observable, Subject } from 'rxjs';
+import { addDoc, collection, doc, docData, Firestore, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
+import { EMPTY, Observable, Subject, Subscription } from 'rxjs';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { urls } from '../url';
 
@@ -16,7 +16,7 @@ export class UserService {
 
   public userdata:any;
   public fetchedData:boolean = false;
-  
+  userSubscrption:Subscription = new Subscription()
   constructor(private auth: Auth, public dataProvider: DataProviderService, private fs: Firestore) {
     if (this.auth) {
       this.user = authState(this.auth);
@@ -25,9 +25,14 @@ export class UserService {
         // console.log(user)
         if (user) {
           this.dataProvider.LoggedInUser = true;
-          this.dataProvider.user = user;
-          this.loggedInUserData.next(user)
-          this.fetchedData = true;
+          // this.dataProvider.user = user;
+          this.userSubscrption.unsubscribe()
+          this.userSubscrption = docData(doc(this.fs, urls.user.replace('{USER_ID}', user.uid)),{idField:'id'}).subscribe((data: any) => {
+            this.dataProvider.user = data
+            this.fetchedData = true;
+            this.loggedInUserData.next(user)
+            console.log("this.dataProvider.user",this.dataProvider.user)
+          })
           // console.log(this.dataProvider.user)
         }
         else {

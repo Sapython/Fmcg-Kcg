@@ -12,17 +12,17 @@ const routes: Routes = [
   {
     path: 'flash-screen',
     loadChildren: () => import('./flash-screen/flash-screen.module').then( m => m.FlashScreenPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [LoginGuard]
   },
   {
     path: 'get-started',
     loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [LoginGuard]
   },
   {
     path: 'sign-up',
     loadChildren: () => import('./User/sign-up/sign-up.module').then( m => m.SignUpPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [LoginGuard]
     // canActivate: [AuthGuard]
   },
   {
@@ -48,12 +48,12 @@ const routes: Routes = [
   {
     path: 'forget-password',
     loadChildren: () => import('./User/forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [LoginGuard]
   },
   {
     path: 'email-verification',
     loadChildren: () => import('./User/email-verification/email-verification.module').then( m => m.EmailVerificationPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [LoginGuard]
   },
   {
     path: 'stock-list',

@@ -74,6 +74,8 @@ export class AuthService {
       })
       .catch((err) => {
         console.log(err);
+        this.dataprovider.loading = false;
+        this.alertify.presentToast(err);
       });
   }
 
@@ -95,7 +97,7 @@ export class AuthService {
       this.alertify.presentToast('Account created Successfully');
       this.router.navigateByUrl('/root/homepage');
     });
-
+    this.dataprovider.loading = false;
     // this.router.navigate(['/all-products'])
   }
 
@@ -140,7 +142,8 @@ export class AuthService {
   public async signUpwithGoogle() {
     if (this.platform.is('capacitor')) {
       GoogleAuth.signIn()
-        .then((googleUser: any) => {
+        .then((googleUser) => {
+          alert("Google User: " + googleUser.id);
           const credential = GoogleAuthProvider.credential(
             googleUser.authentication.idToken,
             googleUser.authentication.accessToken
