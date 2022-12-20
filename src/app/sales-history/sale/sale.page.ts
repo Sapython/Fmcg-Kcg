@@ -4,6 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DataBaseService } from 'src/services/dataBase/data-base.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { Camera } from '@capacitor/camera';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+
 
 @Component({
   selector: 'app-sale',
@@ -76,6 +80,42 @@ export class SalePage implements OnInit {
         this.dataProvider.loading = false;
       })
     }
+  }
+
+  scanItem(){
+    Camera.checkPermissions()
+    .then(async (res) => {
+      if (res) {
+        const startScan = async () => {
+          // Check camera permission
+          // This is just a simple example, check out the better checks below
+          await BarcodeScanner.checkPermission({ force: true });
+
+          // make background of WebView transparent
+          // note: if you are using ionic this might not be enough, check below
+          (document.querySelector('app-root') as HTMLElement).style.display =
+            'none';
+          BarcodeScanner.hideBackground();
+          const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
+          // if the result has content
+          if (result.hasContent) {
+            alert(result.content);
+            (document.querySelector('app-root') as HTMLElement).style.display = '';
+            BarcodeScanner.showBackground();
+            await BarcodeScanner.stopScan()
+            await Haptics.impact({ style: ImpactStyle.Heavy });
+            this.alertify.presentToast('Product Found');
+          }
+        };
+        await startScan();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      Camera.requestPermissions().then((res) => {
+        console.log(res);
+      });
+    });
   }
 
 }

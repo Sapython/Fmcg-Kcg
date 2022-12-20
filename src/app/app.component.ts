@@ -58,7 +58,7 @@ export class AppComponent {
 
     this.platform.backButton.subscribe(async (res:any)=>{
       if(this.router.url.startsWith('/stock-list') || this.router.url.startsWith('/root/homepage')){
-        (document.querySelector('app-root') as HTMLElement).style.display = 'block';
+        (document.querySelector('app-root') as HTMLElement).style.display = '';
         BarcodeScanner.showBackground();
         await BarcodeScanner.stopScan()
       }

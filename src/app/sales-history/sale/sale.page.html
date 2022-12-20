@@ -27,7 +27,10 @@
         </ion-item>
       </ion-card>
       <ion-button color="primary" (click)="addStockModal = true">
-        <ion-icon name="add"></ion-icon>
+        Manual Add
+      </ion-button>
+      <ion-button color="primary" (click)="scanItem()">
+        Scan Add
       </ion-button>
       <hr>
       <ng-container *ngIf="selectedStocks.length > 0">
