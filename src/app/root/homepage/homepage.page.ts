@@ -30,6 +30,7 @@ export class HomepagePage implements OnInit {
   totalSales: number = 0;
   mostSales: any[] = [];
   counters:any;
+  incompletePurchases:any[] = [];
   constructor(
     public dataProvider: DataProviderService,
     public dataBaseService: DataBaseService,
@@ -42,7 +43,9 @@ export class HomepagePage implements OnInit {
     this.getDailySales();
     this.allSalesHistory();
     this.getCounters();
+    this.getIncompletePurchses();
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    this.dataBaseService
   }
 
   getCounters(){
@@ -51,6 +54,24 @@ export class HomepagePage implements OnInit {
     this.dataBaseService.getCounter().then((res) => {
       this.counters = res.data();
     })
+  }
+
+  getIncompletePurchses(){
+    this.dataBaseService.getIncompletePurchases().then((res) => {
+      this.incompletePurchases = [];
+      res.forEach((element: any) => {
+        this.incompletePurchases.push({
+          ...element.data(),
+          id: element.id,
+        });
+      });
+      console.log("this.incompletePurchases",this.incompletePurchases);
+    })
+  }
+
+  completePurchase(purchase:any){
+    console.log("purchase",purchase);
+    
   }
 
   public mySalesHistory() {

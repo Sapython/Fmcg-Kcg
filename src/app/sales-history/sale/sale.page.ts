@@ -16,6 +16,8 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 })
 export class SalePage implements OnInit {
   sale:any;
+  stocksIds:string[] = [];
+  validIds:string[] = [];
   constructor(private activatedRoute:ActivatedRoute,private databaseService:DataBaseService,private alertify:AlertsAndNotificationsService,private dataProvider:DataProviderService) {}
   saleForm:FormGroup = new FormGroup({
     customerName:new FormControl('',[Validators.required]),
@@ -39,6 +41,7 @@ export class SalePage implements OnInit {
     })
   }
   ngOnInit() {
+    this.getValidIds()
     this.databaseService.getStocks().then((data)=>{
       this.stocks = [];
       data.forEach((stock)=>{
@@ -82,6 +85,23 @@ export class SalePage implements OnInit {
     }
   }
 
+  getValidIds() {
+    this.databaseService.getPurchases().then((res) => {
+      this.stocksIds = []
+      res.forEach((element: any) => {
+        element.data().purchases.forEach((purchase) => {
+          // this.validIds.push(...purchase.items);
+          purchase.items.forEach((item) => {
+            this.validIds.push(item.split('|')[0]);
+            this.stocksIds.push(item.split('|')[1]);
+          });
+        });
+      });
+      console.log('this.purchaseIds', this.stocksIds);
+    });
+  }
+
+
   scanItem(){
     Camera.checkPermissions()
     .then(async (res) => {
@@ -99,9 +119,12 @@ export class SalePage implements OnInit {
           const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
           // if the result has content
           if (result.hasContent) {
-            alert(result.content);
+            console.log(result.content);
+            const stockId = this.stocksIds[this.validIds.indexOf(result.content)];
+            console.log(stockId,this.stocks,this.stocksIds,this.validIds,result.content);
+            this.selectedStocks.push(this.stocks.filter((stock) => stock.id == stockId)[0]);
             (document.querySelector('app-root') as HTMLElement).style.display = '';
-            BarcodeScanner.showBackground();
+            BarcodeScanner.showBackground(); 
             await BarcodeScanner.stopScan()
             await Haptics.impact({ style: ImpactStyle.Heavy });
             this.alertify.presentToast('Product Found');

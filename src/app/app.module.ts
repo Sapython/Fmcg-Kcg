@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy, iosTransitionAnimation } from '@ionic/angular';
+import {
+  IonicModule,
+  IonicRouteStrategy,
+  iosTransitionAnimation,
+} from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +19,13 @@ import {
   UserTrackingService,
 } from '@angular/fire/analytics';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import {
+  provideFirestore,
+  getFirestore,
+  enableIndexedDbPersistence,
+  initializeFirestore,
+  CACHE_SIZE_UNLIMITED,
+} from '@angular/fire/firestore';
 import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideStorage, getStorage } from '@angular/fire/storage';
@@ -27,26 +37,27 @@ import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and
 import { UserService } from 'src/services/User/user.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => {
+      const app = initializeApp(environment.firebase);
+      initializeFirestore(app,{cacheSizeBytes:CACHE_SIZE_UNLIMITED})
+      return app;
+    }),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => {
+      const db = getFirestore();
+      enableIndexedDbPersistence(db);
+      return db;
+    }),
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideStorage(() => getStorage()),
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -57,7 +68,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     DataBaseService,
     StocksService,
     AlertsAndNotificationsService,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent],
 })

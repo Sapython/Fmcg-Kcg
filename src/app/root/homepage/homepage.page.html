@@ -2,53 +2,65 @@
   <ion-toolbar>
     <ion-buttons slot="start" routerLink="/settings">
       <ion-menu-button auto-hide="false">
-        <img class="ms-2" src="assets/icon/headerIcon1].svg" alt="">
+        <img class="ms-2" src="assets/icon/headerIcon1].svg" alt="" />
       </ion-menu-button>
     </ion-buttons>
-    <ion-title><img width="70px" src="assets/icon/Logo.png"></ion-title>
+    <ion-title><img width="70px" src="assets/icon/Logo.png" /></ion-title>
     <ion-buttons slot="end" routerLink="/notification">
       <ion-menu-button auto-hide="false">
-        <img class="me-2" src="assets/icon/Notification.svg" alt="">
+        <img class="me-2" src="assets/icon/Notification.svg" alt="" />
       </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="p-3 d-flex  align-items-center">
+<ion-content class="ion-padding">
+  <div class="p-3 d-flex align-items-center">
     <!-- <p>{{this.dataProvider?.user?.photoURL}}</p> -->
     <ion-avatar>
-      <img [src]="this.dataProvider?.user?.photoURL" referrerpolicy="no-referrer" />
+      <img
+        [src]="this.dataProvider?.user?.photoURL"
+        referrerpolicy="no-referrer"
+      />
     </ion-avatar>
     <div class="ms-3">
-      <div class="Nunito700 fs-18">Welcome <span class="t-blue">{{this.dataProvider?.user?.displayName}}</span></div>
+      <div class="Nunito700 fs-18">
+        Welcome
+        <span class="t-blue">{{this.dataProvider?.user?.displayName}}</span>
+      </div>
       <a routerLink="/profile" class="Fredoka400 fs-14 t-blue">View Profile</a>
     </div>
   </div>
-  <div class="d-flex align-items-center justify-content-center searchbar mb-3 px-3">
-    <input type="text" class="searchBox me-2 Nunito500" placeholder="Search Anything">
+  <div
+    class="d-flex align-items-center justify-content-center searchbar mb-3 px-3"
+  >
+    <input
+      type="text"
+      class="searchBox me-2 Nunito500"
+      placeholder="Search Anything"
+    />
   </div>
   <div class="d-flex align-items-center justify-content-between px-3">
     <div class="homeCard" routerLink="/../purchases">
       <div class="outer-img">
-        <img src="assets/illustrations/addStock0.png" alt="">
+        <img src="assets/illustrations/addStock0.png" alt="" />
       </div>
       <b class="Nunito500 fs-16 pt-3">Purchases</b>
     </div>
     <div class="homeCard" routerLink="../../stock-list">
       <div class="outer-img">
-        <img src="assets/illustrations/allProduct0.png" alt="">
+        <img src="assets/illustrations/allProduct0.png" alt="" />
       </div>
       <div class="Nunito500 fs-16 pt-3">Stocks</div>
     </div>
     <div class="homeCard" routerLink="../../sales-history">
       <div class="outer-img">
-        <img src="assets/illustrations/sales0.png" alt="">
+        <img src="assets/illustrations/sales0.png" alt="" />
       </div>
       <div class="Nunito500 fs-16 pt-3">Sales</div>
     </div>
   </div>
-  <div class="d-flex justify-content-between align-items-center px-3 mt-4">
+  <!-- <div class="d-flex justify-content-between align-items-center px-3 mt-4">
     <div class="me-2 card-shadow p-3">
       <div class="d-flex align-items-center">
         <div><img src="assets/icon/totalCustumer.png" alt=""></div>
@@ -79,7 +91,31 @@
       <div class="fs-24 Nunito700">{{counters?.totalUsers}}</div>
       <div class="Nunito500 fs-10">Total Users</div>
     </div>
-  </div>
+  </div> -->
+  <h2>Incomplete Purchases</h2>
+  <ion-card
+    class="purchaseCard"
+    *ngFor="let purchase of incompletePurchases"
+  >
+    <ion-label>
+      Name:
+      <ion-text color="primary" class="Nunito700 fs-14">
+        {{purchase?.name}}
+      </ion-text>
+    </ion-label>
+    <ion-label>
+      Date:
+      <ion-text class="Nunito500 fs-12">
+        {{purchase?.date.toDate() | date}}
+      </ion-text>
+    </ion-label>
+    <ion-note slot="end" class="Nunito700 fs-14"
+      >{{purchase?.price}}</ion-note
+    >
+    <ion-button (click)="completePurchase(purchase)" expand="block" fill="solid">
+      Complete Purchase
+    </ion-button>
+  </ion-card>
 </ion-content>
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
   <ion-fab-button>

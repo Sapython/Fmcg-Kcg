@@ -5,6 +5,11 @@ import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo:'root',
+    pathMatch:'full'
+  },
+  {
     path: 'login',
     loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule),
     canActivate: [LoginGuard]

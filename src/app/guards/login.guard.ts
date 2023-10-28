@@ -13,16 +13,6 @@ export class LoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.user.fetchedData){
-        if (this.dataProvider.LoggedInUser) {
-          // this.router.navigate(['/root']);
-          return false;
-        }else{
-          return true
-        }   
-      } else {
-        this.router.navigate(['/loading']);
-        return false
-      }
+      return true
   }
 }

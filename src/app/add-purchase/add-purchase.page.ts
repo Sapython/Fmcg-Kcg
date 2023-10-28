@@ -80,9 +80,9 @@ export class AddPurchasePage implements OnInit {
       this.slides.slideNext();
       this.dataProvider.loading = true;
       this.seller
-        .addPurchase({ ...this.addPurchaseForm.value, purchases: [], date: new Date(), warehouses:[this.addPurchaseForm.value.warehouse.id] })
+        .addPurchase({ ...this.addPurchaseForm.value, purchases: [], date: new Date(), unfinalized:true,warehouses:[this.addPurchaseForm.value.warehouse.id] })
         .then((res: any) => {
-          this.purchaseData = { ...this.addPurchaseForm.value, purchases: [],date: new Date()  };
+          this.purchaseData = { ...this.addPurchaseForm.value, purchases: [],date: new Date() };
           this.currentPurchaseRef = res;
           console.log('Purchase added', res);
           this.alertify.presentToast('Modal Added Successfully');
@@ -229,5 +229,9 @@ export class AddPurchasePage implements OnInit {
         this.dataProvider.loading = false;
       });
   }
+  
+}
+
+export type PickupData {
   
 }

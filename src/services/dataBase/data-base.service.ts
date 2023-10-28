@@ -270,4 +270,8 @@ export class DataBaseService {
   getCounter(){
     return getDoc(doc(this.fs, 'counters/counters'))
   }
+
+  getIncompletePurchases(){
+    return getDocs(query(collection(this.fs, 'purchase'), where('unfinalized', '==', true)))
+  }
 }

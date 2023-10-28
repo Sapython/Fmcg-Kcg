@@ -17,21 +17,24 @@
     <list default="true" id="0d0903d9-afc3-4b07-8448-2763db13de85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml.orig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/User/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/User/login/login.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/billing/billing.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/billing/billing.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/guards/login.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/guards/login.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/sales-history/sale/sale.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/guards/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/guards/auth.guard.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\sapta\.android\avd\Pixel_3_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[7dm779bebqsgmzrk]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -101,8 +104,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="android.app" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="android.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />

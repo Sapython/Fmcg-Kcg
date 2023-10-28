@@ -48,13 +48,13 @@ export class AppComponent {
       })
     }
    
-    // this.platform.ready().then(()=>{
-    //   GoogleAuth.initialize({
-    //     clientId: '738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com',
-    //     scopes: ['profile', 'email'],
-    //     grantOfflineAccess: false
-    //   });
-    // })
+    // // this.platform.ready().then(()=>{
+    // //   GoogleAuth.initialize({
+    // //     clientId: '738798707302-fd10d8hgr0lbu8fk4s5civevcvqdbonp.apps.googleusercontent.com',
+    // //     scopes: ['profile', 'email'],
+    // //     grantOfflineAccess: false
+    // //   });
+    // // })
 
     this.platform.backButton.subscribe(async (res:any)=>{
       if(this.router.url.startsWith('/stock-list') || this.router.url.startsWith('/root/homepage')){
@@ -64,16 +64,16 @@ export class AppComponent {
       }
       window.history.back();
     })
-    this.dataProvider.loading=true;
-    this.user.loggedInUserData.subscribe((data:any)=>{
-      console.log("LOADING",data)
-      if(data){
-        this.router.navigate(['./root'])
-      } else {
-        this.router.navigate(['./login'])
-      }
-      this.dataProvider.loading=false;
-    })
+    // this.dataProvider.loading=true;
+    // this.user.loggedInUserData.subscribe((data:any)=>{
+    //   console.log("LOADING",data)
+    //   if(data){
+    //     this.router.navigate(['./root'])
+    //   } else {
+    //     this.router.navigate(['./login'])
+    //   }
+    //   this.dataProvider.loading=false;
+    // })
   }
 
 }

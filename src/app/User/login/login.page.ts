@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/services/Auth/auth.service';
-import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +14,7 @@ export class LoginPage implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(public auth: AuthService, private router:Router,private alertify:AlertsAndNotificationsService) { }
+  constructor(public auth: AuthService,) { }
 
   ngOnInit() { }
 
