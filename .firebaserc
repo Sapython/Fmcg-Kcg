@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fmcg-kcg"
+  },
+  "targets": {
+    "fmcg-kcg": {
+      "hosting": {
+        "app": [
+          "fmcg-kcg"
+        ]
+      }
+    }
+  }
+}
